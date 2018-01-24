@@ -1,4 +1,4 @@
-CREATE TABLE ingredients (
+CREATE TABLE equipments (
     id INT NOT NULL,
     name VARCHAR (255) NOT NULL,
     type VARCHAR (255),
@@ -6,7 +6,7 @@ CREATE TABLE ingredients (
     PRIMARY KEY (ID)
 );
 
-INSERT INTO ingredients VALUES 
+INSERT INTO equipments VALUES 
 (0001, 'hops', 5.3), 
 (0002, 'wheat', 11), 
 (0003, 'water', 500), 
