@@ -30,6 +30,4 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web','org.apache.tomcat.embed:tomcat-embed-jasper'
 	,'javax.servlet:jstl')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	// https://mvnrepository.com/artifact/com.hp.hpl.jena/arq
-	compile group: 'com.hp.hpl.jena', name: 'arq', version: '2.8.3'
 }
