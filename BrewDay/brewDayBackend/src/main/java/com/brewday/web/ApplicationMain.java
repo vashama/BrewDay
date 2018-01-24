@@ -1,4 +1,4 @@
-package com.aircrash.web;
+package com.brewdaybackend.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
