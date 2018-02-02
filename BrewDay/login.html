@@ -20,9 +20,26 @@
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-
+<script>
+function validateCredentials() {
+	$.ajax({
+		type : "POST",
+		crossDomain : true,
+		url : "http://localhost:8080/post/response",
+		data : {
+			username : document.getElementsByName("username")[0].value,
+			password : document.getElementsByName("password")[0].value
+		},
+		success : function(response) {
+			//code for setting session and sign in
+			if(response.toString() == "success")
+				alert("Authenticated!")
+		}
+	});
+}
+</script>
 <body>
 
     <div class="brand">Brew Day</div>
@@ -85,7 +102,7 @@
                               <label class="checkbox">
                                 <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
                               </label>
-                              <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+                              <button class="btn btn-lg btn-primary btn-block" type="submit"  onClick="validateCredentials()">Login</button>
                               <h4>Not a member?    <a href="signup.html">Sign up</a></h4>
                             </form>
                 </div>
