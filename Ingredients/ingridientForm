@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>home page</title>
+</head>
+<body style ="background-color:	DAA520">
+<center>
+<form method="post" action=" ">
+<H1>Hello Home Brewer!!</H1>
+
+<H1> Add your avaliable ingredients</H1>
+
+Enter your ID:
+<center>
+<input type="text" name="ID" value=" ">
+<br>
+<br>
+Name of your ingredient:
+<center>
+<select>
+  <option value="Grain Malt">Grain Malt</option>
+  <option value="Pale Malt">Pale Malt</option>
+  <option value="Centennial">Centennial</option>
+  <option value="Amarillo">Amarillo</option>
+  <option value="Rice Hulls">Rice Hulls</option>
+  <option value="Ekuanot">Ekuanot</option>
+  
+</select>
+<br>
+<br>
+Enter the type of ingredient:
+<center>
+<select>
+  <option value="Grain">Grain</option>
+  <option value="Hops">Hops</option>
+  <option value="Yeast">Yeast</option>
+  <option value="Water">Water</option>
+  
+</select>
+<br>
+<br>
+Enter the last Purchased date:
+<center>
+<input type="text" name="Last Purchased Date" value=" ">
+<br>
+<br>
+Enter the Mount:
+<center>
+<input type="text" name="Mount" value=" ">
