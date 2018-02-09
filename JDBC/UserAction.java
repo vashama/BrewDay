@@ -95,7 +95,6 @@ public class UserAction {
 		ptmt.execute();
 	}
 
-	
 	public List<User> query() throws Exception {
 		Connection conn = DBUtil.getConnection();
 		Statement stmt = conn.createStatement();
