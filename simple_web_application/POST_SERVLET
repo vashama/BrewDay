@@ -1,0 +1,130 @@
+package ser422.sneha.web.lab1;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
+import ser422.sneha.web.utils.XMLParserClass;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URLEncoder;
+import java.util.Arrays;
+
+public class PostServlet extends HttpServlet {
+
+    private static String XML_FILE_LOCATION ;
+
+    public static String getXmlFileLocation() {
+        return XML_FILE_LOCATION;
+    }
+
+    @Override
+    public void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException{
+        try {
+            processPostRequest(httpServletRequest, httpServletResponse);
+        }
+        catch(IOException e){
+            httpServletResponse.sendError(510, "IO Exception occured while add the person");
+            e.printStackTrace();
+        }
+        catch (JDOMException e){
+            httpServletResponse.sendError(511, "XML Parsing Exception occured while add the person");
+            e.printStackTrace();
+        }
+        catch (Exception e){
+            httpServletResponse.sendError(500, "Unknown Server Exception Occured");
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void init(ServletConfig servletConfig) {
+        try {
+            XML_FILE_LOCATION = servletConfig.getServletContext().getRealPath(servletConfig.getServletContext().getContextPath()) + File.pathSeparatorChar + "lab1.xml";
+
+            File inputFile = new File(XML_FILE_LOCATION);
+            inputFile.createNewFile();
+            FileWriter writer = new FileWriter(inputFile);
+            writer.write("<People>\n");
+            writer.write("</People>");
+            writer.close();
+
+        }
+        catch(Exception e){
+            throw new IllegalStateException("Exception occurred during XML file creation - name - " + e.getMessage() + "  \n" + Arrays.toString(e.getStackTrace()));
+        }
+
+    }
+
+    private void processPostRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException, JDOMException{
+
+        String fn = httpServletRequest.getParameter("firstName");
+        fn = fn == null ? "" : fn.toUpperCase().trim();
+
+        String ln = httpServletRequest.getParameter("lastName");
+        ln = ln == null ? "" : ln.toUpperCase().trim();
+
+        String programming_languages = httpServletRequest.getParameter("Programming languages");
+        programming_languages = programming_languages == null ? "" : programming_languages.toUpperCase().trim();
+
+        String weekDays = httpServletRequest.getParameter("week_Days");
+        weekDays = weekDays == null ? "" : weekDays.toUpperCase().trim();
+
+        String email = httpServletRequest.getParameter("email");
+        email = email == null ? "" : email.toUpperCase().trim();
+
+        httpServletResponse.setContentType("text/html");
+
+        PrintWriter Out = httpServletResponse.getWriter();
+        if(fn.trim().isEmpty() || ln.trim().isEmpty()){
+            httpServletResponse.sendError(418 , "First and Last Names should be non empty");
+            return;
+        }
+
+        if( !fn.matches("[a-zA-Z\\s]+")){
+            httpServletResponse.sendError(419 , "First Name should contain only alphabets");
+            return;
+        }
+
+        if( !ln.matches("[a-zA-Z\\s]+")){
+            httpServletResponse.sendError(420 , "Last Name should contain only alphabets");
+            return;
+        }
+
+        XMLParserClass.addPersonToXMLFile(fn, ln, programming_languages, weekDays, email, Out, XML_FILE_LOCATION);
+
+
+
+        httpServletResponse.addCookie(new Cookie("lab1cookieFirstName", URLEncoder.encode(fn,"UTF-8")));
+        httpServletResponse.addCookie(new Cookie("lab1cookieLastName", URLEncoder.encode(ln,"UTF-8")));
+
+        Out.println("<body><H2> The following information was successfully entered into the XML File");
+        Out.println("</H2>");
+        Out.println("<br>");
+        Out.println("<br>");
+        Out.println("\t First Name : " + fn);
+        Out.println("<br>");
+        Out.println("\t Last Name : " + ln);
+        Out.println("<br>");
+        Out.println("\t Programming Languages  : " + programming_languages);
+        Out.println("<br>");
+        Out.println("\t Week Days : " + weekDays);
+        Out.println("<br>");
+        Out.println("\t Email : " + email);
+        Out.println("<br>");
+        Out.println("<br>");
+
+        Out.println("<a href=\"" + httpServletRequest.getContextPath() + "\">Landing Page</a>");
+        Out.println("</body>");
+    }
+
+
+}
