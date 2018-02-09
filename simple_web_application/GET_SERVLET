@@ -1,0 +1,157 @@
+package ser422.sneha.web.lab1;
+
+        import javafx.geometry.Pos;
+        import org.jdom2.Document;
+        import org.jdom2.Element;
+        import org.jdom2.JDOMException;
+        import org.jdom2.input.SAXBuilder;
+        import org.xml.sax.SAXException;
+        import org.xml.sax.helpers.DefaultHandler;
+
+        import javax.servlet.ServletException;
+        import javax.servlet.http.HttpServlet;
+        import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.HttpServletResponse;
+        import javax.xml.parsers.ParserConfigurationException;
+        import javax.xml.parsers.SAXParser;
+        import javax.xml.parsers.SAXParserFactory;
+        import java.io.*;
+        import java.util.ArrayList;
+        import java.util.List;
+
+public class getPersonServlet extends HttpServlet {
+
+    @Override
+    public void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
+            throws ServletException, IOException {
+
+       try {
+           processGetRequest(httpServletRequest, httpServletResponse);
+       }
+       catch (SAXException e) {
+           httpServletResponse.sendError(510,"Server faced an exception while parsing the XML datastore");
+           e.printStackTrace();
+       } catch(IOException e){
+           httpServletResponse.sendError(511, "I/O Exception occured");
+           e.printStackTrace();
+       }
+       catch(Exception e){
+           httpServletResponse.sendError(500, "Unknown Server Exception Occured");
+           e.printStackTrace();
+       }
+    }
+
+    public static void processGetRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
+            throws JDOMException, IOException, ParserConfigurationException, SAXException {
+
+        String fn = httpServletRequest.getParameter("firstName");
+        String ln = httpServletRequest.getParameter("lastName");
+        String programming_languages = httpServletRequest.getParameter("Programming languages");
+        String weekDays = httpServletRequest.getParameter("week_Days");
+        String email = httpServletRequest.getParameter("email");
+
+        httpServletResponse.setContentType("text/html");
+
+        if(PostServlet.getXmlFileLocation() == null){
+            httpServletResponse.setStatus(200);
+            httpServletResponse.getWriter().println("<b> XML File not created, please submit the form once </b>");
+            return;
+        }
+        File inputFile = new File(PostServlet.getXmlFileLocation());
+
+        if(!inputFile.exists()){
+            httpServletResponse.setStatus(200);
+            httpServletResponse.getWriter().println("<b> XML File not created, please submit the form once </b>");
+            return;
+        }
+
+        SAXBuilder saxBuilder = new SAXBuilder();
+        Document document = saxBuilder.build(inputFile);
+
+        SAXParserFactory factory = SAXParserFactory.newInstance();
+        SAXParser saxParser = factory.newSAXParser();
+
+        DefaultHandler handler = new DefaultHandler();
+        saxParser.parse(PostServlet.getXmlFileLocation(), handler);
+
+        PrintWriter Out = httpServletResponse.getWriter();
+
+        if(inputFile.length() == 0){
+            Out.println("<b> File is empty </b>");
+            httpServletResponse.setStatus(200);
+
+        }
+
+        Element people = document.getRootElement();
+
+        if(fn==null && ln==null && programming_languages==null && weekDays==null && email==null) {
+            for (Element person : people.getChildren()) {
+                printPerson(Out, person);
+            }
+            httpServletResponse.setStatus(200);
+            return;
+        }
+
+        List<String> providedAttributes= new ArrayList<>();
+
+        if(fn != null)
+            providedAttributes.add("firstName");
+        if(ln != null)
+            providedAttributes.add("lastName");
+        if(programming_languages != null)
+            providedAttributes.add("Programming languages");
+        if(weekDays != null)
+            providedAttributes.add("availability");
+        if(email != null)
+            providedAttributes.add("emailID");
+
+        boolean found = false;
+        for(Element person : people.getChildren()){
+
+
+            if(findPerson(person, providedAttributes, httpServletRequest)){
+                System.out.println("found person");
+                printPerson(Out, person);
+                found = true;
+            }
+        }
+        if(!found)
+            Out.println("No such data found !!") ;
+    }
+
+    private static boolean findPerson(Element person, List<String> providedAttributes, HttpServletRequest httpServletRequest){
+        for(String attribute : providedAttributes){
+            if(attribute.equals("firstName") &&  person.getChild("firstName").getText().toUpperCase().contains(httpServletRequest.getParameter("firstName").trim().toUpperCase())){
+                continue;
+            }
+            if(attribute.equals("lastName") &&  person.getChild("lastName").getText().toUpperCase().contains(httpServletRequest.getParameter("lastName").trim().toUpperCase())){
+                continue;
+            }
+            if(attribute.equals("Programming languages") &&  person.getChild("languages").getText().toUpperCase().contains(httpServletRequest.getParameter("Programming languages").trim().toUpperCase())){
+                continue;
+            }
+            if(attribute.equals("availability") &&  person.getChild("availability").getText().toUpperCase().contains(httpServletRequest.getParameter("week_Days").trim().toUpperCase())){
+                continue;
+            }
+            if(attribute.equals("emailID") &&  person.getChild("emailID").getText().toUpperCase().contains(httpServletRequest.getParameter("email").trim().toUpperCase())){
+                continue;
+            }
+            return false;
+        }
+        return true;
+    }
+
+    private static void printPerson(PrintWriter Out, Element person){
+        Out.println("First Name :  " + person.getChild("firstName").getText());
+        Out.println("\r\n");
+        Out.println("Last Name : " + person.getChild("lastName").getText() );
+        Out.println("\r\n");
+        Out.println("Prg_languages : " + person.getChild("languages").getText() );
+        Out.println("\r\n");
+        Out.println("availability : " + person.getChild("availability").getText() );
+        Out.println("\r\n");
+        Out.println("Email-ID : " + person.getChild("emailID").getText() );
+        Out.println("\r\n");
+    }
+}
+
