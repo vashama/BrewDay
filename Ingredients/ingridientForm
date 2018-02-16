@@ -6,11 +6,11 @@
 </head>
 <body style ="background-color:	DAA520">
 <center>
-<form method="post" action=" ">
+<form>
 <H1>Hello Home Brewer!!</H1>
 
 <H1> Add your avaliable ingredients</H1>
-
+<form action="C:/Users/Abhishek/Desktop/a.txt" method="get">
 Enter your ID:
 <center>
 <input type="text" name="ID" value=" ">
@@ -48,3 +48,9 @@ Enter the last Purchased date:
 Enter the Mount:
 <center>
 <input type="text" name="Mount" value=" ">
+
+<br>
+<br>
+
+  <input type="submit" value="Submit">
+</form>
