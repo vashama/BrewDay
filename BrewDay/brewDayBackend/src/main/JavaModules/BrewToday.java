@@ -28,8 +28,8 @@ public class BrewToday {
         int maxMaterialsForBatch = 80;
         
         //The maxWeight would correspond to the recipeList above
-        int maxWeight = calculateOptimalRecipe(ingredientMass, ingredientPercentage, maxMaterialsForBatch);
-        System.out.println(maxWeight);
+        //int maxWeight = calculateOptimalRecipe(ingredientMass, ingredientPercentage, maxMaterialsForBatch);
+        //System.out.println(maxWeight);
         //Sysout recipe
     }
 
