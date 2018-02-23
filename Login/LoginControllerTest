@@ -1,0 +1,42 @@
+@RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
+@ContextConfiguration({ " servlet-xml "})
+
+public class LoginControllerTest {
+
+
+@Mock HttpServletRequest request;
+@Mock HttpServletResponse response;
+@Mock HttpSession session;
+
+
+private MockMvc mockMvc;
+
+@Before
+ protected void setUp() throws Exception {
+   MockitoAnnotations.initMocks(this);
+   ModelAndView modelForLogin = mockito.mock(ModelAndView.class);
+   mockito.when(modelForLogin.error()).thenReturn("error");
+   mockito.when(modelForLogin.logout()).thenReturn("logout");
+
+ }
+
+@Test
+public void TestLoginError() throws Exception {
+
+    mockMvc.perform(get("/Login").param()).andExpect(status().isOk()).andExpect(model().attributeExists("msg"));
+
+
+}
+
+
+
+@Test
+public void testLogin() throws Exception {
+
+    mockMvc.perform(get("/Login")).andExpect(status().isOk());
+    mockMvc.perform(get("/Login").param("logout", "log")).andExpect(status().isOk()).andExpect(model().attributeExists("msg"));
+    mockMvc.perform(get("/Login").param("error", "log")).andExpect(status().isOk()).andExpect(model().attributeExists("error"));
+    mockMvc.perform(get("/Login").param("logout", "log").param("error", "log")).andExpect(status().isOk()).andExpect(model().attributeExists("msg")).andExpect(model().attributeExists("error"));
+    mockMvc.perform(get("/Login")).andExpect(status().isOk()).andExpect(view().name("login"));
+}
