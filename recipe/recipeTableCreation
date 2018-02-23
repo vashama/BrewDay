@@ -1,0 +1,10 @@
+CREATE TABLE recipes (
+    id INT NOT NULL,
+    created_date DATE NOT NULL,
+    batch_size VARCHAR (255) NOT NULL,
+    ABV DOUBLE precision,
+    instructions VARCHAR (255),
+    boil_time TIME NOT NULL,
+    brew_type VARCHAR (255),
+    PRIMARY KEY (ID)
+);
