@@ -1,57 +1,115 @@
-
 package brew_day;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserAction {
-	public static void main(String[] args) throws Exception {
-		User us = new User();
-		UserAction ua = new UserAction();
-		
-//		us.setUserId(7);
-//		us.setFirstname("John");
-//		us.setPassword("55555");
-		
-		//ua.createUser(us);
-		
-		// test read
-		//ua.readUser(1);
-		
-		// test update
-//		us.setUserId(7);
-//		us.setFirstname("Kevin");
-//		us.setPassword("111");
-//		ua.updateUser(us);
-		
-		// test delete
-		ua.deleteUser(7);
+public class RecipeAction {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
 	}
-	
-	// create user
-	public void createUser(User user) throws Exception {
+
+	public void createRecipe(Recipe recipe) throws Exception {
 		Connection conn = DBUtil.getConnection();
 		String sql = "" + 
-					"insert into users" + 
-					" (id, name, psword)" +
-					" values(?, ?, ?)";
+					"insert into recipes" + 
+					" (id, created_date, batch_size, abv, instruction, boil_time, brew_type)" +
+					" values(?, ?, ?, ?, ?, ?, ?)";
 
 		// Store sql in prepared statement for later execution
 		PreparedStatement ptmt = conn.prepareStatement(sql);
-		ptmt.setInt(1, user.getUserId());
-		ptmt.setString(2, user.getFirstname());
-		ptmt.setString(3, user.getPassword());
+		ptmt.setInt(1, recipe.getId());
+		ptmt.setDate(2, new Date(recipe.getCreatedDate().getTime()));
+		ptmt.setDouble(3, recipe.getBatchSize());
+		ptmt.setDouble(4, recipe.getABV());
+		ptmt.setString(5, recipe.getInstructions());
+		ptmt.setTime(6, recipe.getBoilTime());
+		ptmt.setString(7, recipe.getBrewType());
 		ptmt.execute();
 	}
 	
-	// read user
-	public User readUser(int id) throws SQLException {
-		User user = null;
+	// read recipe
+	public Recipe readRecipe(int id) throws SQLException {
+		Recipe recipe = null;
 		Connection conn = DBUtil.getConnection();
 		String sql = "" + 
-					"select *  from users" + 
+					"select *  from recipes" + 
 					" where id = ?";
+
+		// Store sql in prepared statement for later execution
+		PreparedStatement ptmt = conn.prepareStatement(sql);
+		ptmt.setInt(1, id);
+		ResultSet rs = ptmt.executeQuery();
+		
+		while(rs.next()) {
+			recipe = new Recipe();
+			recipe.setId(rs.getInt("id"));
+			recipe.setCreatedDate(rs.getDate("created_date"));
+			recipe.setBatchSize(rs.getDouble("batch_size"));
+			recipe.setABV(rs.getDouble("abv"));
+			recipe.setInstructions(rs.getString("Instruction"));
+			recipe.setBoilTime(rs.getTime("boil_time"));
+			recipe.setBrewType(rs.getString("brew_type"));
+		}
+		return recipe;
+	}
+	
+	// update user
+	public void updateRecipe(Recipe recipe) throws Exception {
+		Connection conn = DBUtil.getConnection();
+		String sql = "" + 
+					"update recipes" + 
+					" set created_date = ?, batch_size = ?, abv = ?, instruction = ?, boil_time = ?, brew_type = ?" +
+					" where id = ?";
+
+		// Store sql in prepared statement for later execution
+		PreparedStatement ptmt = conn.prepareStatement(sql);
+		
+		ptmt.setDate(1, new Date(recipe.getCreatedDate().getTime()));
+		ptmt.setDouble(2, recipe.getBatchSize());
+		ptmt.setDouble(3, recipe.getABV());
+		ptmt.setString(4, recipe.getInstructions());
+		ptmt.setTime(5, recipe.getBoilTime());
+		ptmt.setString(6, recipe.getBrewType());
+		ptmt.setInt(7, recipe.getId());
+		ptmt.execute();
+	}
+	
+	// delete recipe
+	public void deleteRecipe(int id) throws SQLException {
+		Connection conn = DBUtil.getConnection();
+		String sql = "" + 
+					"delete from recipes" + 
+					" where id = ?";
+
+		// Store sql in prepared statement for later execution
+		PreparedStatement ptmt = conn.prepareStatement(sql);
+		ptmt.setInt(1, id);
+		ptmt.execute();
+	}
+
+	
+	public List<Recipe> query() throws Exception {
+		Connection conn = DBUtil.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("");
+		
+		List<Recipe> recipes = new ArrayList<Recipe>();
+		
+//		while(rs.next()) {
+//			System.out.println(rs.getInt(1) + " " + rs.getString(2));
+//		}
+		
+		return recipes;
+	}
+}
 
 		// Store sql in prepared statement for later execution
 		PreparedStatement ptmt = conn.prepareStatement(sql);
@@ -67,7 +125,7 @@ public class UserAction {
 		return user;
 	}
 	
-	// update user
+	// update recipe
 	public void updateUser(User user) throws Exception {
 		Connection conn = DBUtil.getConnection();
 		String sql = "" + 
@@ -83,14 +141,14 @@ public class UserAction {
 		ptmt.execute();
 	}
 	
-	// delete user
+	// delete recipe
 	public void deleteUser(int id) throws SQLException {
 		Connection conn = DBUtil.getConnection();
 		String sql = "" + 
 					"delete from users" + 
 					" where id = ?";
 
-		// Store sql in prepared statement for later execution
+		// Store  in prepared statement for later execution
 		PreparedStatement ptmt = conn.prepareStatement(sql);
 		ptmt.setInt(1, id);
 		ptmt.execute();
