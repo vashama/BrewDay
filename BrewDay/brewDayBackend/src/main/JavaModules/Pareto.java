@@ -1,17 +1,20 @@
 package com.brewdaybackend.javamodules;
 
+import java.util.*;
+import org.apache.commons.lang3.ArrayUtils;
+
 public class Pareto {
 	
 	//All the data used below would be fetched from the homebrewers database
 	
 	//Ingredients List
-	String[] ingredients = new String[] { "Hops", "Yeast", "Sugar", "Water", "Grains"};
+	static String[] ingredients = new String[] { "Hops", "Yeast", "Sugar", "Water", "Grains"};
 	
 	//Recipe List
-	String[] recipes = new String[] { "Cauim", "Millet Beer", "Draught Beer", "Malt Beer", "Pilsner", "Amber Ale"}; 
+	static String[] recipes = new String[] { "Cauim", "Millet Beer", "Draught Beer", "Malt Beer", "Pilsner", "Amber Ale"}; 
 			
 	//Recipe based ingredient requirements
-	Double[][] recipeRequirements = new Double[][]
+	static Double[][] recipeRequirements = new Double[][]
 	{ 
 	{ 3.3, 16.3, 14.7, 69.0, 14.5 },
 	{ 4.2, 17.5, 16.9, 72.1, 13.4 },
@@ -21,16 +24,40 @@ public class Pareto {
 	{ 7.8, 24.1, 22.5, 64.3, 17.1 }
 	};
 	
+	//Data structure to store ordered ingredients based on the availability
+	static double optimalityMatrix[][] = new double[recipeRequirements.length][recipeRequirements[0].length];
+	
 	//Available ingredients with the homebrewer
-	Double[] availableIngredients = new Double[] {3.6, 22.5, 20.0, 65.1, 20.1};
+	static Double[] availableIngredients = new Double[] {3.6, 22.5, 20.0, 65.1, 20.1};
 	
 	
 	public static String whatShouldIBrewToday()
 	{
-		String optimalRecipe = "Optimal Recipe Here, Testing...";
+		String optimalRecipe = null;
+		ArrayList<Double> ingredientBuffer = new ArrayList<Double>();
 		
-		//Process Optimization
-		
+		for (double ingredientValue: availableIngredients) {
+			
+			for(Double[] individualRecipeRequirements: recipeRequirements) {
+				
+				ingredientBuffer.add(individualRecipeRequirements[ArrayUtils.indexOf(availableIngredients, ingredientValue)]);
+			}
+			
+			Collections.sort(ingredientBuffer);
+
+			int i = 0;
+			while(i<ingredientBuffer.size()) {
+			    if (ingredientBuffer.get(i) > ingredientValue) {
+			    	ingredientBuffer.set(i, 999.99); 
+			    }
+			        i++;
+			}
+			
+			System.out.println(ingredientBuffer);
+
+
+		}
+				
 		return optimalRecipe;
 	}
 	
