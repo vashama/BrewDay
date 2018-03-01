@@ -35,6 +35,7 @@ public class Pareto {
 	{
 		String optimalRecipe = null;
 		ArrayList<Double> ingredientBuffer = new ArrayList<Double>();
+		ArrayList<ArrayList> ingredientBufferCollection = new ArrayList<ArrayList>();
 		
 		for (double ingredientValue: availableIngredients) {
 			
@@ -53,12 +54,30 @@ public class Pareto {
 			        i++;
 			}
 			
-			System.out.println(ingredientBuffer);
+			ingredientBufferCollection.add((ArrayList) ingredientBuffer.clone());
+			ingredientBuffer.clear();
 
 
 		}
 				
-		return optimalRecipe;
+		Integer sufficientIngredients[] = new Integer[] {0, 0, 0, 0, 0};
+		
+		for(ArrayList<Double> bufferBreakup: ingredientBufferCollection) {
+			
+			
+			
+			for(int i = 0; i < recipeRequirements[0].length; i++)
+			if(bufferBreakup.get(i) == 999.99) {
+				
+				sufficientIngredients[i] = 1;
+				
+			}
+			
+		}
+		
+		int bestRecipeIndex = Arrays.asList(sufficientIngredients).lastIndexOf(0);
+				
+		return recipes[bestRecipeIndex];
 	}
 	
 	
