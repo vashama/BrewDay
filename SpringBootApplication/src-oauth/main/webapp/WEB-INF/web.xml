@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+  <welcome-file-list>
+      <welcome-file>homepageServlet</welcome-file>
+      <welcome-file>homepage.jsp</welcome-file>
+  </welcome-file-list>
+
+  <servlet>
+      <servlet-name>SignUpPage.jsp</servlet-name>
+      <jsp-file>/SignUpPage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>SignUpPage.jsp</servlet-name>
+      <url-pattern>/SignUpPage.jsp</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+        <servlet-name>success.jsp</servlet-name>
+        <jsp-file>/success.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>success.jsp</servlet-name>
+        <url-pattern>/success.jsp</url-pattern>
+    </servlet-mapping>
+
+  <servlet>
+      <servlet-name>LoginPage.jsp</servlet-name>
+      <jsp-file>/LoginPage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>LoginPage.jsp</servlet-name>
+      <url-pattern>/LoginPage.jsp</url-pattern>
+  </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>SubscriberNewsPage.jsp</servlet-name>
+        <jsp-file>/SubscriberNewsPage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubscriberNewsPage.jsp</servlet-name>
+        <url-pattern>/SubscriberNewsPage.jsp</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Reporterpage.jsp</servlet-name>
+        <jsp-file>/Reporterpage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Reporterpage.jsp</servlet-name>
+        <url-pattern>/Reporterpage.jsp</url-pattern>
+    </servlet-mapping>
+
+
+  <servlet>
+
+
+      <servlet-name>LoginServlet</servlet-name>
+      <servlet-class>ser422.sneha.web.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>LoginServlet</servlet-name>
+      <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+      <servlet-name>SignUpServlet</servlet-name>
+      <servlet-class>ser422.sneha.web.controller.SignUpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>SignUpServlet</servlet-name>
+      <url-pattern>/SignUpServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+      <servlet-name>ArticleServlet</servlet-name>
+      <servlet-class>ser422.sneha.web.controller.ArticleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>ArticleServlet</servlet-name>
+      <url-pattern>/ArticleServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+      <servlet-name>homepageServlet</servlet-name>
+      <servlet-class>ser422.sneha.web.controller.homepageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>homepageServlet</servlet-name>
+      <url-pattern>/homepageServlet</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SubscriberServlet</servlet-name>
+        <servlet-class>ser422.sneha.web.controller.SubscriberServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubscriberServlet</servlet-name>
+        <url-pattern>/SubscriberServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReporterServlet</servlet-name>
+        <servlet-class>ser422.sneha.web.controller.ReporterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReporterServlet</servlet-name>
+        <url-pattern>/ReporterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ArticleEditServlet</servlet-name>
+        <servlet-class>ser422.sneha.web.controller.ArticleEditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ArticleDeleteServlet</servlet-name>
+        <url-pattern>/ArticleDeleteServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ArticleDeleteServlet</servlet-name>
+        <servlet-class>ser422.sneha.web.controller.ArticleDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ArticleEditServlet</servlet-name>
+        <url-pattern>/ArticleEditServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FavouriteServlet</servlet-name>
+        <servlet-class>ser422.sneha.web.controller.FavouriteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FavouriteServlet</servlet-name>
+        <url-pattern>/FavouriteServlet</url-pattern>
+    </servlet-mapping>
+
+  <servlet>
+      <servlet-name>LogoutServlet</servlet-name>
+      <servlet-class>ser422.sneha.web.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>LogoutServlet</servlet-name>
+      <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+    <context-param>
+        <param-name>persistence</param-name>
+        <param-value>mongo</param-value>
+    </context-param>
+    <context-param>
+        <param-name>mongoHost</param-name>
+        <param-value>localhost</param-value>
+    </context-param>
+    <context-param>
+        <param-name>mongoPort</param-name>
+        <param-value>27017</param-value>
+    </context-param>
+    <listener>
+        <listener-class>
+            ser422.sneha.web.listeners.StartupContextListener
+        </listener-class>
+    </listener>
+</web-app>
