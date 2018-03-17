@@ -11,7 +11,10 @@ public class Pareto {
 	static String[] ingredients = new String[] { "Hops", "Yeast", "Sugar", "Water", "Grains"};
 	
 	//Recipe List
-	static String[] recipes = new String[] { "Cauim", "Millet Beer", "Draught Beer", "Malt Beer", "Pilsner", "Amber Ale"}; 
+	static String[] recipes = new String[] { "Cauim", "Millet Beer", "Draught Beer", "Malt Beer", "Pilsner", "Amber Ale"};
+	
+	//Brewing Equipment List
+	static String[] recipes = new String[] { "Grain Mill", "Water Filter", "Hop Socks"};
 			
 	//Recipe based ingredient requirements
 	static Double[][] recipeRequirements = new Double[][]
