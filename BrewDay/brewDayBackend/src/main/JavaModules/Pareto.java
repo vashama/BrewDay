@@ -2,8 +2,25 @@ package com.brewdaybackend.javamodules;
 
 import java.util.*;
 import org.apache.commons.lang3.ArrayUtils;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class Pareto {
+	
+	//Constructor to connect to Postgres Database
+	public Pareto()
+	{
+	      Connection conn = null;
+	      try 
+	      {
+	         Class.forName("org.postgresql.Driver");
+	         conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/testdb", "postgres", "postgres");
+	      }
+	      catch (Exception e)
+	      {
+	         e.printStackTrace();
+	      }
+	}
 	
 	//All the data used below would be fetched from the homebrewers database
 	
