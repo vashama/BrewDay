@@ -10,6 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IngredientAction {
+	public static void main(String args[]) throws Exception {
+		Ingredient ingredient = new Ingredient();
+		ingredient.setName("Hops");
+		ingredient.setType(null);
+		ingredient.setMount(5.00);
+		
+		IngredientAction ia = new IngredientAction();
+		ia.createIngredient(ingredient);
+	}
+	
 	public void createIngredient(Ingredient ingredient) throws Exception {
 		Connection conn = DBUtil.getConnection();
 		String sql = "" + 
