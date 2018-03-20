@@ -13,7 +13,11 @@ public class RecipeAction {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Recipe recipe = new Recipe();
+		recipe.setName("Black Beer");
+		recipe.setBatchSize("2 Litter");
+		recipe.setABV(5.00);
+		recipe.setIBU(1.25);
 	}
 
 	public void createRecipe(Recipe recipe) throws Exception {
