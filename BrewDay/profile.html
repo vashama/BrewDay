@@ -1,236 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <title>Brew Day</title>
-      
-      <link rel="icon" type="logo.jpg" href="img/logo.png">
 
-      <!-- Bootstrap Core CSS -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <!-- Custom CSS -->
-      <link href="css/brewday.css" rel="stylesheet">
-      
-   </head>
-   
-   <body>
-      
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Brew Day</title>
+
+    <link rel="icon" type="logo.jpg" href="img/logo.png">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/brewday.css" rel="stylesheet">
+
+</head>
+
+<body>
+
     <div class="brand">PROFILE</div>
-      
+
     <!-- Navigation -->
-      <nav class="navbar navbar-default" role="navigation">
-         <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
             <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Recipes <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="myRecipes.html">My Recipes</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">What should I brew today?</a>
-                                        </li>
-                                </ul>
-                            </li>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Recipes
+                            <b class="caret">
+                            </b>
+                        </a>
+                        <ul class="dropdown-menu">
                             <li>
-                                <a href="ingredients.html">Ingredients</a>
+                                <a href="myRecipes.html">My Recipes</a>
                             </li>
+                            <li class="divider"></li>
                             <li>
-                                <a href="forum.html">Forum</a>
+                                <a href="#">What should I brew today?</a>
                             </li>
-                            <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Help <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="documentation.html">Documentation</a>
-                                        </li>
-                                        <li>
-                                            <a href="contactSupport.html">Contact Support</a>
-                                        </li>
-                                    </ul>
-                            </li>
-                            <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>USER<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="profile.html"> Profile</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="logout.html"> Log Out</a>
-                                        </li>
-                                    </ul>
-                            </li>                   
                         </ul>
-                </div>
+                    </li>
+                    <li>
+                        <a href="ingredients.html">Ingredients</a>
+                    </li>
+                    <li>
+                        <a href="forum.html">Forum</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Help
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="documentation.html">Documentation</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="contactSupport.html">Contact Support</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user"></i>USER
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="profile.html"> Profile</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="logout.html"> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
             <!-- /.navbar-collapse -->
-         </div>
-         <!-- /.container -->
-      </nav>
-    
-      <!-- Form container -->
-      <div class="container">
-         <div class="row">
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Form container -->
+    <div class="container">
+        <div class="row">
             <div class="box">
-               <div class="col-lg-12">
-                  <form class="form-horizontal">
-                     <fieldset>
+                <div class="col-lg-12">
+                    <form class="form-horizontal">
+                        <fieldset>
 
-                        <!-- Form Name -->
-                        <legend>Enter your details</legend>
+                            <!-- Form Name -->
+                            <legend class="text-center">Enter your details</legend>
 
-                        <!-- Name -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Name (Full name)">Name (Full name)</label>  
-                           <div class="col-md-4">
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="fa fa-user">
-                                    </i>
-                                 </div>
-                                 <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="Name (Full name)" class="form-control input-md">
-                              </div>
-                           </div>
-                        </div>
+                            <!-- Name -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Name">Name</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-user">
+                                            </i>
+                                        </div>
+                                        <input id="Name" name="Name" type="text" placeholder="Full name" class="form-control input-md">
+                                    </div>
+                                </div>
+                            </div>
 
-                        <!-- Date of Birth-->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Date Of Birth">Date Of Birth</label>  
-                           <div class="col-md-4">
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="fa fa-birthday-cake"></i>
-                                 </div>
-                                 <input id="Date Of Birth" name="Date Of Birth" type="text" placeholder="Date Of Birth" class="form-control input-md">
-                              </div>
-                           </div>
-                        </div>
+                            <!-- Date of Birth-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Date of Birth">Date of Birth</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-birthday-cake">
+                                            </i>
+                                        </div>
+                                        <input id="Date of Birth" name="Date of Birth" type="date" placeholder="Date of Birth" class="form-control input-md">
+                                    </div>
+                                </div>
+                            </div>
 
-                        <!-- Gender -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Gender">Gender</label>
-                           <div class="col-md-4"> 
-                              <label class="radio-inline" for="Gender-0">
-                              <input type="radio" name="Gender" id="Gender-0" value="1">
-                              Male
-                              </label> 
-                              <label class="radio-inline" for="Gender-1">
-                              <input type="radio" name="Gender" id="Gender-1" value="2">
-                              Female
-                              </label>
-                           </div>
-                        </div>
+                            <!-- Gender -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Gender">Gender</label>
+                                <div class="col-md-4">
+                                    <label class="radio-inline" for="Gender-0">
+                                        <input type="radio" name="Gender" id="Gender-0" value="1"> Male
+                                    </label>
+                                    <label class="radio-inline" for="Gender-1">
+                                        <input type="radio" name="Gender" id="Gender-1" value="2"> Female
+                                    </label>
+                                </div>
+                            </div>
 
-                        <!-- Permanent Address -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label col-xs-12" for="Permanent Address">Permanent Address</label>  
-                           <div class="col-md-2  col-xs-4">
-                              <input id="Permanent Address" name="Permanent Address" type="text" placeholder="District" class="form-control input-md ">
-                           </div>
-                           <div class="col-md-2 col-xs-4">
-                              <input id="Permanent Address" name="Permanent Address" type="text" placeholder="Area" class="form-control input-md ">
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Permanent Address"></label>  
-                           <div class="col-md-2  col-xs-4">
-                              <input id="Permanent Address" name="Permanent Address" type="text" placeholder="Street" class="form-control input-md ">
-                           </div>
-                        </div>
+                            <!-- Permanent Address -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Permanent Address">Permanent Address</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-building"></i>
+                                        </div>
+                                        <input id="Permanent Address" name="Permanent Address" type="text" placeholder="House number and Street name" class="form-control input-md ">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Permanent Address">City</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-building"></i>
+                                        </div>
+                                        <input id="Permanent Address" name="Permanent Address" type="text" placeholder="City" class="form-control input-md ">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Permanent Address">State</label>
+                                <div class="col-md-4">
+                                    <select id="Permanent Address" name="Permanent Address" type="text" placeholder="State" class="form-control input-md ">
+                                        <option value="" selected="selected">Select a State</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="CA">California</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WA">Washington</option>
+                                        <option value="WV">West Virginia</option>
+                                        <option value="WI">Wisconsin</option>
+                                        <option value="WY">Wyoming</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Permanent Address">ZIP Code</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                                        <input id="Permanent Address" name="Permanent Address" type="text" pattern="[0-9]{5}" placeholder="ZIP Code" class="form-control input-md ">
+                                    </div>
+                                </div>
+                            </div>
 
 
-                        <!-- Occupation -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Occupation">Occupation</label>  
-                           <div class="col-md-4">
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="fa fa-briefcase"></i>
-                                 </div>
-                                 <input id="Occupation" name="Occupation" type="text" placeholder="Occupation" class="form-control input-md">
-                              </div>
-                           </div>
-                        </div>
+                            <!-- Occupation -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Occupation">Occupation</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-briefcase"></i>
+                                        </div>
+                                        <input id="Occupation" name="Occupation" type="text" placeholder="Occupation" class="form-control input-md">
+                                    </div>
+                                </div>
+                            </div>
 
 
-                        <!-- Hobbies -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Hobbies">Hobbies</label>  
-                           <div class="col-md-4">
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="fa fa-graduation-cap"></i>
-                                 </div>
-                                 <input id="Hobbies" name="Hobbies" type="text" placeholder="Hobbies" class="form-control input-md">
-                              </div>
-                           </div>
-                        </div>
+                            <!-- Hobbies -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Hobbies">Hobbies</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-graduation-cap"></i>
+                                        </div>
+                                        <input id="Hobbies" name="Hobbies" type="text" placeholder="Hobbies" class="form-control input-md">
+                                    </div>
+                                </div>
+                            </div>
 
-                        
-                        <!-- Phone Number -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Phone number ">Phone number </label>  
-                           <div class="col-md-4">
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="fa fa-phone"></i>
-                                 </div>
-                                 <input id="Phone number " name="Phone number " type="text" placeholder="Phone number " class="form-control input-md">
-                              </div>
-                           </div>
-                        </div>
 
-                        <!-- Email Address -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Email Address">Email Address</label>  
-                           <div class="col-md-4">
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="fa fa-envelope-o"></i>
-                                 </div>
-                                 <input id="Email Address" name="Email Address" type="text" placeholder="Email Address" class="form-control input-md">
-                              </div>
-                           </div>
-                        </div>
+                            <!-- Phone Number -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Phone number ">Phone number </label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                        <input id="Phone number " name="Phone number " type="tel" placeholder="Phone number " class="form-control input-md">
+                                    </div>
+                                </div>
+                            </div>
 
-                        <!-- Summary -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Summary (max 200 words)">Summary</label>
-                           <div class="col-md-4">                     
-                              <textarea class="form-control" rows="10"  id="Summary (max 200 words)" name="Summary (max 200 words)">Summary</textarea>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" ></label>  
-                           <div class="col-md-4">
-                              <a href="#" class="btn btn-success"> Save </a>
-                              <a href="#" class="btn btn-danger" value=""> Clear </a>
-                           </div>
-                        </div>
-                     </fieldset>
-                  </form>
-               </div>
+                            <!-- Email Address -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Email Address">Email Address</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </div>
+                                        <input id="Email Address" name="Email Address" type="email" placeholder="Email Address" class="form-control input-md">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Summary -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="Summary (max 200 words)">Summary</label>
+                                <div class="col-md-4">
+                                    <textarea class="form-control" rows="10" id="Summary (max 200 words)" name="Summary (max 200 words)"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-4">
+                                    <a href="#" class="btn btn-success"> Save </a>
+                                    <a href="#" class="btn btn-danger" value=""> Clear </a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-         </div>
-      </div>
-      <footer>
-         <div class="container">
+        </div>
+    </div>
+    <footer>
+        <div class="container">
             <div class="row">
-               <div class="col-lg-12 text-center">
-                  <p>SER 518 - Group 7</p>
-               </div>
+                <div class="col-lg-12 text-center">
+                    <p>SER 518 - Group 7</p>
+                </div>
             </div>
-         </div>
-      </footer>
-      <!-- jQuery -->
-      <script src="js/jquery.js"></script>
-      <!-- Bootstrap Core JavaScript -->
-      <script src="js/bootstrap.min.js"></script>
-   </body>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
 </html>
