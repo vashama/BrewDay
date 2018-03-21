@@ -7,6 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EquipmentAction {
+	public static void main(String args[]) throws Exception {
+		Equipment equip = new Equipment();
+		equip.setName("Kang");
+		equip.setCapacity(12.00);
+		
+		EquipmentAction ea = new EquipmentAction();
+		ea.createEquipment(equip);
+	}
+	
 	public void createEquipment(Equipment equip) throws Exception {
 		Connection conn = DBUtil.getConnection();
 		String sql = "" + 
