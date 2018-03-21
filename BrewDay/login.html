@@ -23,26 +23,27 @@
 
 </head>
 <script>
-function validateCredentials() {
-	$.ajax({
-		type : "POST",
-		crossDomain : true,
-		url : "http://localhost:8080/post/response",
-		data : {
-			username : document.getElementsByName("username")[0].value,
-			password : document.getElementsByName("password")[0].value
-		},
-		success : function(response) {
-			//code for setting session and sign in
-			if(response.toString() == "success")
-				alert("Authenticated!")
-		}
-	});
-}
+    function validateCredentials() {
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            url: "http://localhost:8080/post/response",
+            data: {
+                username: document.getElementsByName("username")[0].value,
+                password: document.getElementsByName("password")[0].value
+            },
+            success: function (response) {
+                //code for setting session and sign in
+                if (response.toString() == "success")
+                    alert("Authenticated!")
+            }
+        });
+    }
 </script>
+
 <body>
 
-    <div class="brand">Brew Day</div>
+    <div class="brand">Brew Day!</div>
     <div class="address-bar">Arizona State University</div>
 
     <!-- Navigation -->
@@ -61,9 +62,6 @@ function validateCredentials() {
                         <a href="recipes.html">Recipes</a>
                     </li>
                     <li>
-                        <a href="login.html">Login</a>
-                    </li>
-                    <li>
                         <a href="contact.html">Reach Us</a>
                     </li>
                 </ul>
@@ -80,21 +78,24 @@ function validateCredentials() {
                 <center>
 
                     <div class="col-md-12">
-                            <form class="form-signin">
-                                    <hr>
-                                    <h2 class="form-signin-heading">Login here</h2>
-                                    <hr>
-                              <input type="email" class="form-control" name="username" placeholder="Email Address" required autofocus />
-                                <br/>
+                        <form class="form-signin">
+                            <hr>
+                            <h2 class="form-signin-heading">Log in here</h2>
+                            <hr>
+                            <input type="email" class="form-control" name="username" placeholder="Email Address" required autofocus />
+                            <br/>
 
-                              <input type="password" class="form-control" name="password" placeholder="Password" required/>      
-                              <label class="checkbox">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required/>
+                            <label class="checkbox">
                                 <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-                              </label>
-                              <button class="btn btn-lg btn-primary btn-block" type="submit"  onClick="validateCredentials()">Login</button>
-                              <h4>Not a member?    <a href="signup.html">Sign up</a></h4>
-                            </form>
-                </div>
+                            </label>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="validateCredentials()">Login</button>
+                            <br>
+                            <h5>Not a member?
+                                <a href="signup.html">Sign up</a>
+                            </h5>
+                        </form>
+                    </div>
                 </center>
             </div>
         </div>
@@ -107,7 +108,7 @@ function validateCredentials() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>SER 518 - Group 7</p>  
+                    <p>SER 518 - Group 7</p>
                 </div>
             </div>
         </div>
