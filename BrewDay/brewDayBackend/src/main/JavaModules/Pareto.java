@@ -17,6 +17,8 @@ public class Pareto {
 	static ArrayList<String> recipes = new ArrayList<String>();
 	static ArrayList<String> brewEquipment = new ArrayList<String>();
 	static ArrayList<Double> availableIngredients = new ArrayList<Double>();
+	static double batchSize = 100.00;
+	private static Double ingredientBatchSum;
 	
 	//Constructor to connect to Postgres Database
 	public Pareto() throws SQLException, ClassNotFoundException 
@@ -108,7 +110,13 @@ public class Pareto {
 		}
 		
 		int bestRecipeIndex = Arrays.asList(sufficientIngredients).lastIndexOf(0);
-				
+		
+		for( int i = 0; i < nestedIngredientsArrayList.get(bestRecipeIndex).size(); i++)
+			ingredientBatchSum = (nestedIngredientsArrayList.get(bestRecipeIndex).get(i));
+
+		if(ingredientBatchSum > batchSize)
+			//Scale down or up recipe
+		
 		return recipes.get(bestRecipeIndex);
 	}
 	
