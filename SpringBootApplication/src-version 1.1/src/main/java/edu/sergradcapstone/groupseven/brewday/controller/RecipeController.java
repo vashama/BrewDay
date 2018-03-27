@@ -23,10 +23,10 @@ public class RecipeController {
     RecipeRepository recipeRepository;
 
     @RequestMapping(method=RequestMethod.POST)
-    public ResponseEntity<Recipe> save(@RequestParam("IBU") Double ibu, @RequestParam("ABV") Double abv, @RequestParam("batchSize") Double batchSize, @RequestParam("Description") String description,
-                               @RequestParam("boilTime") Time boilTime, @RequestParam("brewType") String brewType){
+     public ResponseEntity<Recipe> save(@RequestParam("IBU") Double ibu, @RequestParam("ABV") Double abv, @RequestParam("batchSize") Double batchSize, @RequestParam("Description") String description,
+                               @RequestParam("boilTime") Time boilTime, @RequestParam("brewType") String brewType,@RequestParam("optradio") String optradio){
 
-        Recipe recipe = new Recipe(batchSize,abv, description, ibu, boilTime, brewType);
+        Recipe recipe = new Recipe(batchSize,abv, description, ibu, boilTime, brewType,optradio);
         Recipe insertedRecipe = recipeRepository.save(recipe);
 
         return new ResponseEntity<>(insertedRecipe, HttpStatus.CREATED);
