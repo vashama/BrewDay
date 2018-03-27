@@ -57,6 +57,17 @@ public class RecipeController {
 
         return new ResponseEntity<>(insertedRecipe, HttpStatus.CREATED);
     }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteRecipe(@PathVariable("id") Long id) {
+        Recipe recipe = findRecipeById(id);
+        if (recipe == null) {
+            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+        } else {
+            recipeRepository.delete(recipe);
+            return new ResponseEntity<Void>(HttpStatus.GONE);
+        }
+    }
 
 
 }
