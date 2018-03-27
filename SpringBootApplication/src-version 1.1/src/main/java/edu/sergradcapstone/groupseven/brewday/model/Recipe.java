@@ -17,13 +17,14 @@ public class Recipe {
 
     }
 
-    public Recipe(double batchSize, double ABV, String instructions, double IBU, Time boilTime, String brewType) {
+    public Recipe(double batchSize, double ABV, String instructions, double IBU, Time boilTime, String brewType,String optradio) {
         this.batchSize = batchSize;
         this.ABV = ABV;
         this.instructions = instructions;
         this.IBU = IBU;
         this.boilTime = boilTime;
         this.brewType = brewType;
+        this.optradio = optradio;
     }
 
 
@@ -59,6 +60,9 @@ public class Recipe {
     @Column(name="brew_type")
     private String brewType;
 
+    @Column(name="optradio")
+
+    private String optradio;
 
     @PrePersist
     protected void onCreate() {
@@ -140,4 +144,13 @@ public class Recipe {
     public void setLastModifiedDate(Date lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
+
+    public String getOptradio() {
+        return optradio;
+    }
+
+    public void setOptradio(String optradio) {
+        this.optradio = optradio;
+    }
+
 }
