@@ -75,25 +75,55 @@
 
         <div class="row">
             <div class="box">
-                <center>
 
-                    <div class="col-md-12">
-                        <form class="form-signin">
-                            <hr>
-                            <h2 class="form-signin-heading">Log in here</h2>
-                            <hr>
-                            <input type="email" class="form-control" name="username" placeholder="Email Address" required autofocus />
-                            <br/>
+                    <div class="col-lg-12">
+                        <form class="form-horizontal" id="login_form">
+                            <fieldset>
 
-                            <input type="password" class="form-control" name="password" placeholder="Password" required/>
-                            <label class="checkbox">
-                                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
-                            </label>
-                            <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="validateCredentials()">Login</button>
-                            <br>
-                            <h5>Not a member?
-                                <a href="signup.html">Sign up</a>
-                            </h5>
+                                <legend class="text-center">Account Login</legend>
+                                
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Username</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-user">
+                                                </i>
+                                            </div>
+                                            <input id="username" name="username" type="text" placeholder="Email Address" class="form-control" autofocus>
+                                            <small id="username_error_msg" style="color:red"></small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Password</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-lock">
+                                                </i>
+                                            </div>
+                                            <input id="password" name="password" type="password" placeholder="Password" class="form-control">
+                                            <small id="password_error_msg" style="color:red"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                        <label class="col-md-4 control-label"></label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <button class="btn btn-primary btn-block" type="submit" onClick="validateCredentials()">Login</button>
+                                            <h5>Not a member?
+                                                <a href="signup.html" style="color: black">Sign up</a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        
                         </form>
                     </div>
                 </center>
@@ -119,6 +149,67 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#username_error_msg").hide();
+            $("#password_error_msg").hide();
+
+            var error_username = false;
+            var error_password = false;
+
+            $('#username').focusout(function() {
+                check_username();
+            });
+
+            $('#password').focusout(function() {
+                check_password();
+            });
+
+            function check_username() {
+                
+                var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+
+                if(pattern.test($("#username").val())) {
+                    $("#username_error_msg").hide();
+                }
+                else {
+                    $("#username_error_msg").html(" * Incorrect email address");
+                    $("#username_error_msg").show();
+                    error_username = true;
+                }
+            }
+
+            function check_password() {
+
+                if($("#password").val().length < 8) {
+                    $("#password_error_msg").html(" * Password must have 8 or more characters");
+                    $("#password_error_msg").show();
+                    error_password = true;
+                }
+                else {
+                    $("#password_error_msg").hide();
+                }
+            }
+
+            $("#login_form").submit(function() {
+
+                error_username = false;
+                error_password = false;
+
+                check_username();
+                check_password();
+
+                if(error_username == false && error_password == false) {
+                    return true;
+                }
+                else
+                    return false;
+
+            });
+        });
+    </script>
 
 </body>
 
