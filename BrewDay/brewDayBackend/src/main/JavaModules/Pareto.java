@@ -1,6 +1,5 @@
 package com.brewdaybackend.javamodules;
 
-
 import java.util.*;
 import org.apache.commons.lang3.ArrayUtils;
 import java.sql.Connection;
@@ -19,12 +18,13 @@ public class Pareto {
 	static ArrayList<Double> availableIngredients = new ArrayList<Double>();
 	static double batchSize = 100.00;
 	private static Double ingredientBatchSum;
-	
+    static Statement sqlStatement = null;
+	private static ArrayList<Double> recipeIngredientsPercentage;
+
 	//Constructor to connect to Postgres Database
 	public Pareto() throws SQLException, ClassNotFoundException 
 	{
 	      Connection conn = null;
-	      Statement sqlStatement = null;
           Class.forName("org.postgresql.Driver");
           conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "postgres");
 
@@ -65,7 +65,7 @@ public class Pareto {
 	
 	
 	
-	public static String whatShouldIBrewToday()
+	public static String whatShouldIBrewToday() throws SQLException
 	{
 		String optimalRecipe = null;
 		ArrayList<Double> ingredientBuffer = new ArrayList<Double>();
@@ -115,7 +115,20 @@ public class Pareto {
 			ingredientBatchSum = (nestedIngredientsArrayList.get(bestRecipeIndex).get(i));
 
 		if(ingredientBatchSum > batchSize)
-			//Scale down or up recipe
+		{
+			ResultSet rs3 = sqlStatement.executeQuery( "SELECT * FROM recipeIngredientWeightage WHERE recipe = " + recipes.get(bestRecipeIndex) + ";");
+		    while(rs3.next())
+		    {     
+		    	recipeIngredientsPercentage.add(rs3.getDouble("hops"));
+		    	recipeIngredientsPercentage.add(rs3.getDouble("yeast"));
+		    	recipeIngredientsPercentage.add(rs3.getDouble("sugar"));
+		    	recipeIngredientsPercentage.add(rs3.getDouble("water"));
+		    	recipeIngredientsPercentage.add(rs3.getDouble("grains"));
+		    }
+		    
+		    //Use recipeIngredientsPercentage to resize in compliance to batch size
+		    
+		}
 		
 		return recipes.get(bestRecipeIndex);
 	}
