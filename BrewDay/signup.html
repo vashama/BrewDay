@@ -52,32 +52,105 @@
     <div class="container">
         <div class="row">
             <div class="box">
-                <center>
-                    <div class="col-md-6">
-                        <img class="img-responsive img-border-left" src="https://cdn.shopify.com/s/files/1/0980/7640/articles/shutterstock_257516356.0.0.jpg" alt="">
-                    </div>
 
-                    <div class="col-lg-6">
-                            <form class="form-signin">       
-                                <hr>
-                              <h2 class="form-signin-heading">SIGN UP</h2>
-                              <hr>
-                              <input type="text" class="form-control" name="firstname" placeholder="First Name" required autofocus />
-                              <br/>
-                            <input type="text" class="form-control" name="lastname" placeholder="Last Name" required/>      
-                                <br/>
-                              <input type="email" class="form-control" name="username" placeholder="Email Address" required/>
-                                <br/>
-                              <input type="password" class="form-control" name="password" placeholder="Password" required/>      
-                              <label class="checkbox">
-                                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">Remember me
-                              </label>
-                              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-                              <br>
-                              <h5>Already a member?<a href="login.html">Login</a></h5>
-                            </form>
+                <div class="col-lg-12">
+                    <form class="form-horizontal" id="signup_form">
+                        <fieldset>
+                            <center>
+                                <legend class="text-center">Create your Account</legend>
+
+                                <div class="text-center">
+                                    <img class="img-circle img-responsive center-block" src="https://cdn.shopify.com/s/files/1/0980/7640/articles/shutterstock_257516356.0.0.jpg"
+                                        alt="Sign up picture" height="163" width="163">
+                                </div>
+                                <br>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">First Name</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-user">
+                                                </i>
+                                            </div>
+                                            <input type="text" class="form-control" name="firstname" placeholder="First Name" id="firstname" autofocus />
+                                            <small id="firstname_error_msg" style="color:red"></small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Last Name</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-user">
+                                                </i>
+                                            </div>
+                                            <input type="text" class="form-control" name="lastname" placeholder="Last Name" id="lastname" />
+                                            <small id="lastname_error_msg" style="color:red"></small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">E-mail Address</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-pencil">
+                                                </i>
+                                            </div>
+                                            <input type="text" class="form-control" name="email" placeholder="E-mail Address" id="email" />
+                                            <small id="email_error_msg" style="color:red"></small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Create Password</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-ok">
+                                                </i>
+                                            </div>
+                                            <input id="password" name="password" type="password" placeholder="Enter Password" class="form-control">
+                                            <small id="password_error_msg" style="color:red"></small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Re-type Password</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="glyphicon glyphicon-ok">
+                                                </i>
+                                            </div>
+                                            <input id="password2" name="password2" type="password" placeholder="Enter Password Again" class="form-control">
+                                            <small id="password2_error_msg" style="color:red"></small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label"></label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <button class="btn btn-primary btn-block" type="submit">Sign-up</button>
+                                            <h5>Already a member?
+                                                <a href="login.html" style="color: black">Login</a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <center/>
+                        </fieldset>
+                    </form>
                 </div>
-                </center>
+
             </div>
         </div>
 
@@ -88,7 +161,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>SER 518 - Group 7</p>  
+                    <p>SER 518 - Group 7</p>
                 </div>
             </div>
         </div>
@@ -99,6 +172,91 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#firstname_error_msg").hide();
+            $("#lastname_error_msg").hide();
+            $("#email_error_msg").hide();
+            $("#password_error_msg").hide();
+            $("#password2_error_msg").hide();
+
+            var error_firstname = false;
+            var error_lastname = false;
+            var error_email = false;
+            var error_password = false;
+            var error_password2 = false;
+
+            $('#firstname').focusout(function () {
+                check_firstname();
+            });
+
+            $('#lastname').focusout(function () {
+                check_lastname();
+            });
+
+            $('#email').focusout(function () {
+                check_email();
+            });
+
+            $('#password').focusout(function () {
+                check_password();
+            });
+
+             $('#password2').focusout(function () {
+                check_password2();
+            });
+
+            function check_email() {
+
+                var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+
+                if (pattern.test($("#email").val())) {
+                    $("#email_error_msg").hide();
+                }
+                else {
+                    $("#email_error_msg").html(" * Incorrect email address");
+                    $("#email_error_msg").show();
+                    error_email = true;
+                }
+            }
+
+            function check_password() {
+
+                if ($("#password").val().length < 8) {
+                    $("#password_error_msg").html(" * Password must have 8 or more characters");
+                    $("#password_error_msg").show();
+                    error_password = true;
+                }
+                else {
+                    $("#password_error_msg").hide();
+                }
+            }
+
+            $("#signup_form").submit(function () {
+
+                error_firstname = false;
+                error_lastname = false;
+                error_email = false;
+                error_password = false;
+                error_password2 = false;
+
+                check_firstname();
+                check_lastname();
+                check_email();
+                check_password();
+                check_password2();
+
+                if (error_firstname == false && error_lastname == false && error_email == false && error_password == false && error_password2 == false) {
+                    return true;
+                }
+                else
+                    return false;
+
+            });
+        });
+    </script>
 
 </body>
 
