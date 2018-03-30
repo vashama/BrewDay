@@ -46,4 +46,20 @@ public class QueryResource extends ServerResource {
         return new JsonRepresentation(array);
     }
     
+    private JSONObject jsonForRow(ResultSet resultSet, ResultSetMetaData metaData) throws SQLException {
+        JSONObject rowObject = new JSONObject();
+
+        int columnCount = metaData.getColumnCount();
+        for(int i = 1; i <= columnCount; i++) {
+            try {
+                rowObject.put(metaData.getColumnName(i), resultSet.getObject(i));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return rowObject;
+    }
+
+    
 }
