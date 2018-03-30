@@ -20,6 +20,8 @@ public class Pareto {
 	private static Double ingredientBatchSum;
     static Statement sqlStatement = null;
 	private static ArrayList<Double> recipeIngredientsPercentage;
+	private static Double ingredientQty;
+	private static ArrayList<Double> quantityRequired = new ArrayList<Double>();
 
 	//Constructor to connect to Postgres Database
 	public Pareto() throws SQLException, ClassNotFoundException 
@@ -126,7 +128,11 @@ public class Pareto {
 		    	recipeIngredientsPercentage.add(rs3.getDouble("grains"));
 		    }
 		    
-		    //Use recipeIngredientsPercentage to resize in compliance to batch size
+		    for(int ingredient = 0; ingredient < recipeIngredientsPercentage.size(); ingredient++)
+		    {
+		    	ingredientQty = recipeIngredientsPercentage.get(ingredient);
+		        quantityRequired.add(ingredientQty);
+		    }
 		    
 		}
 		
