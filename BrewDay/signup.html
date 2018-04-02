@@ -208,6 +208,48 @@
                 check_password2();
             });
 
+            function check_firstname() {
+
+                var fname = $("#firstname").val();
+
+                var pat = new RegExp(/^[a-z]{2,14}$/i);
+
+                if(fname == null || fname == "") {
+                    $("#firstname_error_msg").html(" * Enter your First Name");
+                    $("#firstname_error_msg").show();
+                    error_firstname = true;
+                }
+                else if(!pat.test(fname)) {
+                    $("#firstname_error_msg").html(" * Enter a Valid name having 2-14 characters (alphabets only)");
+                    $("#firstname_error_msg").show();
+                    error_firstname = true;
+                }
+                else {
+                    $("#firstname_error_msg").hide();
+                }
+            }
+
+            function check_lastname() {
+
+                var lname = $("#lastname").val();
+
+                var patt = new RegExp(/^[a-z ,.'-]+$/i);
+
+                if(lname == null || lname == "") {
+                  $("#lastname_error_msg").html(" * Enter your Last Name");
+                  $("#lastname_error_msg").show();
+                  error_lastname = true;
+                }
+                else if(!patt.test(lname)) {
+                  $("#lastname_error_msg").html(" * Enter a Valid name having alphabets and .,'- symbols only");
+                  $("#lastname_error_msg").show();
+                  error_lastname = true;
+                }
+                else {
+                  $("#lastname_error_msg").hide();
+                }
+            }
+
             function check_email() {
 
                 var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
@@ -231,6 +273,22 @@
                 }
                 else {
                     $("#password_error_msg").hide();
+                }
+            }
+
+            function check_password2() {
+
+                var pass1 = $("#password").val();
+
+                var pass2 = $("#password2").val();
+
+                if(pass1 != pass2) {
+                    $("#password2_error_msg").html(" * Password doesn't match");
+                    $("#password2_error_msg").show();
+                    error_password2 = true;
+                }
+                else {
+                    $("#password2_error_msg").hide();
                 }
             }
 
