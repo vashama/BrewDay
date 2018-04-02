@@ -60,6 +60,16 @@ public class QueryResource extends ServerResource {
 
         return rowObject;
     }
-
     
+    private JsonRepresentation errorRepresentation(String errMessage) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("message", errMessage);
+            object.put("success", false);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return new JsonRepresentation(object);
+    }
 }
