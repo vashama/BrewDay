@@ -20,6 +20,10 @@ public class Pareto {
 	private static Double ingredientBatchSum;
     static Statement sqlStatement = null;
 	private static ArrayList<Double> recipeIngredientsPercentage;
+	private static Double ingredientQty;
+	private static ArrayList<Double> quantityRequired = new ArrayList<Double>();
+	private static String username;
+	private static ArrayList<Double> homeBrewingEquipments;
 
 	//Constructor to connect to Postgres Database
 	public Pareto() throws SQLException, ClassNotFoundException 
@@ -126,10 +130,23 @@ public class Pareto {
 		    	recipeIngredientsPercentage.add(rs3.getDouble("grains"));
 		    }
 		    
-		    //Use recipeIngredientsPercentage to resize in compliance to batch size
+		    for(int ingredient = 0; ingredient < recipeIngredientsPercentage.size(); ingredient++)
+		    {
+		    	ingredientQty = recipeIngredientsPercentage.get(ingredient);
+		        quantityRequired.add(ingredientQty);
+		    }
 		    
 		}
 		
+		ResultSet rs4 = sqlStatement.executeQuery( "SELECT * FROM recipeIngredientWeightage WHERE user = " + username + ";");
+	    while(rs4.next())
+	    {     
+	    	homeBrewingEquipments.add(rs4.getDouble("homebrewEquipments"));
+	    }
+	    for(int equipment = 0; equipment < homeBrewingEquipments.size(); equipment++)
+	    {
+	    	//Analyze homebrewing equipment for batch size analysis
+	    }
 		return recipes.get(bestRecipeIndex);
 	}
 	
