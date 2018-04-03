@@ -36,5 +36,20 @@ public class LoginController {
         httpSession.invalidate();
         return ResponseEntity.ok(200);
     }
+    
+     @RequestMapping("/signup")
+    public ResponseEntity processSignUp(HttpSession httpSession, @RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("email") String email){
+        User user = new User();
+
+        if(userRepository.findOneByUsername(username) != null){
+            return ResponseEntity.status(400).body("Username already exists");
+        }
+
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(password);
+        userRepository.save(user);
+        return ResponseEntity.ok(201);
+    }
 
 }
