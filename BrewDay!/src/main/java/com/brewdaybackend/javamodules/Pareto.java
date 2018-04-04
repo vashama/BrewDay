@@ -1,5 +1,6 @@
 package com.brewdaybackend.javamodules;
 
+
 import java.util.*;
 import org.apache.commons.lang3.ArrayUtils;
 import java.sql.Connection;
@@ -9,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Pareto {
-	
+
 	static ArrayList<Double> ingredientsArrayList = new ArrayList<Double>();
 	static ArrayList<ArrayList<Double>> nestedIngredientsArrayList = new ArrayList<ArrayList<Double>>();
 	static ArrayList<String> ingredients = new ArrayList<String>();
@@ -18,149 +19,142 @@ public class Pareto {
 	static ArrayList<Double> availableIngredients = new ArrayList<Double>();
 	static double batchSize = 100.00;
 	private static Double ingredientBatchSum;
-    static Statement sqlStatement = null;
+	static Statement sqlStatement = null;
 	private static ArrayList<Double> recipeIngredientsPercentage;
 	private static Double ingredientQty;
 	private static ArrayList<Double> quantityRequired = new ArrayList<Double>();
 	private static String username;
-	private static ArrayList<Double> homeBrewingEquipments;
+	private static List<String> availableHomeBrewingEquipments = new ArrayList<String>();
+	private static List<String> neededHomeBrewingEquipments = new ArrayList<String>();
 
-	//Constructor to connect to Postgres Database
-	public Pareto() throws SQLException, ClassNotFoundException 
-	{
-	      Connection conn = null;
-          Class.forName("org.postgresql.Driver");
-          conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "postgres");
+	// Constructor to connect to Postgres Database
+	public Pareto() throws SQLException, ClassNotFoundException {
+		Connection conn = null;
+		Class.forName("org.postgresql.Driver");
+		conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "postgres");
 
-	      sqlStatement = conn.createStatement();
-	      ResultSet rs1 = sqlStatement.executeQuery( "SELECT * FROM ingredients;" );
-	      
-	      
-	      
-	      while(rs1.next())
-	      {
-	          ingredientsArrayList.add(rs1.getDouble("hops"));
-	          ingredientsArrayList.add(rs1.getDouble("yeast"));
-	          ingredientsArrayList.add(rs1.getDouble("sugar"));
-	          ingredientsArrayList.add(rs1.getDouble("water"));
-	          ingredientsArrayList.add(rs1.getDouble("grains"));
-		      nestedIngredientsArrayList.add((ArrayList<Double>) ingredientsArrayList.clone());
-		      ingredientsArrayList.clear();
-	      }
-	      
-	      ResultSet rs2 = sqlStatement.executeQuery( "SELECT * FROM availableingredients;" );
-	      while(rs2.next())
-	      {
-		      
-		      availableIngredients.add(rs2.getDouble("hops"));
-		      availableIngredients.add(rs2.getDouble("yeast"));
-	          availableIngredients.add(rs2.getDouble("sugar"));
-	          availableIngredients.add(rs2.getDouble("water"));
-	          availableIngredients.add(rs2.getDouble("grains"));
-	      }
-	      ResultSet rs3 = sqlStatement.executeQuery( "SELECT * FROM recipelist;" );
-	      while(rs3.next())
-	      {
-	          
-	          recipes.add(rs3.getString("recipes"));
-	      }
+		sqlStatement = conn.createStatement();
+		ResultSet rs1 = sqlStatement.executeQuery("SELECT * FROM ingredients;");
+
+		while (rs1.next()) {
+			ingredientsArrayList.add(rs1.getDouble("hops"));
+			ingredientsArrayList.add(rs1.getDouble("yeast"));
+			ingredientsArrayList.add(rs1.getDouble("sugar"));
+			ingredientsArrayList.add(rs1.getDouble("water"));
+			ingredientsArrayList.add(rs1.getDouble("grains"));
+			nestedIngredientsArrayList.add((ArrayList<Double>) ingredientsArrayList.clone());
+			ingredientsArrayList.clear();
+		}
+
+		ResultSet rs2 = sqlStatement.executeQuery("SELECT * FROM availableingredients;");
+		while (rs2.next()) {
+
+			availableIngredients.add(rs2.getDouble("hops"));
+			availableIngredients.add(rs2.getDouble("yeast"));
+			availableIngredients.add(rs2.getDouble("sugar"));
+			availableIngredients.add(rs2.getDouble("water"));
+			availableIngredients.add(rs2.getDouble("grains"));
+		}
+		ResultSet rs3 = sqlStatement.executeQuery("SELECT * FROM recipelist;");
+		while (rs3.next()) {
+			recipes.add(rs3.getString("recipes"));
+		}
 	}
-	
-	
-	
-	
-	public static String whatShouldIBrewToday() throws SQLException
-	{
+
+	public static ArrayList<Object> whatShouldIBrewToday() throws SQLException {
 		String optimalRecipe = null;
 		ArrayList<Double> ingredientBuffer = new ArrayList<Double>();
 		ArrayList<ArrayList> ingredientBufferCollection = new ArrayList<ArrayList>();
-		
-		for (double ingredientValue: availableIngredients) {
-			
-			for(ArrayList<Double> individualRecipeRequirements: nestedIngredientsArrayList) {
-				
+
+		for (double ingredientValue : availableIngredients) {
+
+			for (ArrayList<Double> individualRecipeRequirements : nestedIngredientsArrayList) {
+
 				ingredientBuffer.add(individualRecipeRequirements.get(availableIngredients.indexOf(ingredientValue)));
 			}
-			
+
 			Collections.sort(ingredientBuffer);
 
 			int i = 0;
-			while(i<ingredientBuffer.size()) {
-			    if (ingredientBuffer.get(i) > ingredientValue) {
-			    	ingredientBuffer.set(i, 999.99); 
-			    }
-			        i++;
+			while (i < ingredientBuffer.size()) {
+				if (ingredientBuffer.get(i) > ingredientValue) {
+					ingredientBuffer.set(i, 999.99);
+				}
+				i++;
 			}
-			
+
 			ingredientBufferCollection.add((ArrayList<Double>) ingredientBuffer.clone());
 			ingredientBuffer.clear();
 
+		}
+
+		Integer sufficientIngredients[] = new Integer[] { 0, 0, 0, 0, 0 };
+
+		for (ArrayList<Double> bufferBreakup : ingredientBufferCollection) {
+
+			for (int i = 0; i < nestedIngredientsArrayList.get(0).size() - 1; i++)
+				if (bufferBreakup.get(i) == 999.99) {
+
+					sufficientIngredients[i] = 1;
+
+				}
 
 		}
-				
-		Integer sufficientIngredients[] = new Integer[] {0, 0, 0, 0, 0};
-		
-		for(ArrayList<Double> bufferBreakup: ingredientBufferCollection) {
-			
-			
-			
-			for(int i = 0; i < nestedIngredientsArrayList.get(0).size() - 1; i++)
-			if(bufferBreakup.get(i) == 999.99) {
-				
-				sufficientIngredients[i] = 1;
-				
-			}
-			
-		}
-		
+
 		int bestRecipeIndex = Arrays.asList(sufficientIngredients).lastIndexOf(0);
-		
-		for( int i = 0; i < nestedIngredientsArrayList.get(bestRecipeIndex).size(); i++)
+
+		for (int i = 0; i < nestedIngredientsArrayList.get(bestRecipeIndex).size(); i++)
 			ingredientBatchSum = (nestedIngredientsArrayList.get(bestRecipeIndex).get(i));
 
-		if(ingredientBatchSum > batchSize)
-		{
-			ResultSet rs3 = sqlStatement.executeQuery( "SELECT * FROM recipeIngredientWeightage WHERE recipe = " + recipes.get(bestRecipeIndex) + ";");
-		    while(rs3.next())
-		    {     
-		    	recipeIngredientsPercentage.add(rs3.getDouble("hops"));
-		    	recipeIngredientsPercentage.add(rs3.getDouble("yeast"));
-		    	recipeIngredientsPercentage.add(rs3.getDouble("sugar"));
-		    	recipeIngredientsPercentage.add(rs3.getDouble("water"));
-		    	recipeIngredientsPercentage.add(rs3.getDouble("grains"));
-		    }
-		    
-		    for(int ingredient = 0; ingredient < recipeIngredientsPercentage.size(); ingredient++)
-		    {
-		    	ingredientQty = recipeIngredientsPercentage.get(ingredient);
-		        quantityRequired.add(ingredientQty);
-		    }
-		    
+		if (ingredientBatchSum > batchSize) {
+			ResultSet rs3 = sqlStatement.executeQuery(
+					"SELECT * FROM recipeIngredientWeightage WHERE recipe = " + recipes.get(bestRecipeIndex) + ";");
+			while (rs3.next()) {
+				recipeIngredientsPercentage.add(rs3.getDouble("hops"));
+				recipeIngredientsPercentage.add(rs3.getDouble("yeast"));
+				recipeIngredientsPercentage.add(rs3.getDouble("sugar"));
+				recipeIngredientsPercentage.add(rs3.getDouble("water"));
+				recipeIngredientsPercentage.add(rs3.getDouble("grains"));
+			}
+
+			for (int ingredient = 0; ingredient < recipeIngredientsPercentage.size(); ingredient++) {
+				ingredientQty = recipeIngredientsPercentage.get(ingredient);
+				quantityRequired.add(ingredientQty);
+			}
+
+		}
+
+		ResultSet rs4 = sqlStatement.executeQuery("SELECT * FROM homebrewequipmentslist;");
+		while (rs4.next()) {
+			availableHomeBrewingEquipments = Arrays.asList(rs4.getString("homebrewequipments").split(","));
+		}
+
+		ResultSet rs5 = sqlStatement.executeQuery("SELECT equipmentsneeded FROM recipelist WHERE recipes = '" + recipes.get(bestRecipeIndex) + "';");
+		while (rs5.next()) {
+			neededHomeBrewingEquipments = Arrays.asList(rs5.getString("equipmentsneeded").split(","));
 		}
 		
-		ResultSet rs4 = sqlStatement.executeQuery( "SELECT * FROM recipeIngredientWeightage WHERE user = " + username + ";");
-	    while(rs4.next())
-	    {     
-	    	homeBrewingEquipments.add(rs4.getDouble("homebrewEquipments"));
-	    }
-	    for(int equipment = 0; equipment < homeBrewingEquipments.size(); equipment++)
-	    {
-	    	//Analyze homebrewing equipment for batch size analysis
-	    }
-		return recipes.get(bestRecipeIndex);
+		ArrayList<Object> output = new ArrayList<>();
+		output.add(recipes.get(bestRecipeIndex));
+		output.add(neededHomeBrewingEquipments);
+		output.add(availableHomeBrewingEquipments);
+		return output;
 	}
-	
-	
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-	
-		
-		String optimalRecipe;
-		
+
+	public static ArrayList<Object> main(String[] args) throws ClassNotFoundException, SQLException {
+
+		ArrayList<Object> optimalRecipe;
+
 		new Pareto();
 
 		optimalRecipe = whatShouldIBrewToday();
+		//optimalRecipe[0] -> Optimal Recipe Name
+		//optimalRecipe[1] -> List of needed homebrewing equipments for the recipe
+		//optimalRecipe[2] -> List of available homebrewing equipments with the user
 		
-		System.out.print("You should brew " + optimalRecipe + " today!");
+		return optimalRecipe;
+		
+		//System.out.print("You should brew " + optimalRecipe.get(0) + " today!");
 
 	}
 
