@@ -34,8 +34,10 @@
             },
             success: function (response) {
                 //code for setting session and sign in
-                if (response.toString() == "success")
+                if (response.toString() == "success"){
                     alert("Authenticated!")
+                    window.location="https://vashama.github.io/BrewDay/BrewDay/dashboard.html";
+                }
             }
         });
     }
