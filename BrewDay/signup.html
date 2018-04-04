@@ -139,7 +139,7 @@
                                     <label class="col-md-4 control-label"></label>
                                     <div class="col-md-4">
                                         <div class="input-group">
-                                            <button class="btn btn-primary btn-block" type="submit">Sign-up</button>
+                                            <button class="btn btn-primary btn-block" type="submit" onClick="validateCredentials()">Sign-up</button>
                                             <h5>Already a member?
                                                 <a href="login.html" style="color: black">Login</a>
                                             </h5>
@@ -315,6 +315,29 @@
             });
         });
     </script>
+        
+        <script>
+    function validateCredentials() {
+        alert("Hi")
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            url: "http://localhost:8080/user/signup",
+            data: {
+                firstname: document.getElementsByName("firstname")[0].value,
+                lastname: document.getElementsByName("lastname")[0].value,
+                email: document.getElementsByName("email")[0].value,
+                password: document.getElementsByName("password")[0].value
+
+            },
+            success: function (response) {
+                //code for setting session and sign in
+                if (response.toString() == "success")
+                    alert("You have SignedUp!")
+            }
+        });
+    }
+</script>
 
 </body>
 
