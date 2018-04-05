@@ -318,7 +318,7 @@
         
         <script>
     function validateCredentials() {
-        alert("Hi")
+        alert("Hi Please sign Up")
         $.ajax({
             type: "POST",
             crossDomain: true,
@@ -333,7 +333,7 @@
             success: function (response) {
                 //code for setting session and sign in
                 if (response.toString() == "success")
-                    alert("You have SignedUp!")
+                    alert("You have SignedUp! Please Login")
             }
         });
     }
