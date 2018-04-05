@@ -102,7 +102,7 @@
                                         <a href="logout.html"> Log Out</a>
                                     </li>
                                 </ul>
-                        </li>                   
+                        </li>
                     </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -130,7 +130,8 @@
                                             <i class="glyphicon glyphicon-user">
                                             </i>
                                         </div>
-                                        <input id="Name" name="Name" type="text" placeholder="Full name" class="form-control input-md">
+                                        <input id="name" name="Name" type="text" placeholder="Full name" class="form-control input-md">
+                                        <small id="name_error_msg" style="color:red"></small>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +145,8 @@
                                             <i class="glyphicon glyphicon-calendar">
                                             </i>
                                         </div>
-                                        <input id="Date of Birth" name="Date of Birth" type="date" placeholder="Date of Birth" class="form-control input-md">
+                                        <input id="dob" name="Date of Birth" type="date" placeholder="Date of Birth" class="form-control input-md">
+                                        <small id="dob_error_msg" style="color:red"></small>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +172,8 @@
                                         <div class="input-group-addon">
                                             <i class="glyphicon glyphicon-home"></i>
                                         </div>
-                                        <input id="Permanent Address" name="Permanent Address" type="text" placeholder="House number and Street name" class="form-control input-md ">
+                                        <input id="addr" name="Permanent Address" type="text" placeholder="House number and Street name" class="form-control input-md ">
+                                        <small id="addr_error_msg" style="color:red"></small>
                                     </div>
                                 </div>
                             </div>
@@ -181,14 +184,15 @@
                                         <div class="input-group-addon">
                                             <i class="glyphicon glyphicon-home"></i>
                                         </div>
-                                        <input id="Permanent Address" name="Permanent Address" type="text" placeholder="City" class="form-control input-md ">
+                                        <input id="city" name="Permanent Address" type="text" placeholder="City" class="form-control input-md ">
+                                        <small id="city_error_msg" style="color:red"></small>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="Permanent Address">State</label>
                                 <div class="col-md-4">
-                                    <select id="Permanent Address" name="Permanent Address" type="text" placeholder="State" class="form-control input-md ">
+                                    <select id="State" name="Permanent Address" type="text" placeholder="State" class="form-control input-md ">
                                         <option value="" selected="selected">Select a State</option>
                                         <option value="AL">Alabama</option>
                                         <option value="AK">Alaska</option>
@@ -250,7 +254,8 @@
                                         <div class="input-group-addon">
                                             <i class="glyphicon glyphicon-map-marker"></i>
                                         </div>
-                                        <input id="Permanent Address" name="Permanent Address" type="text" pattern="[0-9]{5}" placeholder="ZIP Code" class="form-control input-md ">
+                                        <input id="zip" name="Permanent Address" type="text" placeholder="ZIP Code" class="form-control input-md ">
+                                        <small id="zip_error_msg" style="color:red"></small>
                                     </div>
                                 </div>
                             </div>
@@ -264,7 +269,7 @@
                                         <div class="input-group-addon">
                                             <i class="glyphicon glyphicon-briefcase"></i>
                                         </div>
-                                        <input id="Occupation" name="Occupation" type="text" placeholder="Occupation" class="form-control input-md">
+                                        <input id="occupation" name="Occupation" type="text" placeholder="Occupation" class="form-control input-md">
                                     </div>
                                 </div>
                             </div>
@@ -278,7 +283,7 @@
                                         <div class="input-group-addon">
                                             <i class="glyphicon glyphicon-glass"></i>
                                         </div>
-                                        <input id="Hobbies" name="Hobbies" type="text" placeholder="Hobbies" class="form-control input-md">
+                                        <input id="hobbies" name="Hobbies" type="text" placeholder="Hobbies" class="form-control input-md">
                                     </div>
                                 </div>
                             </div>
@@ -286,13 +291,14 @@
 
                             <!-- Phone Number -->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="Phone number ">Phone number </label>
+                                <label class="col-md-4 control-label" for="Phone number">Phone number</label>
                                 <div class="col-md-4">
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="glyphicon glyphicon-phone"></i>
                                         </div>
-                                        <input id="Phone number " name="Phone number " type="tel" placeholder="Phone number " class="form-control input-md">
+                                        <input id="phone" name="Phone number" type="text" placeholder="Phone number" class="form-control input-md" maxlength="12">
+                                        <small id="phone_error_msg" style="color:red"></small>
                                     </div>
                                 </div>
                             </div>
@@ -306,6 +312,7 @@
                                             <i class="glyphicon glyphicon-pencil"></i>
                                         </div>
                                         <input id="Email Address" name="Email Address" type="email" placeholder="Email Address" class="form-control input-md">
+                                        <small id="email_error_msg" style="color:red"></small>
                                     </div>
                                 </div>
                             </div>
@@ -343,6 +350,178 @@
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#name_error_msg").hide();
+            $("#dob_error_msg").hide();
+            $("#addr_error_msg").hide();
+            $("#city_error_msg").hide();
+            $("#zip_error_msg").hide();
+            $("#phone_error_msg").hide();
+            $("#email_error_msg").hide();
+
+            var error_name = false;
+            var error_dob = false;
+            var error_addr = false;
+            var error_city = false;
+            var error_zip = false;
+            var error_phone = false;
+            var error_email = false;
+
+
+            $('#name').focusout(function () {
+                check_name();
+            });
+
+            $('#dob').focusout(function () {
+                check_dob();
+            });
+
+            $('#addr').focusout(function () {
+                check_addr();
+            });
+
+            $('#city').focusout(function () {
+                check_city();
+            });
+
+            $('#zip').focusout(function () {
+                check_zip();
+            });
+
+            $('#phone').keyup(function () {
+                this.value = this.value.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+            });
+
+            $('#email').focusout(function () {
+                check_email();
+            });
+
+
+            function check_name() {
+
+                var name = $("#name").val();
+
+                var pat = new RegExp(/^[a-z .,'-]{4,}$/i);
+
+                if(name == null || name == "") {
+                    $("#name_error_msg").html(" * Enter your Name");
+                    $("#name_error_msg").show();
+                    error_name = true;
+                }
+                else if(!pat.test(name)) {
+                    $("#name_error_msg").html(" * Enter a Valid name having 2-14 characters (alphabets only)");
+                    $("#name_error_msg").show();
+                    error_name = true;
+                }
+                else {
+                    $("#name_error_msg").hide();
+                }
+            }
+
+            function check_dob() {
+
+                var dob = $("#dob").val();
+
+                var date = new Date(dob);
+
+                if(date.getFullYear() <= 1900) {
+                    $("#dob_error_msg").html(" * Sorry, Brew Day! is not for Zombies");
+                    $("#dob_error_msg").show();
+                    error_dob = true;
+                }
+                else if(date.getFullYear() >= 2019) {
+                  $("#dob_error_msg").html(" * Want to be accussed of making your unborn child a homebrewer?");
+                  $("#dob_error_msg").show();
+                  error_dob = true;
+                }
+                else if(date.getFullYear() >= 1997) {
+                  $("#dob_error_msg").html(" * You have to be 21 to brew");
+                  $("#dob_error_msg").show();
+                  error_dob = true;
+                }
+                else {
+                  $("#dob_error_msg").hide();
+                }
+            }
+
+            function check_addr() {
+
+                if($("#addr").val().trim() == "") {
+                    $("#addr_error_msg").html(" * Enter your address");
+                    $("#addr_error_msg").show();
+                    error_addr = true;
+                }
+                else {
+                    $("#addr_error_msg").hide();
+                }
+            }
+
+            function check_city() {
+
+                var city_pattern = new RegExp(/^[a-zA-Z\- ]+$/i);
+
+                var city = $("#city").val();
+
+                if(!city_pattern.test(city)) {
+                    $("#city_error_msg").html(" * Enter a valid City name");
+                    $("#city_error_msg").show();
+                    error_city = true;
+                }
+                else {
+                    $("#city_error_msg").hide();
+                }
+            }
+/*
+            function check_zip() {
+
+                var zip_pattern = new RegExp(/[0-9]{5}/i);
+
+                var zip = $("#zip").val();
+
+                if(!zip_pattern.test(zip)) {
+                    $("#zip_error_msg").html(" * Enter a valid ZIP code");
+                    $("#zip_error_msg").show();
+                    error_zip = true;
+                }
+                else {
+                    $("#zip_error_msg").hide();
+                }
+            }
+*/
+            function check_email() {
+
+                var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+
+                if (pattern.test($("#email").val())) {
+                    $("#email_error_msg").hide();
+                }
+                else {
+                    $("#email_error_msg").html(" * Incorrect email address");
+                    $("#email_error_msg").show();
+                    error_email = true;
+                }
+            }
+
+
+            $("#signup_form").submit(function () {
+
+                error_name = false;
+
+                check_name();
+
+                if (error_firstname == false && error_lastname == false) {
+                    return true;
+                }
+                else
+                    return false;
+
+            });
+        });
+    </script>
+
 </body>
 
 </html>
