@@ -18,9 +18,10 @@
         success: function (response) {
             //code for setting session and sign in
             output = response.toString();
+            alert(output);
         }
         });
-          alert("" + output);
+          alert("output: " + output);
           window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/brewToday.html';
         }
     </script>
