@@ -32,7 +32,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Recipes <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                     <li>
-                                        <a href="myRecipes.html">My Recipes</a>
+                                        <a href="myRecipes.html">Add Recipes</a>
                                     </li>
                                     <li class="divider">
                                     </li>
@@ -116,7 +116,7 @@
         <div class="row">
           <div class="box">
             <div class="col-lg-12">
-              <form class="form-horizontal">
+              <form class="form-horizontal" id="myRecipes_form">
                 <fieldset>
     
                     <!-- Form Name -->
@@ -187,7 +187,8 @@
                         <div class="col-md-4">
                           <label><input type="radio" name="optradio">Public</label>
                           <label><input type="radio" name="optradio">Private</label>
-                          <a href="#" class="btn btn-success"> Add this recipe </a>
+                          <button class="btn btn-primary btn-block" type="submit" onClick="validateCredentials()">Add this recipe</button>
+                          <!--<a href="#" class="btn btn-success"> Add this recipe </a>-->
                         </div>
                     </div>
 
@@ -213,6 +214,34 @@
   <script src="js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
+      
+      <script>
+    function validateCredentials() {
+        alert("Hi!! Enter your recipe")
+        $.ajax({
+                type: "POST",
+                crossDomain: true,
+                url: "http://localhost:8080/recipe/newrecipe",
+                data: {
+            recipename: document.getElementsByName("recipename")[0].value,
+                    IBU: document.getElementsByName("IBU")[0].value,
+                    ABV: document.getElementsByName("ABV")[0].value,
+                    batchSize: document.getElementsByName("batchSize")[0].value,
+                    Description: document.getElementsByName("Description")[0].value,
+                    boilTime : document.getElementsByName("boilTime")[0].value,
+                    brewType: document.getElementsByName("brewType")[0].value,
+                    optradio: document.getElementsByName("optradio")[0].value
+
+
+        },
+        success: function (response) {
+            //code for setting session and sign in
+            if (response.toString() == "success")
+                alert("You have successfully added your recipe")
+        }
+        });
+    }
+</script>
   
 </body>
 
