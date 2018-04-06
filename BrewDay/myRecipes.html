@@ -99,7 +99,7 @@
                                     <li class="divider">
                                     </li>
                                     <li>
-                                        <a href="logout.html"> Log Out</a>
+                                        <button class="btn btn-primary btn-block" type="submit" onClick="redirectMethod()">Log Out</button>
                                     </li>
                                 </ul>
                         </li>                   
@@ -239,6 +239,24 @@
             if (response.toString() == "success")
                 alert("You have successfully added your recipe")
         }
+        });
+    }
+</script>
+      <script>
+    function redirectMethod() {
+        alert("Hi")
+        $.ajax({
+            type: "GET",
+            crossDomain: true,
+            url: "http://localhost:8080/user/logout",
+            
+            success: function (response) {
+                
+                if (response.toString() == "success"){
+                    alert("You are logged out successfully")
+		window.location="https://vashama.github.io/BrewDay/BrewDay/index.html";
+}
+            }
         });
     }
 </script>
