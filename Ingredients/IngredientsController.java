@@ -17,27 +17,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Ingredients")
-public class RecipeController {
+public class IngredientsController {
     @Autowired
-    RecipeRepository recipeRepository;
+    IngredientsRepository ingredientsRepository;
 
     @RequestMapping(method=RequestMethod.POST)
-     public ResponseEntity<Recipe> save(@RequestParam("IBU") Double ibu, @RequestParam("ABV") Double abv, @RequestParam("batchSize") Double batchSize, @RequestParam("Description") String description,
-                               @RequestParam("boilTime") Time boilTime, @RequestParam("brewType") String brewType,@RequestParam("optradio") String optradio){
+     public ResponseEntity<Recipe> save(@RequestParam("GrainMalts") Double grainMalts, @RequestParam("Hops") Double hops, @RequestParam("Sugars") Double sugars, @RequestParam("Yeast") Double yeast,
+                               @RequestParam("Additives") Double additives){
 
-        Recipe recipe = new Recipe(batchSize,abv, description, ibu, boilTime, brewType,optradio);
-        Recipe insertedRecipe = recipeRepository.save(recipe);
+        Ingredients ingredients = new Ingredients(grainMalts,hops, sugars, yeast, additives);
+        Ingredients insertedIngredients = IngredientsRespository.save(ingredients);
 
-        return new ResponseEntity<>(insertedRecipe, HttpStatus.CREATED);
+        return new ResponseEntity<>(insertedIngredients, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<Recipe> get(){
-        List<Recipe> recipes = new ArrayList<>();
+    public List<Ingredients> get(){
+        List<Ingredients> ingredients = new ArrayList<>();
 
-        recipeRepository.findAll().iterator().forEachRemaining(x -> recipes.add(x));
+        ingredientsRepository.findAll().iterator().forEachRemaining(x -> ingredients.add(x));
 
-        return recipes;
+        return ingredients;
     }
 
     @GetMapping("/{recipeId}")
