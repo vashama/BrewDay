@@ -5,7 +5,22 @@
     <script>
         function logoutFunction(event) {
           event.preventDefault();
-          window.location= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
+          window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
+        }
+        function brewTodayFunction(event) {
+          var output = "";
+          
+          $.ajax({
+                type: "POST",
+                crossDomain: true,
+                url: "http://localhost:8080/pareto/main"
+        success: function (response) {
+            //code for setting session and sign in
+            output = response.toString()
+        }
+        });
+          alert("" + output);
+          window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/brewToday.html';
         }
     </script>
     <meta charset="utf-8">
@@ -45,7 +60,7 @@
                                     <li class="divider">
                                     </li>
                                     <li>
-                                        <a href="brewToday.html">What should I brew today?</a>
+                                        <a href="brewToday.html" onclick='brewTodayFunction(event);'>What should I brew today?</a>
                                     </li>
                             </ul>
                         </li>
