@@ -9,7 +9,7 @@
             }
             function brewTodayFunction(event) {
               var output = "";
-              alert("In function");
+          //    alert("In function");
               $.ajax({
                     type: "POST",
                     crossDomain: true,
@@ -17,10 +17,10 @@
             success: function (response) {
                 //code for setting session and sign in
                 output = response.toString();
-                alert(output);
+                $("$brewingName").html(output);
             }
             });
-              alert("output: " + output);
+            //  alert("output: " + output);
               window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/brewToday.html';
             }
         </script>
