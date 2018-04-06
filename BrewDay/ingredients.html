@@ -110,192 +110,42 @@
                   <form class="form-horizontal">
                      <fieldset>
                         <!-- Form Name -->
-                        <legend class="text-center">Add ingredients (in percentages): </legend>
+                        <legend class="text-center">Add Ingredients</legend>
                         <!-- Grain Malts-->
                         <div class="form-group">
-                           <label class="col-md-4 control-label" for="Grain Malts">Grain Malts</label>  
+                           <label class="col-md-4 control-label" for="Type">Type</label>
                            <div class="col-md-4">
-                              <div class="input-group">
-                                 <select id="GrainMalts" name="Grain Malts">
-                                    <option value="FawcettOatMalt">Fawcett Oat Malt</option>
-                                    <option value="FlakedBarley">Flaked Barley</option>
-                                    <option value="FlakedMaize">Flaked Maize</option>
-                                    <option value="FlakedOats">Flaked Oats</option>
-                                    <option value="FlakedRye">Flaked Rye</option>
-                                    <option value="FlakedWheat">Flaked Wheat</option>
-                                    <option value="TorrifiedWheat">Torrified Wheat</option>
-                                    <option value="BelgianPaleAle">Belgian Pale Ale</option>
-                                    <option value="BelgianPilsner">Belgian Pilsner</option>
-                                    <option value="EnglishMarisOtter">English Maris Otter</option>
-                                    <option value="GermanDarkMunich">German Dark Munich</option>
-                                    <option value="GermanMunich">German Munich</option>
-                                    <option value="GermanPilsner">German Pilsner</option>
-                                    <option value="GermanVienna">German Vienna</option>
-                                    <option value="GlobalMaltKolsch">Global Malt Kolsch</option>
-                                    <option value="MildAleMalt">Mild Ale Malt</option>
-                                    <option value="Organic2row">Organic 2-row</option>
-                                    <option value="OrganicMunich">Organic Munich</option>
-                                    <option value="Rahr2row">Rahr 2-row</option>
-                                    <option value="Rahr6row">Rahr 6-row</option>
-                                    <option value="RahrPaleAle">Rahr Pale Ale</option>
-                                    <option value="RahrPremiumPilsner">Rahr Premium Pilsner</option>
-                                    <option value="RahrWhiteWheatMalt">Rahr White Wheat Malt</option>
-                                    <option value="BritishGoldenPromise">British Golden Promise</option>
-                                    <option value="WeyermannBohemianPils">Weyermann Bohemian Pils</option>
-                                    <option value="WeyermannDarkWheat">Weyermann Dark Wheat</option>
-                                    <option value="WeyermannPaleWheat">Weyermann Pale Wheat</option>
-                                    <option value="BelgianCaramelPils">Belgian Caramel Pils</option>
-                                    <option value="BelgianCaramunich">Belgian Caramunich</option>
-                                    <option value="BelgianCaravienne">Belgian Caravienne</option>
-                                    <option value="BelgianSpecialB">Belgian Special B</option>
-                                    <option value="BriessCarapils">Briess Carapils</option>
-                                    <option value="Caramel10">Caramel 10</option>
-                                    <option value="Caramel120">Caramel 120</option>
-                                    <option value="Caramel20">Caramel 20</option>
-                                    <option value="Caramel40">Caramel 40</option>
-                                    <option value="Caramel60">Caramel 60</option>
-                                    <option value="Caramel80">Caramel 80</option>
-                                    <option value="Caramel90">Caramel 90</option>
-                                    <option value="GambrinusHoneyMalt">Gambrinus Honey Malt</option>
-                                    <option value="OrganicCaramel120">Organic Caramel 120</option>
-                                    <option value="OrganicCaramel20">Organic Caramel 20</option>
-                                    <option value="OrganicCaramel60">Organic Caramel 60</option>
-                                    <option value="OrganicCaraPils">Organic CaraPils</option>
-                                    <option value="EnglishCaraMalt">English CaraMalt</option>
-                                    <option value="EnglishDarkCrystal">English Dark Crystal</option>
-                                    <option value="EnglishExtraDarkCrystal">English Extra Dark Crystal</option>
-                                    <option value="SimpsonsGoldenNakedOats">Simpsons Golden Naked Oats</option>
-                                    <option value="EnglishMediumCrystal">English Medium Crystal</option>
-                                    <option value="WeyermannCaraAmber">Weyermann CaraAmber</option>
-                                    <option value="WeyermannCaraAroma">Weyermann CaraAroma</option>
-                                    <option value="WeyermannCarafoam">Weyermann Carafoam</option>
-                                    <option value="WeyermannCarahell">Weyermann Carahell</option>
-                                    <option value="WeyermannCaramunich I">Weyermann Caramunich I</option>
-                                    <option value="WeyermannCaramunich II">Weyermann Caramunich II</option>
-                                    <option value="WeyermannCaramunich III">Weyermann Caramunich III</option>
-                                    <option value="WeyermannCaraRed">Weyermann CaraRed</option>
-                                    <option value="WeyermannCarawheat">Weyermann Carawheat</option>
-                                    <option value="BelgianDebittered Black">Belgian Debittered Black</option>
-                                    <option value="FawcettPale Chocolate">Fawcett Pale Chocolate</option>
-                                    <option value="OrganicChocolate">Organic Chocolate</option>
-                                    <option value="EnglishBlackMalt">English Black Malt</option>
-                                    <option value="EnglishChocolate">English Chocolate</option>
-                                    <option value="EnglishRoastedBarley">English Roasted Barley</option>
-                                    <option value="WeyermannChocolateRyeMalt">Weyermann Chocolate Rye Malt</option>
-                                    <option value="WeyermannDehuskedCarafaI">Weyermann Dehusked Carafa I</option>
-                                    <option value="WeyermannDehuskedCarafaII">Weyermann Dehusked Carafa II</option>
-                                    <option value="WeyermannDehuskedCarafaIII">Weyermann Dehusked Carafa III</option>
-                                    <option value="BelgianAromaticMalt">Belgian Aromatic Malt</option>
-                                    <option value="BelgianBiscuitMalt">Belgian Biscuit Malt</option>
-                                    <option value="BriessCherrywoodSmokedMalt">Briess Cherry-wood Smoked Malt</option>
-                                    <option value="BriessSpecialRoast">Briess Special Roast</option>
-                                    <option value="BriessVictory">Briess Victory</option>
-                                    <option value="CrispAmber">Crisp Amber</option>
-                                    <option value="CrispBrown">Crisp Brown</option>
-                                    <option value="FrancoBelgesCoffeeKiln">Franco-Belges Coffee Kiln</option>
-                                    <option value="BritishPeatedMalt">British Peated Malt</option>
-                                    <option value="WeyermannAcidulated">Weyermann Acidulated</option>
-                                    <option value="WeyermannMelanoidin">Weyermann Melanoidin</option>
-                                    <option value="WeyermannSmokedMalt">Weyermann Smoked Malt</option>
+                                 <select id="type" name="type" class="form-control input-md">
+                                    <option value="0">Grain Malts</option>
+                                    <option value="1">Hops</option>
+                                    <option value="2">Sugar</option>
+                                    <option value="3">Yeast</option>
                                  </select>
-                                 <input id="GrainBatch" type="text" placeholder="Batch Size" class="form-control input-md" size="50">
-                                 <!-- <input id="Grain Malts" name="Grain Malts" type="text" placeholder="Grain Malts" class="form-control input-md" size="50"> -->
-                              </div>
-                              <div class="input-group">
-                                    
-                              </div>
                            </div>
                         </div>
                         <!-- Hops -->
                         <div class="form-group">
-                           <label class="col-md-4 control-label" for="Hops">Hops</label>  
+                           <label class="col-md-4 control-label" for="Name">Name</label>
                            <div class="col-md-4">
-                              <div class="input-group">
-                                  <select id="Hops" name="Hops">
-                                                <option value="AmarilloHops">Amarillo Hops</option>
-                                                <option value="CascadeHops">Cascade Hops</option>
-                                                <option value="CentennialHops">Centennial Hops</option>
-                                                <option value="ChinookHops">ChinookHops</option>
-                                                <option value="CitraHops">Citra Hops</option>
-                                                <option value="CrystalHops">Crystal Hops</option>
-                                                <option value="CTZHops">CTZ Hops</option>
-                                                <option value="FuggleHops">Fuggle Hops</option>
-                                                <option value="GoldingHops">Golding Hops</option>
-                                                <option value="HopHash">Hop Hash</option>
-                                                <option value="LambicHops">Lambic Hops</option>
-                                                <option value="MagnumHops">Magnum Hops</option>
-                                                <option value="MosaicHops">Mosaic Hops</option>
-                                                <option value="Mt.HoodHops">Mt.Hood Hops</option>
-                                                <option value="NorthernBrewerHop">Northern Brewer Hops</option>
-                                                <option value="NuggetHops">Nugget Hops</option>
-                                                <option value="PerleHops">Perle Hops</option>
-                                                <option value="SaazHops">Saaz Hops</option>
-                                                <option value="SimcoeHops">Simcoe Hops</option>
-                                                <option value="TriumphHops">Triumph Hops</option>
-                                                <option value="WillametteHops">Willamette Hops</option>
-                                                <option value="Ahtanum">Ahtanum</option>
-                                                <option value="Amarillo">Amarillo</option>
-                                                <option value="Cascade">Cascade</option>
-                                                <option value="Centennial">Centennial</option>
-                                                <option value="Chinook">Chinook</option>
-                                                <option value="Columbus">Columbus</option>
-                                                <option value="Cluster">Cluster</option>
-                                                <option value="Crystal">Crystal</option>
-                                                <option value="Fuggle">Fuggle</option>
-                                                <option value="Galena">Galena</option>
-                                                <option value="Golding">Golding</option>
-                                                <option value="Hallertaumf">Hallertaumf</option>
-                                                <option value="Horizon">Horizon</option>
-                                                <option value="Liberty">Liberty</option>
-                                                <option value="MountHood">MountHood</option>
-                                                <option value="NorthernBrewer">Northern Brewer</option>
-                                                <option value="Nugget">Nugget</option>
-                                                <option value="Perle">Perle</option>
-                                                <option value="Saaz">Saaz</option>
-                                                <option value="Satus">Satus</option>
-                                                <option value="Simcoe">Simcoe</option>
-                                                <option value="SpaltSelect">Spalt Select</option>
-                                                <option value="Sterling">Sterling</option>
-                                                <option value="Tettnang">Tettnang</option>
-                                                <option value="Tomahawk">Tomahawk</option>
-                                                <option value="Ultra">Ultra</option>
-                                                <option value="USFuggle">USFuggle</option>
-                                                <option value="Vanguard">Vanguard</option>
-                                                <option value="Warrior">Warrior</option>
-                                                <option value="Willamette">Willamette</option>
-                                                
+
+                                  <select id="name" name="name" class="form-control input-md">
+                                    <option value="">Select one</option>
                                   </select>
-                                 <input id="Hops" type="text" placeholder="Batch Size" class="form-control input-md" size="50">
-                              </div>
+
                            </div>
                         </div>
                         <!-- Sugars -->
                         <div class="form-group">
-                           <label class="col-md-4 control-label" for="Sugars">Sugars</label>  
+                           <label class="col-md-4 control-label" for="Quantity">Quantity</label>
                            <div class="col-md-4">
                               <div class="input-group">
-                                 <input id="Sugars" name="Sugars" type="text" placeholder="Sugars" class="form-control input-md" size="50">
+                                 <input id="quantity" name="quantity" type="text" placeholder="Enter the quantity here" class="form-control input-md" size="50">
                               </div>
                            </div>
                         </div>
-                        <!-- Yeast -->
+                        <br>
                         <div class="form-group">
-                           <label class="col-md-4 control-label" for="Yeast">Yeast</label>  
-                           <div class="col-md-4">
-                              <div class="input-group">
-                                 <input id="Yeast" name="Yeast" type="text" placeholder="Yeast" class="form-control input-md" size="50">
-                              </div>
-                           </div>
-                        </div>
-                        <!-- Additives -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Additives">Additives</label>
-                           <div class="col-md-4">                     
-                              <textarea class="form-control" rows="10"  id="Additives" name="Additives" placeholder="Additives (Optional)"></textarea>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" ></label>  
+                           <label class="col-md-4 control-label" ></label>
                            <div class="col-md-4">
                               <a href="#" class="btn btn-success"> Add to store record </a>
                               <a href="#" class="btn btn-danger" value=""> Clear the entries </a>
@@ -320,5 +170,27 @@
       <script src="js/jquery.js"></script>
       <!-- Bootstrap Core JavaScript -->
       <script src="js/bootstrap.min.js"></script>
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+
+          $("#type").change(function() {
+            var val = $(this).val();
+            $("#name").html(options[val]);
+          });
+
+
+          var options = [
+            '<option value="FawcettOatMalt">Fawcett Oat Malt</option><option value="FlakedBarley">Flaked Barley</option><option value="FlakedMaize">Flaked Maize</option><option value="FlakedOats">Flaked Oats</option><option value="FlakedRye">Flaked Rye</option><option value="FlakedWheat">Flaked Wheat</option><option value="TorrifiedWheat">Torrified Wheat</option><option value="BelgianPaleAle">Belgian Pale Ale</option><option value="BelgianPilsner">Belgian Pilsner</option><option value="EnglishMarisOtter">English Maris Otter</option><option value="GermanDarkMunich">German Dark Munich</option><option value="GermanMunich">German Munich</option><option value="GermanPilsner">German Pilsner</option><option value="GermanVienna">German Vienna</option><option value="GlobalMaltKolsch">Global Malt Kolsch</option><option value="MildAleMalt">Mild Ale Malt</option><option value="Organic2row">Organic 2-row</option><option value="OrganicMunich">Organic Munich</option><option value="Rahr2row">Rahr 2-row</option><option value="Rahr6row">Rahr 6-row</option><option value="RahrPaleAle">Rahr Pale Ale</option><option value="RahrPremiumPilsner">Rahr Premium Pilsner</option><option value="RahrWhiteWheatMalt">Rahr White Wheat Malt</option><option value="BritishGoldenPromise">British Golden Promise</option><option value="WeyermannBohemianPils">Weyermann Bohemian Pils</option><option value="WeyermannDarkWheat">Weyermann Dark Wheat</option><option value="WeyermannPaleWheat">Weyermann Pale Wheat</option><option value="BelgianCaramelPils">Belgian Caramel Pils</option><option value="BelgianCaramunich">Belgian Caramunich</option><option value="BelgianCaravienne">Belgian Caravienne</option><option value="BelgianSpecialB">Belgian Special B</option><option value="BriessCarapils">Briess Carapils</option><option value="Caramel10">Caramel 10</option><option value="Caramel120">Caramel 120</option><option value="Caramel20">Caramel 20</option><option value="Caramel40">Caramel 40</option><option value="Caramel60">Caramel 60</option><option value="Caramel80">Caramel 80</option><option value="Caramel90">Caramel 90</option><option value="GambrinusHoneyMalt">Gambrinus Honey Malt</option><option value="OrganicCaramel120">Organic Caramel 120</option><option value="OrganicCaramel20">Organic Caramel 20</option><option value="OrganicCaramel60">Organic Caramel 60</option><option value="OrganicCaraPils">Organic CaraPils</option><option value="EnglishCaraMalt">English CaraMalt</option><option value="EnglishDarkCrystal">English Dark Crystal</option><option value="EnglishExtraDarkCrystal">English Extra Dark Crystal</option><option value="SimpsonsGoldenNakedOats">Simpsons Golden Naked Oats</option><option value="EnglishMediumCrystal">English Medium Crystal</option><option value="WeyermannCaraAmber">Weyermann CaraAmber</option><option value="WeyermannCaraAroma">Weyermann CaraAroma</option><option value="WeyermannCarafoam">Weyermann Carafoam</option><option value="WeyermannCarahell">Weyermann Carahell</option><option value="WeyermannCaramunich I">Weyermann Caramunich I</option><option value="WeyermannCaramunich II">Weyermann Caramunich II</option><option value="WeyermannCaramunich III">Weyermann Caramunich III</option><option value="WeyermannCaraRed">Weyermann CaraRed</option><option value="WeyermannCarawheat">Weyermann Carawheat</option><option value="BelgianDebittered Black">Belgian Debittered Black</option><option value="FawcettPale Chocolate">Fawcett Pale Chocolate</option><option value="OrganicChocolate">Organic Chocolate</option><option value="EnglishBlackMalt">English Black Malt</option><option value="EnglishChocolate">English Chocolate</option><option value="EnglishRoastedBarley">English Roasted Barley</option><option value="WeyermannChocolateRyeMalt">Weyermann Chocolate Rye Malt</option><option value="WeyermannDehuskedCarafaI">Weyermann Dehusked Carafa I</option><option value="WeyermannDehuskedCarafaII">Weyermann Dehusked Carafa II</option><option value="WeyermannDehuskedCarafaIII">Weyermann Dehusked Carafa III</option><option value="BelgianAromaticMalt">Belgian Aromatic Malt</option><option value="BelgianBiscuitMalt">Belgian Biscuit Malt</option><option value="BriessCherrywoodSmokedMalt">Briess Cherry-wood Smoked Malt</option><option value="BriessSpecialRoast">Briess Special Roast</option><option value="BriessVictory">Briess Victory</option><option value="CrispAmber">Crisp Amber</option><option value="CrispBrown">Crisp Brown</option><option value="FrancoBelgesCoffeeKiln">Franco-Belges Coffee Kiln</option><option value="BritishPeatedMalt">British Peated Malt</option><option value="WeyermannAcidulated">Weyermann Acidulated</option><option value="WeyermannMelanoidin">Weyermann Melanoidin</option><option value="WeyermannSmokedMalt">Weyermann Smoked Malt</option>',
+
+            '<option value="AmarilloHops">Amarillo Hops</option><option value="CascadeHops">Cascade Hops</option><option value="CentennialHops">Centennial Hops</option><option value="ChinookHops">ChinookHops</option><option value="CitraHops">Citra Hops</option><option value="CrystalHops">Crystal Hops</option><option value="CTZHops">CTZ Hops</option><option value="FuggleHops">Fuggle Hops</option><option value="GoldingHops">Golding Hops</option><option value="HopHash">Hop Hash</option><option value="LambicHops">Lambic Hops</option><option value="MagnumHops">Magnum Hops</option><option value="MosaicHops">Mosaic Hops</option><option value="Mt.HoodHops">Mt.Hood Hops</option><option value="NorthernBrewerHop">Northern Brewer Hops</option><option value="NuggetHops">Nugget Hops</option><option value="PerleHops">Perle Hops</option><option value="SaazHops">Saaz Hops</option><option value="SimcoeHops">Simcoe Hops</option><option value="TriumphHops">Triumph Hops</option><option value="WillametteHops">Willamette Hops</option><option value="Ahtanum">Ahtanum</option><option value="Amarillo">Amarillo</option><option value="Cascade">Cascade</option><option value="Centennial">Centennial</option><option value="Chinook">Chinook</option><option value="Columbus">Columbus</option><option value="Cluster">Cluster</option><option value="Crystal">Crystal</option><option value="Fuggle">Fuggle</option><option value="Galena">Galena</option><option value="Golding">Golding</option><option value="Hallertaumf">Hallertaumf</option><option value="Horizon">Horizon</option><option value="Liberty">Liberty</option><option value="MountHood">MountHood</option><option value="NorthernBrewer">Northern Brewer</option><option value="Nugget">Nugget</option><option value="Perle">Perle</option><option value="Saaz">Saaz</option><option value="Satus">Satus</option><option value="Simcoe">Simcoe</option><option value="SpaltSelect">Spalt Select</option><option value="Sterling">Sterling</option><option value="Tettnang">Tettnang</option><option value="Tomahawk">Tomahawk</option><option value="Ultra">Ultra</option><option value="USFuggle">USFuggle</option><option value="Vanguard">Vanguard</option><option value="Warrior">Warrior</option><option value="Willamette">Willamette</option>',
+
+            "<option value='test1'>item3: test 1</option><option value='test2'>item3: test 2</option>",
+
+            "<option value='test1'>item4: test 1</option><option value='test2'>item4: test 2</option>"
+          ];
+
+        });
+      </script>
    </body>
 </html>
