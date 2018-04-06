@@ -147,7 +147,7 @@
                             <label class="col-md-4 control-label" for="ABV">ABV</label>  
                             <div class="col-md-4">
                               <div class="input-group">
-                                <input id="ABV" name="ABV" type="text" placeholder="ABV" class="form-control input-md" size="50">
+                                <input id="abv" name="abv" type="text" placeholder="ABV" class="form-control input-md" size="50">
                               </div>
                             </div>
                     </div>
@@ -158,7 +158,7 @@
                             <label class="col-md-4 control-label" for="IBU">IBU</label>  
                             <div class="col-md-4">
                               <div class="input-group">
-                                <input id="IBU" name="IBU" type="text" placeholder="IBU" class="form-control input-md" size="50">
+                                <input id="ibu" name="ibu" type="text" placeholder="IBU" class="form-control input-md" size="50">
                               </div>
                             </div>
                     </div>
@@ -224,8 +224,8 @@
                 url: "http://localhost:8080/recipe/newrecipe",
                 data: {
             recipename: document.getElementsByName("recipename")[0].value,
-                    IBU: document.getElementsByName("IBU")[0].value,
-                    ABV: document.getElementsByName("ABV")[0].value,
+                    ibu: document.getElementsByName("ibu")[0].value,
+                    abv: document.getElementsByName("abv")[0].value,
                     batchSize: document.getElementsByName("batchSize")[0].value,
                     Description: document.getElementsByName("Description")[0].value,
                     boilTime : document.getElementsByName("boilTime")[0].value,
