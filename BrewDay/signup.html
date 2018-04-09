@@ -235,7 +235,7 @@
 
                 var patt = new RegExp(/^[a-z ,.'-]+$/i);
 
-                if(lname == null || lname == "") {
+                if(lname.trim() == "") {
                   $("#lastname_error_msg").html(" * Enter your Last Name");
                   $("#lastname_error_msg").show();
                   error_lastname = true;
@@ -315,7 +315,7 @@
             });
         });
     </script>
-        
+
         <script>
     function validateCredentials() {
         alert("Hi Please sign Up")
