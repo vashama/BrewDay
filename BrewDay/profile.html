@@ -142,7 +142,7 @@
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" id="profile_info_form">
                         <fieldset>
 
                             <!-- Form Name -->
@@ -272,6 +272,7 @@
                                         <option value="WI">Wisconsin</option>
                                         <option value="WY">Wyoming</option>
                                     </select>
+                                    <small id="state_error_msg" style="color:red"></small>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -281,7 +282,7 @@
                                         <div class="input-group-addon">
                                             <i class="glyphicon glyphicon-map-marker"></i>
                                         </div>
-                                        <input id="zip" name="Permanent Address" type="text" placeholder="ZIP Code" class="form-control input-md ">
+                                        <input id="zip" type="text" placeholder="ZIP Code" class="form-control input-md ">
                                         <small id="zip_error_msg" style="color:red"></small>
                                     </div>
                                 </div>
@@ -330,32 +331,18 @@
                                 </div>
                             </div>
 
-                            <!-- Email Address -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="Email Address">Email Address</label>
-                                <div class="col-md-4">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="glyphicon glyphicon-pencil"></i>
-                                        </div>
-                                        <input id="Email Address" name="Email Address" type="email" placeholder="Email Address" class="form-control input-md">
-                                        <small id="email_error_msg" style="color:red"></small>
-                                    </div>
-                                </div>
-                            </div>
-
                             <!-- Summary -->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="Summary (max 200 words)">Summary</label>
                                 <div class="col-md-4">
-                                    <textarea class="form-control" rows="10" id="Summary (max 200 words)" name="Summary (max 200 words)"></textarea>
+                                    <textarea class="form-control" rows="10" id="Summary" name="Summary (max 200 words)"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label"></label>
                                 <div class="col-md-4">
-                                    <a href="#" class="btn btn-success"> Save </a>
-                                    <a href="#" class="btn btn-danger" value=""> Clear </a>
+                                    <button class="btn btn-success" type="submit" value="Save"> Save </button>
+                                    <button class="btn btn-danger" type="reset" value="Reset"> Clear </button>
                                 </div>
                             </div>
                         </fieldset>
@@ -385,17 +372,17 @@
             $("#dob_error_msg").hide();
             $("#addr_error_msg").hide();
             $("#city_error_msg").hide();
+            $("#state_error_msg").hide();
             $("#zip_error_msg").hide();
             $("#phone_error_msg").hide();
-            $("#email_error_msg").hide();
 
             var error_name = false;
             var error_dob = false;
             var error_addr = false;
             var error_city = false;
+            var error_state = false;
             var error_zip = false;
             var error_phone = false;
-            var error_email = false;
 
 
             $('#name').focusout(function () {
@@ -414,6 +401,10 @@
                 check_city();
             });
 
+            $('#State').focusout(function () {
+                check_state();
+            });
+
             $('#zip').focusout(function () {
                 check_zip();
             });
@@ -422,8 +413,8 @@
                 this.value = this.value.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
             });
 
-            $('#email').focusout(function () {
-                check_email();
+            $('#phone').focusout(function () {
+                check_phone();
             });
 
 
@@ -454,7 +445,12 @@
 
                 var date = new Date(dob);
 
-                if(date.getFullYear() <= 1900) {
+                if(dob == "") {
+                    $("#dob_error_msg").html(" * Enter your Date of Birth");
+                    $("#dob_error_msg").show();
+                    error_dob = true;
+                }
+                else if(date.getFullYear() <= 1900) {
                     $("#dob_error_msg").html(" * Sorry, Brew Day! is not for Zombies");
                     $("#dob_error_msg").show();
                     error_dob = true;
@@ -501,10 +497,22 @@
                     $("#city_error_msg").hide();
                 }
             }
-/*
+
+            function check_state() {
+
+                if($("#State").val() == "") {
+                    $("#state_error_msg").html(" * Select the State you reside in");
+                    $("#state_error_msg").show();
+                    error_state = true;
+                }
+                else {
+                    $("#state_error_msg").hide();
+                }
+            }
+
             function check_zip() {
 
-                var zip_pattern = new RegExp(/[0-9]{5}/i);
+                var zip_pattern = new RegExp(/^[0-9]{5}$/);
 
                 var zip = $("#zip").val();
 
@@ -517,29 +525,43 @@
                     $("#zip_error_msg").hide();
                 }
             }
-*/
-            function check_email() {
 
-                var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+            function check_phone() {
 
-                if (pattern.test($("#email").val())) {
-                    $("#email_error_msg").hide();
+                var phoneReg = new RegExp(/^\d{3}\-\d{3}\-\d{4}$/);
+
+                var phone = $("#phone").val();
+
+                if(!phoneReg.test(phone)) {
+                  $("#phone_error_msg").html(" * Enter a valid Phone number");
+                  $("#phone_error_msg").show();
+                  error_phone = true;
                 }
                 else {
-                    $("#email_error_msg").html(" * Incorrect email address");
-                    $("#email_error_msg").show();
-                    error_email = true;
+                  $("#phone_error_msg").hide();
                 }
             }
 
 
-            $("#signup_form").submit(function () {
+            $("#profile_info_form").submit(function () {
 
                 error_name = false;
+                error_dob = false;
+                error_addr = false;
+                error_city = false;
+                error_state = false;
+                error_zip = false;
+                error_phone = false;
 
                 check_name();
+                check_dob();
+                check_addr();
+                check_city();
+                check_state();
+                check_zip();
+                check_phone();
 
-                if (error_firstname == false && error_lastname == false) {
+                if (error_name == false && error_dob == false && error_addr == false && error_city == false && error_state == false && error_zip == false && error_phone == false) {
                     return true;
                 }
                 else
