@@ -1,0 +1,9 @@
+edu\sergradcapstone\groupseven\brewday\BrewdayApplication.class
+edu\sergradcapstone\groupseven\brewday\model\Recipe.class
+edu\sergradcapstone\groupseven\brewday\authorization\OAuth2Config.class
+edu\sergradcapstone\groupseven\brewday\controller\RecipeController.class
+edu\sergradcapstone\groupseven\brewday\authorization\WebSecurityConfig.class
+edu\sergradcapstone\groupseven\brewday\model\User.class
+edu\sergradcapstone\groupseven\brewday\repositories\UserRepository.class
+edu\sergradcapstone\groupseven\brewday\authorization\UserService.class
+edu\sergradcapstone\groupseven\brewday\repositories\RecipeRepository.class
