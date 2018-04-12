@@ -273,7 +273,7 @@
                       <label class="col-md-4 control-label" ></label>
                         <div class="col-md-4">
                           <label><input type="radio" name="optradio">Public</label>
-                          <label><input type="radio" name="optradio">Private</label>
+                          <label><input type="radio" name="optradio" checked>Private</label>
                           <button class="btn btn-primary btn-block" type="submit" onClick="validateCredentials()">Add this recipe</button>
                           <!--<a href="#" class="btn btn-success"> Add this recipe </a>-->
                         </div>
@@ -408,7 +408,7 @@ $(document).ready(function() {
     var abv = $("#abv").val();
 
     if(abv.trim() == "" || isNaN(abv)) {
-        $("#abv_error_msg").html(" * Enter the Alcohol by Volume (in %), figure only");
+        $("#abv_error_msg").html(" * Enter the Alcohol by Volume, without % symbol");
         $("#abv_error_msg").show();
         error_abv = true;
     }

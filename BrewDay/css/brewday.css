@@ -46,6 +46,17 @@ hr {
     border-color: #999999;
 }
 
+input[type="radio"]{
+  margin: 0 10px 30px 60px;
+}
+
+/* textbox for instuctions in myRecipes.html */
+#instructions {
+  resize: vertical;
+  min-height: 250px;
+  max-height: 750px;
+}
+
 .brand,
 .address-bar {
     display: none;
@@ -242,7 +253,7 @@ footer p {
 }
 
 
-.wrapper {	
+.wrapper {
 	margin-top: 80px;
   margin-bottom: 80px;
 }
@@ -252,8 +263,8 @@ footer p {
   padding: 15px 35px 45px;
   margin: 0 auto;
   background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);  
-  
+  border: 1px solid rgba(0,0,0,0.1);
+
 
   .form-signin-heading,
 	.checkbox {
@@ -297,6 +308,3 @@ footer p {
         clear: both;
     }
 }
-
-
-
