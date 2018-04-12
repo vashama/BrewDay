@@ -40,12 +40,12 @@
       <link href="css/brewday.css" rel="stylesheet">
 
 </head>
-   
+
 <body>
-      
+
   <div class="brand">RECIPES
   </div>
-    
+
   <!-- Navigation -->
   <nav class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -130,7 +130,7 @@
                                     <a href="http://localhost:8080/user/logout" onclick='logoutFunction(event);'> Log Out</a>
                                 </li>
                             </ul>
-                        </li>                   
+                        </li>
                     </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -146,82 +146,131 @@
             <div class="col-lg-12">
               <form class="form-horizontal" id="myRecipes_form">
                 <fieldset>
-    
+
                     <!-- Form Name -->
                     <legend class="text-center">Add Recipe</legend>
-                      
+
                       <!-- Beer Name-->
-                    <div class="form-group"> 
-                            <label class="col-md-4 control-label" for="recipename">Recipe Name</label>  
+                    <div class="form-group">
+                            <label class="col-md-4 control-label" for="recipename">Recipe Name</label>
                             <div class="col-md-4">
                                 <div class="input-group">
                                   <input id="recipename" name="recipename" type="text" placeholder="Recipe Name" class="form-control input-md" size="50">
+                                  <small id="recipename_error_msg" style="color:red"></small>
                                 </div>
                             </div>
                     </div>
-			
+
 			<!-- BREW TYPE -->
                     <div class="form-group">
-                            <label class="col-md-4 control-label" for="brewType ">Brew Type </label>  
+                            <label class="col-md-4 control-label" for="brewType ">Beer Style </label>
                             <div class="col-md-4">
-                              <div class="input-group">
-                                <input id="brewType" name="brewType" type="text" placeholder="Brew Type" class="form-control input-md" size="50">
-                              </div>
+                              <select id="brewType" class="form-control input-md" name="brewType">
+                                <option value="Light Lager">Light Lager</option>
+                                <option value="Pilsner">Pilsner</option>
+                                <option value="European Amber Lager">European Amber Lager</option>
+                                <option value="Dark Lager">Dark Lager</option>
+                                <option value="Bock">Bock</option>
+                                <option value="Light Hybrid Beer">Light Hybrid Beer</option>
+                                <option value="Amber Hybrid Beer">Amber Hybrid Beer</option>
+                                <option value="English Pale Ale">English Pale Ale</option>
+                                <option value="Scottish and Irish Ale">Scottish and Irish Ale</option>
+                                <option value="American Ale" selected>American Ale</option>
+                                <option value="English Brown Ale">English Brown Ale</option>
+                                <option value="Porter">Porter</option>
+                                <option value="Stout">Stout</option>
+                                <option value="India Pale Ale (IPA)">India Pale Ale (IPA)</option>
+                                <option value="German Wheat and Rye Beer">German Wheat and Rye Beer</option>
+                                <option value="Belgian and French Ale">Belgian and French Ale</option>
+                                <option value="Sour Ale">Sour Ale</option>
+                                <option value="Belgian Strong Ale">Belgian Strong Ale</option>
+                                <option value="Strong Ale">Strong Ale</option>
+                                <option value="Fruit Beer">Fruit Beer</option>
+                                <option value="Spice/Herb/Vegetable Beer">Spice/Herb/Vegetable Beer</option>
+                                <option value="Smoke-Flavored/Wood-Aged Beer">Smoke-Flavored/Wood-Aged Beer</option>
+                                <option value="Specialty Beer">Specialty Beer</option>
+                              </select>
                             </div>
                     </div>
-    
+
                     <!-- Batch Size-->
-                    <div class="form-group"> 
-                            <label class="col-md-4 control-label" for="batchSize">Batch Size</label>  
+                    <div class="form-group">
+                            <label class="col-md-4 control-label" for="batchSize">Batch Size <br>(in gallons)</label>
                             <div class="col-md-4">
-                                <div class="input-group">
-                                  <input id="batchSize" name="batchSize" type="text" placeholder="Batch Size" class="form-control input-md" size="50">
-                                </div>
+                                <select id="batchSize" name="batchSize" class="form-control input-md">
+                                   <option value="4.00">4.00</option>
+                                   <option value="4.50">4.50</option>
+                                   <option value="5.00" selected>5.00</option>
+                                   <option value="5.50">5.50</option>
+                                   <option value="6.00">6.00</option>
+                                   <option value="6.50">6.50</option>
+                                   <option value="7.00">7.00</option>
+                                   <option value="7.50">7.50</option>
+                                   <option value="8.00">8.00</option>
+                                   <option value="8.50">8.50</option>
+                                   <option value="9.00">9.00</option>
+                                   <option value="9.50">9.50</option>
+                                   <option value="10.00">10.00</option>
+                                </select>
                             </div>
                     </div>
-    
+
                     <!-- ABV -->
                     <div class="form-group">
-                            <label class="col-md-4 control-label" for="ABV">ABV</label>  
+                            <label class="col-md-4 control-label" for="ABV">ABV</label>
                             <div class="col-md-4">
                               <div class="input-group">
                                 <input id="abv" name="abv" type="text" placeholder="ABV" class="form-control input-md" size="50">
+                                <small id="abv_error_msg" style="color:red"></small>
                               </div>
                             </div>
                     </div>
-    
-    
+
+
                     <!-- IBU -->
                     <div class="form-group">
-                            <label class="col-md-4 control-label" for="IBU">IBU</label>  
+                            <label class="col-md-4 control-label" for="IBU">IBU</label>
                             <div class="col-md-4">
                               <div class="input-group">
                                 <input id="ibu" name="ibu" type="text" placeholder="IBU" class="form-control input-md" size="50">
+                                <small id="ibu_error_msg" style="color:red"></small>
                               </div>
                             </div>
                     </div>
-    
-                           
+
+
                     <!-- BOIL TIME -->
                     <div class="form-group">
-                            <label class="col-md-4 control-label" for="boilTime ">Boil Time </label>  
+                            <label class="col-md-4 control-label" for="boilTime ">Boil Time <br> (in minutes)</label>
                             <div class="col-md-4">
-                              <div class="input-group">
-                                <input id="boilTime" name="boilTime" type="text" placeholder="Boil Time" class="form-control input-md" size="50">
-                              </div>
+                              <select id="boilTime" name="boilTime" class="form-control input-md">
+                                 <option value="30">30</option>
+                                 <option value="45">45</option>
+                                 <option value="50">50</option>
+                                 <option value="55">55</option>
+                                 <option value="60" selected>60</option>
+                                 <option value="65">65</option>
+                                 <option value="70">70</option>
+                                 <option value="75">75</option>
+                                 <option value="90">90</option>
+                                 <option value="120">120</option>
+                                 <option value="150">150</option>
+                                 <option value="180">180</option>
+                              </select>
                             </div>
                     </div>
-    
+
                     <!--Instruction -->
                     <div class="form-group">
                             <label class="col-md-4 control-label" for="instructions">Instructions</label>
-                            <div class="col-md-4">                     
-                              <textarea class="form-control" rows="10"  id="instructions" name="instructions" placeholder="Instructions"></textarea>
+                            <div class="col-md-4">
+                              <textarea class="form-control" rows="10"  id="instructions" name="instructions" placeholder="Instructions for preparing beer"></textarea>
+                              <small id="instructions_error_msg" style="color:red"></small>
                             </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="col-md-4 control-label" ></label>  
+                      <label class="col-md-4 control-label" ></label>
                         <div class="col-md-4">
                           <label><input type="radio" name="optradio">Public</label>
                           <label><input type="radio" name="optradio">Private</label>
@@ -252,10 +301,10 @@
   <script src="js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
   <script src="js/bootstrap.min.js"></script>
-      
+
       <script>
     function validateCredentials() {
-        alert("Hi!! Enter your recipe")
+        //alert("Hi!! Enter your recipe")
         $.ajax({
                 type: "POST",
                 crossDomain: true,
@@ -287,9 +336,9 @@
             type: "POST",
             crossDomain: true,
             url: "http://localhost:8080/user/logout",
-            
+
             success: function (response) {
-                
+
                 if (response.toString() == "success"){
                     alert("You are logged out successfully")
 		window.location="https://vashama.github.io/BrewDay/BrewDay/index.html";
@@ -298,7 +347,125 @@
         });
     }
 </script>
-  
+<script>
+$(document).ready(function() {
+
+  var error_recipename = false;
+  var error_abv = false;
+  var error_ibu = false;
+  var error_instructions = false;
+
+  $("#recipename").focusout(function() {
+      check_recipename();
+  });
+
+  $("#abv").focusout(function() {
+      check_abv();
+  });
+
+  $("#ibu").focusout(function() {
+      check_ibu();
+  });
+
+  $("#instructions").focusout(function() {
+      check_instructions();
+  });
+
+  $("#myRecipes_form").submit(function() {
+
+    error_recipename = false;
+    error_abv = false;
+    error_ibu = false;
+    error_instructions = false;
+
+    check_recipename();
+    check_ibu();
+    check_abv();
+    check_instructions();
+
+    if(error_recipename == false && error_abv == false && error_ibu == false && error_instructions == false) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  });
+
+  function check_recipename() {
+
+    if($("#recipename").val().trim() == "") {
+        $("#recipename_error_msg").html(" * Enter a name for the recipe");
+        $("#recipename_error_msg").show();
+        error_recipename = true;
+    }
+    else {
+        $("#recipename_error_msg").hide();
+    }
+  }
+
+  function check_abv() {
+
+    var abv = $("#abv").val();
+
+    if(abv.trim() == "" || isNaN(abv)) {
+        $("#abv_error_msg").html(" * Enter the Alcohol by Volume (in %), figure only");
+        $("#abv_error_msg").show();
+        error_abv = true;
+    }
+    else if(abv < 1) {
+        $("#abv_error_msg").html(" * ABV value should be larger than 1");
+        $("#abv_error_msg").show();
+        error_abv = true;
+    }
+    else if(abv > 30) {
+        $("#abv_error_msg").html(" * Are you sure you want to enter a Beer recipe? <br> ** ABV value for beers go upto 30%.");
+        $("#abv_error_msg").show();
+        error_abv = true;
+    }
+    else {
+        $("#abv_error_msg").hide();
+    }
+
+  }
+
+  function check_ibu() {
+
+    var ibu = $("#ibu").val();
+
+    if(ibu.trim() == "" || isNaN(ibu)) {
+        $("#ibu_error_msg").html(" * Enter International Bitterness Units, decimal number only");
+        $("#ibu_error_msg").show();
+        error_ibu = true;
+    }
+    else if(ibu < 0) {
+        $("#ibu_error_msg").html(" * IBU cannot be negative");
+        $("#ibu_error_msg").show();
+        error_ibu = true;
+    }
+    else if(ibu > 120) {
+        $("#ibu_error_msg").html(" * IBU cannot be geater than 120 IBUs");
+        $("#ibu_error_msg").show();
+        error_ibu = true;
+    }
+    else {
+        $("#ibu_error_msg").hide();
+    }
+  }
+
+  function check_instructions() {
+
+    if($("#instructions").val().trim() == "") {
+        $("#instructions_error_msg").html(" * Enter a name for the recipe");
+        $("#instructions_error_msg").show();
+        error_instructions = true;
+    }
+    else {
+        $("#instructions_error_msg").hide();
+    }
+  }
+
+});
+</script>
 </body>
 
 </html>
