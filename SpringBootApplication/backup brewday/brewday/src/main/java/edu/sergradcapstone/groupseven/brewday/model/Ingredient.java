@@ -33,6 +33,9 @@ public class Ingredient {
     @Column(name="type")
     private String type;
 
+    @Column(name="name1")
+    private String type;
+
     @Column(name="lastPurchasedDate")
     private Date lastPurchasedDate;
 
