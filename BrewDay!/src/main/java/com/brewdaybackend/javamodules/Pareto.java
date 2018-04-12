@@ -116,6 +116,12 @@ public class Pareto {
 				recipeIngredientsPercentage.add(rs3.getDouble("water"));
 				recipeIngredientsPercentage.add(rs3.getDouble("grains"));
 			}
+			
+			for(int ingredient = 0; ingredient < recipeIngredientsPercentage.size(); ingredient++)
+			{
+				double updatedIngredient = ingredientsArrayList.get(ingredient);
+				updatedIngredient = updatedIngredient * recipeIngredientsPercentage.get(i) / 100;
+			}
 
 			for (int ingredient = 0; ingredient < recipeIngredientsPercentage.size(); ingredient++) {
 				ingredientQty = recipeIngredientsPercentage.get(ingredient);
