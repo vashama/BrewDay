@@ -1,183 +1,363 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-    
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-    
-        <title>Brew Day</title>
-    
-        <link rel="icon" type="logo.jpg" href="img/logo.png">
-    
-        <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-    
-        <!-- Custom CSS -->
-        <link href="css/brewday.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
 
-        <style>
-            div.absolute 
-            {
-                    position: absolute;
-                    right: -10px;
-                    width: 200px;
-                    height: 100px;
-                    font-size: 20px;
+<head>
+        <script src="js/jquery.js"></script>
+        <script>
+            function logoutFunction(event) {
+              event.preventDefault();
+              window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
             }
-        </style>
-    
-    </head>
-    
-    <body>
-    
-        <div class="absolute">
-                    <a href="login.html">LOGIN</a>
-        </div>
-        <div class="brand">Brew Day</div>
-        <div class="address-bar">Arizona State University</div>
-        
-    
-        <!-- Navigation -->
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                    <a class="navbar-brand" href="index.html">Home</a>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            function brewTodayFunction(event) {
+              var output = "";
+          //    alert("In function");
+              $.ajax({
+                    type: "POST",
+                    crossDomain: true,
+                    url: "http://localhost:8080/pareto/main",
+            success: function (response) {
+                //code for setting session and sign in
+                output = response.toString();
+               // $("$brewingName").html(output);
+                alert(output);
+            }
+            });
+              alert("output: " + output);
+              window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/brewToday.html';
+            }
+        </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Brew Day</title>
+
+    <link rel="icon" type="logo.jpg" href="img/logo.png">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/brewday.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="brand">DASHBOARD</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li>
-                            <a href="index.html">Home</a>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Recipes <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="myRecipes.html">Add Recipes</a>
+                                    </li>
+                                    <li class="divider">
+                                    </li>
+                                    <li>
+                                        <a href="javascript:brewTodayFunction(event);">What should I brew today?</a>
+                                    </li>
+                            </ul>
                         </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Ingredients <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                                <li>
+                                    <a href="ingredients.html">Add Ingredients</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="grains.html">Grain Malts</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="hops.html">Hops</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="sugars.html">Sugars</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="yeast.html">Yeast</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="equipment.html">Equipment</a>
+                                </li>
+                        </ul>
+                    </li>
                         <li>
-                            <a href="about.html">About</a>
+                            <a href="forum.html">Forum</a>
                         </li>
-                        <li>
-                            <a href="recipes.html">Recipes</a>
+                        <li class="topbar">
+                                <a href="#" data-toggle="dropdown" class="droptown-toggle">Help <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="contactSupport.html">Contact Support</a>
+                                    </li>
+                                    <li class="divider">
+                                    </li>
+                                    <li class ="dropdown">
+                                        <a href="#" data-toggle="dropdown" class="droptown-toggle">Documentation<span class="caret"></span>
+                                        </a>
+                                        <ul class="flyout">
+                                            <li>
+                                                <a href="grains.html">Grain Malts</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="hops.html">Hops</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="sugars.html">Sugars</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="yeast.html">Yeast</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="equipment.html">Equipment</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
                         </li>
-                        <li>
-                            <a href="contact.html">Reach Us</a>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>USER<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="dashboard.html"> Dashboard</a>
+                                    </li>
+                                    <li class="divider">
+                                    <li>
+                                        <a href="profile.html"> Profile</a>
+                                    </li>
+                                    <li class="divider">
+                                    </li>
+                                    <li>
+                                        <a href="http://localhost:8080/user/logout" onclick='logoutFunction(event);'> Log Out</a>
+                                    </li>
+                                </ul>
                         </li>
                     </ul>
-                </div>
-                <!-- /.navbar-collapse -->
             </div>
-            <!-- /.container -->
-        </nav>
-    
-        <div class="container">
-    
-            <div class="row">
-                <div class="box">
-                    <div class="col-lg-12 text-center">
-                        <div id="carousel-example-generic" class="carousel slide">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators hidden-xs">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-    
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="img-responsive img-full" src="https://flggcanyonaletrail.files.wordpress.com/2014/04/savdist-com.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-responsive img-full" src="https://s.hswstatic.com/gif/beer-467650213.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="img-responsive img-full" src="http://charlestonbeerworks.com/wp-content/uploads/2014/09/shutterstock_74179669.jpg" alt="">
-                                </div>
-                            </div>
-    
-                            <!-- Controls -->
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="icon-prev"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="icon-next"></span>
-                            </a>
-                        </div>
-                        <h2 class="brand-before">
-                            <small>Welcome to</small>
-                        </h2>
-                        <h1 class="brand-name">Brew Day</h1>
-                        <hr class="tagline-divider">
-                        <h2>
-                            <small>A must for all
-                                <strong>Home Brewers</strong>
-                            </small>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="row">
-                <div class="box">
-                    <div class="col-lg-12">
-                        <hr>
-                        <h2 class="intro-text text-center">Why is this a
-                            <strong>Brewer's Friend</strong>
-                        </h2>
-                        <hr>
-                        <img class="img-responsive img-border img-left" src="http://kozhikodeinfo.in/uploads/subcategory/thumbs/21_beer_wine.jpg" alt="">
-                        <hr class="visible-xs">
-                        <p>Home brewing, the process of producing beer on a small scale for personal purposes, is an
-                            activity that receives growing attention among beer enthusiasts. Every home brewer owns a
-                            brewing equipment (kettles, fermenters, pipes, etc.) with a certain maximum brewing capacity,
-                            the number of litres the equipment is able to handle in a single "batch".</p>
-                        <p>Brewing also requires
-                            ingredients, whose actual amounts vary from recipe to recipe; these are various kinds of malts,
-                            hops, yeasts and sugars (and of course, water). Brewers like to log their recipes, for future
-                            reference, and maintain an updated list of available ingredients, for shopping before the next
-                            brew.</p>
-                        <p>The goal of this project is to develop an application for home brewers thats allows them to
-                            maintain a list of recipes, and adapt existing ones. The application must also maintain a list of
-                            available ingredients, update this list after a batch and when new ingredients are bought, and
-                            produce shopping lists for the next batch.</p>               
-                     </div>
-                </div>
-            </div>
-    
+            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <p>SER 518 - Group 7</p>  
-                    </div>
+</nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-md-6">
+                    <hr>
+                    <h2 class="intro-text text-center">Your Recipes</h2>
+                    <hr>
+                    <center>
+                        <a href="#" class="btn btn-link">
+                            <strong>Double Chocolate Oatmeal Stout</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Corn Beer</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Belgian Wheat Ale</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <button type="button" class="btn btn-primary">All Recipes</button>
+                    </center>
+                </div>
+                <div class="col-md-6">
+                    <hr>
+                    <h2 class="intro-text text-center">Your Ingredients</h2>
+                    <hr>
+                    <center>
+                        <table class="table table-striped" style="width:75%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Grain Malt</td>
+                                    <td>65 lbs</td>
+                                </tr>
+                                <tr>
+                                    <td>Hops</td>
+                                    <td>74 oz</td>
+                                </tr>
+                                <tr>
+                                    <td>Yeast</td>
+                                    <td>36 pkgs</td>
+                                </tr>
+                                <tr>
+                                    <td>Sugar</td>
+                                    <td>41 lbs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr />
+                        <button type="button" class="btn btn-primary">Details</button>
+                    </center>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-md-6">
+                    <hr>
+                    <h2 class="intro-text text-center">Popular Recipes</h2>
+                    <hr>
+                    <center>
+                        <a href="#" class="btn btn-link">
+                            <strong>Raspberry Wheat AG</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Hustler Honey Ale</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Bavarian Weizen</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Iceberg On The Horizon Pale Ale</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Psychobier</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>14.27 gallons</em>
+                        <hr />
+                    </center>
+                </div>
+                <div class="col-md-6">
+                    <hr>
+                    <h2 class="intro-text text-center">New Recipes</h2>
+                    <hr>
+                    <center>
+                        <a href="#" class="btn btn-link">
+                            <strong>Double Chocolate Oatmeal Stout</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Gruit Ale Recipe</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Bohemian Millet Pilsner</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Pumpkin Spice Beer</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                        <a href="#" class="btn btn-link">
+                            <strong>Munich Madness All Grain</strong>
+                        </a>
+                        <br> Beer Style:
+                        <em>All-grain</em>
+                        <br> Batch Size:
+                        <em>5 gallons</em>
+                        <hr />
+                    </center>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>SER 518 - Group 7</p>
                 </div>
             </div>
-        </footer>
-    
-        <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
-    
-        <!-- Script to Activate the Carousel -->
-        <script>
-        $('.carousel').carousel({
-            interval: 5000 //changes the speed
-        })
-    </script>
-    
-    </body>
-    </html>
-    
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
