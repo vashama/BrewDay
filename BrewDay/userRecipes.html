@@ -313,6 +313,43 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $(".item, .item-alt").click(function() {
+
+            window.location=$(this).find("a").attr("href");
+
+            return false;
+        });
+
+        $(".item").hover(function() {
+
+            $(this).css("background-color", "#ccccff");
+            $(this).css("cursor", "pointer");
+
+            }, function(){
+
+            $(this).css("background-color", "#fcfcfc");
+
+        });
+
+        $(".item-alt").hover(function() {
+
+            $(this).css("background-color", "#ccccff");
+            $(this).css("cursor", "pointer");
+
+            }, function(){
+
+            $(this).css("background-color", "#eeeeee");
+
+        });
+
+    });
+
+    </script>
 </body>
 
 </html>
