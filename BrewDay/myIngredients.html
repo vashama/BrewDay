@@ -46,7 +46,7 @@
 
 <body>
 
-    <div class="brand">RECIPES</div>
+    <div class="brand">INGREDIENTS</div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
@@ -75,6 +75,11 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Ingredients <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                                <li>
+                                    <a href="myIngredients.html">My Ingredients</a>
+                                </li>
+                                <li class="divider">
+                                </li>
                                 <li>
                                     <a href="ingredients.html">Add Ingredients</a>
                                 </li>
@@ -176,129 +181,222 @@
         <div class="row">
             <div class="box">
               <hr>
-              <h2 class="intro-text text-center">Your Recipes</h2>
+              <h2 class="intro-text text-center">Ingredients in your Inventory</h2>
               <hr>
-                <div class="col-md-12 text-center item">
-                      <div class="col-md-4">
-                        <a href="#" class="btn btn-link">
-                            <h4>Double Chocolate Oatmeal Stout</h4>
-                        </a>
-                      </div>
-                      <div class="col-md-4 item-divider">
-                        Beer Style:
-                        <strong>Stout</strong>
-                        <br>
-                        <br>
-                        Batch Size:
-                        <strong>5 gallons</strong>
-                      </div>
-                      <div class="col-md-2 item-divider">
-                        ABV
-                        <br>
-                        <h4>6.94%</h4>
-                      </div>
-                      <div class="col-md-2">
-                        IBU
-                        <br>
-                        <h4>36.1</h4>
-                      </div>
-                    </div>
+                <div class="col-md-6 col-md-offset-3 text-center item">
+                  <div class="col-md-3">
+                    <strong>Type</strong>
+                  </div>
+                  <div class="col-md-6">
+                    <strong>Name</strong>
+                  </div>
+                  <div class="col-md-3">
+                    <strong>Quantity (in lb)</strong>
+                  </div>
+                </div>
 
-                        <div class="col-md-12 text-center item-alt">
-                              <div class="col-md-4">
-                                <a href="#" class="btn btn-link">
-                                    <h4>Corn Beer</h4>
-                                </a>
-                              </div>
-                              <div class="col-md-4 item-divider">
-                                Beer Style:
-                                <strong>American Ale</strong>
-                                <br>
-                                <br>
-                                Batch Size:
-                                <strong>5 gallons</strong>
-                              </div>
-                              <div class="col-md-2 item-divider">
-                                ABV
-                                <br>
-                                <h4>5%</h4>
-                              </div>
-                              <div class="col-md-2">
-                                IBU
-                                <br>
-                                <h4>12.13</h4>
-                              </div>
-                        </div>
+                <div class="col-md-6 col-md-offset-3 text-center item-alt">
+                  <div class="col-md-3">
+                    Grain Malts
+                  </div>
+                  <div class="col-md-6">
+                    Caramel/Crystal Malt
+                  </div>
+                  <div class="col-md-3">
+                    15
+                  </div>
+                </div>
 
-                        <div class="col-md-12 text-center item">
-                              <div class="col-md-4">
-                                <a href="#" class="btn btn-link">
-                                    <h4>Belgian Bombshell</h4>
-                                </a>
-                              </div>
-                              <div class="col-md-4 item-divider">
-                                Beer Style:
-                                <strong>Belgian and French Ale</strong>
-                                <br>
-                                <br>
-                                Batch Size:
-                                <strong>5.5 gallons</strong>
-                              </div>
-                              <div class="col-md-2 item-divider">
-                                ABV
-                                <br>
-                                <h4>13.9%</h4>
-                              </div>
-                              <div class="col-md-2">
-                                IBU
-                                <br>
-                                <h4>20</h4>
-                              </div>
-                            </div>
+                <div class="col-md-6 col-md-offset-3 text-center item">
+                  <div class="col-md-3">
+                    Grain Malts
+                  </div>
+                  <div class="col-md-6">
+                    German Dark Munich
+                  </div>
+                  <div class="col-md-3">
+                    12
+                  </div>
+                </div>
 
-                            <div class="col-md-12 text-center item-alt">
-                                  <div class="col-md-4">
-                                    <a href="#" class="btn btn-link">
-                                        <h4>LCB Tripler</h4>
-                                    </a>
-                                  </div>
-                                  <div class="col-md-4 item-divider">
-                                    Beer Style:
-                                    <strong>Belgian Strong Ale</strong>
-                                    <br>
-                                    <br>
-                                    Batch Size:
-                                    <strong>5 gallons</strong>
-                                  </div>
-                                  <div class="col-md-2 item-divider">
-                                    ABV
-                                    <br>
-                                    <h4>9.2%</h4>
-                                  </div>
-                                  <div class="col-md-2">
-                                    IBU
-                                    <br>
-                                    <h4>28.2</h4>
-                                  </div>
-                            </div>
+                <div class="col-md-6 col-md-offset-3 text-center item-alt">
+                  <div class="col-md-3">
+                    Grain Malts
+                  </div>
+                  <div class="col-md-6">
+                    Mild Ale Malt
+                  </div>
+                  <div class="col-md-3">
+                    23.5
+                  </div>
+                </div>
 
-                        <center>
-                        <ul class="pagination">
-                          <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
-                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                      </center>
+                <div class="col-md-6 col-md-offset-3 text-center item">
+                  <div class="col-md-3">
+                    Grain Malts
+                  </div>
+                  <div class="col-md-6">
+                    Flaked Wheat
+                  </div>
+                  <div class="col-md-3">
+                    8.7
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item-alt">
+                  <div class="col-md-3">
+                    Grain Malts
+                  </div>
+                  <div class="col-md-6">
+                    German Pilsner
+                  </div>
+                  <div class="col-md-3">
+                    21.5
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item">
+                  <div class="col-md-3">
+                    Hops
+                  </div>
+                  <div class="col-md-6">
+                    Magnum Hops
+                  </div>
+                  <div class="col-md-3">
+                    5
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item-alt">
+                  <div class="col-md-3">
+                    Hops
+                  </div>
+                  <div class="col-md-6">
+                    Cascade Hops
+                  </div>
+                  <div class="col-md-3">
+                    7.75
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item">
+                  <div class="col-md-3">
+                    Hops
+                  </div>
+                  <div class="col-md-6">
+                    Citra Hops
+                  </div>
+                  <div class="col-md-3">
+                    2.5
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item-alt">
+                  <div class="col-md-3">
+                    Hops
+                  </div>
+                  <div class="col-md-6">
+                    Amarillo Hops
+                  </div>
+                  <div class="col-md-3">
+                    3.45
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item">
+                  <div class="col-md-3">
+                    Hops
+                  </div>
+                  <div class="col-md-6">
+                    Fuggle Hops
+                  </div>
+                  <div class="col-md-3">
+                    13
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item-alt">
+                  <div class="col-md-3">
+                    Hops
+                  </div>
+                  <div class="col-md-6">
+                    Crystal Hops
+                  </div>
+                  <div class="col-md-3">
+                    9
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item">
+                  <div class="col-md-3">
+                    Sugar
+                  </div>
+                  <div class="col-md-6">
+                    Honey
+                  </div>
+                  <div class="col-md-3">
+                    17
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item-alt">
+                  <div class="col-md-3">
+                    Sugar
+                  </div>
+                  <div class="col-md-6">
+                    Dextrose (corn sugar)
+                  </div>
+                  <div class="col-md-3">
+                    8
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item">
+                  <div class="col-md-3">
+                    Sugar
+                  </div>
+                  <div class="col-md-6">
+                    Belgian candy sugar
+                  </div>
+                  <div class="col-md-3">
+                    5.6
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item-alt">
+                  <div class="col-md-3">
+                    Yeast
+                  </div>
+                  <div class="col-md-6">
+                    Lager Yeast
+                  </div>
+                  <div class="col-md-3">
+                    1.2
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 text-center item">
+                  <div class="col-md-3">
+                    Yeast
+                  </div>
+                  <div class="col-md-6">
+                    Ale Yeast
+                  </div>
+                  <div class="col-md-3">
+                    1.56
+                  </div>
+                </div>
 
 
+                <div class="col-md-12 text-center">
+                  <br>
+                  Bought some more ingredients,<a href="ingredients.html" type="button" class="btn btn-link">Add new Ingredients here</a>
+                </div>
 
                 <div class="clearfix"></div>
             </div>
         </div>
     </div>
-
 
     <footer>
         <div class="container">
@@ -314,43 +412,6 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-
-    $(document).ready(function() {
-
-        $(".item, .item-alt").click(function() {
-
-            window.location=$(this).find("a").attr("href");
-
-            return false;
-        });
-
-        $(".item").hover(function() {
-
-            $(this).css("background-color", "#ccccff");
-            $(this).css("cursor", "pointer");
-
-            }, function(){
-
-            $(this).css("background-color", "#fcfcfc");
-
-        });
-
-        $(".item-alt").hover(function() {
-
-            $(this).css("background-color", "#ccccff");
-            $(this).css("cursor", "pointer");
-
-            }, function(){
-
-            $(this).css("background-color", "#eeeeee");
-
-        });
-
-    });
-
-    </script>
 </body>
 
 </html>
