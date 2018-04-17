@@ -1,6 +1,5 @@
 package com.brewdaybackend.javamodules;
 
-
 import java.util.*;
 import org.apache.commons.lang3.ArrayUtils;
 import java.sql.Connection;
@@ -9,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Pareto {
+public class Bd {
 
 	static ArrayList<Double> ingredientsArrayList = new ArrayList<Double>();
 	static ArrayList<ArrayList<Double>> nestedIngredientsArrayList = new ArrayList<ArrayList<Double>>();
@@ -26,9 +25,10 @@ public class Pareto {
 	private static String username;
 	private static List<String> availableHomeBrewingEquipments = new ArrayList<String>();
 	private static List<String> neededHomeBrewingEquipments = new ArrayList<String>();
+	private static ArrayList<Double> batchSizeUpdatedIngredients;
 
 	// Constructor to connect to Postgres Database
-	public Pareto() throws SQLException, ClassNotFoundException {
+	public Bd() throws SQLException, ClassNotFoundException {
 		Connection conn = null;
 		Class.forName("org.postgresql.Driver");
 		conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "postgres");
@@ -120,9 +120,10 @@ public class Pareto {
 			for(int ingredient = 0; ingredient < recipeIngredientsPercentage.size(); ingredient++)
 			{
 				double updatedIngredient = ingredientsArrayList.get(ingredient);
-				updatedIngredient = updatedIngredient * recipeIngredientsPercentage.get(i) / 100;
+				updatedIngredient = updatedIngredient * recipeIngredientsPercentage.get(ingredient) / 100;
+				batchSizeUpdatedIngredients.add(updatedIngredient);
 			}
-
+			
 			for (int ingredient = 0; ingredient < recipeIngredientsPercentage.size(); ingredient++) {
 				ingredientQty = recipeIngredientsPercentage.get(ingredient);
 				quantityRequired.add(ingredientQty);
@@ -151,7 +152,7 @@ public class Pareto {
 
 		ArrayList<Object> optimalRecipe;
 
-		new Pareto();
+		new Bd();
 
 		optimalRecipe = whatShouldIBrewToday();
 		//optimalRecipe[0] -> Optimal Recipe Name
