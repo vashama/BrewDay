@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <script src="js/jquery.js"></script>
+        <script>
+            function logoutFunction(event) {
+              event.preventDefault();
+              window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
+            }
+            function brewTodayFunction(event) {
+              var output = "";
+              alert("In function");
+              $.ajax({
+                    type: "POST",
+                    crossDomain: true,
+                    url: "http://localhost:8080/pareto/main",
+            success: function (response) {
+                //code for setting session and sign in
+                output = response.toString();
+                alert(output);
+            }
+            });
+              alert("output: " + output);
+              window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/brewToday.html';
+            }
+        </script>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Brew Day</title>
+
+      <link rel="icon" type="logo.jpg" href="img/logo.png">
+
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom CSS -->
+      <link href="css/brewday.css" rel="stylesheet">
+      <!-- Icons Link -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <style media="screen">
+        .heading-2
+        {
+          background-image: url(img/profile_header_img.jpg);
+          background-size: cover;
+          height: 250px;
+        }
+
+        .panel-profile-img
+        {
+          width: 150px; margin-top: -100px; margin-bottom: 5px;
+        }
+      </style>
+    </head>
+
+   <body>
+
+    <div class="brand">Profile</div>
+
+    <!-- Navigation -->
+
+        <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Recipes <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="userRecipes.html">My Recipes</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="myRecipes.html">Add Recipes</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="javascript:brewTodayFunction(event);">What should I brew today?</a>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Ingredients <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                        <li>
+                                           <a href="myIngredients.html">My Ingredients</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="ingredients.html">Add Ingredients</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="grains.html">Grain Malts</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="hops.html">Hops</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="sugars.html">Sugars</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="yeast.html">Yeast</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="equipment.html">Equipment</a>
+                                        </li>
+                                </ul>
+                            </li>
+                                <li>
+                                    <a href="forum.html">Forum</a>
+                                </li>
+                                <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Help <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="documentation.html">Documentation</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="contactSupport.html">Contact Support</a>
+                                            </li>
+                                        </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>USER<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="dashboard.html"> Dashboard</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="viewProfile.html">My Profile</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="profile.html">Update Profile</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="http://localhost:8080/user/logout" onclick='logoutFunction(event);'> Log Out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+        </nav>
+
+
+
+    <div class="container">
+
+        <div class="row">
+          <div class="box">
+
+            <div class="panel panel-default">
+                <div class="panel-heading heading-2"></div>
+                <div class="panel-body text-center">
+                    <img class="img-rounded panel-profile-img" src="img/user.png" alt="Profile picture">
+
+                        <h2>Chris P. Fries</h2>
+
+                        <i class="glyphicon glyphicon-phone"> </i>
+                        456-789-1230
+                        <br>
+                        <br>
+                        <a href="profile.html" class="btn btn-default">
+
+                          <i class="glyphicon glyphicon-pencil"> </i> Edit Profile
+                        </a>
+
+
+            </div>
+
+          </div>
+
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4>
+                  About Me
+                </h4>
+              </div>
+              <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
+            </div>
+          </div>
+
+              <div class="col-md-2">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4>
+                      Gender
+                    </h4>
+                  </div>
+                  <div class="panel-body">Male</div>
+                </div>
+              </div>
+
+              <div class="col-md-7">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4>
+                      Address
+                    </h4>
+                  </div>
+                  <div class="panel-body">1298 South Forest Gump Ave, Dangerous, KF 01300</div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4>
+                      Date of Birth
+                    </h4>
+                  </div>
+                  <div class="panel-body">04/13/1988</div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4>
+                      Occupation
+                    </h4>
+                  </div>
+                  <div class="panel-body">I am a farmer.</div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4>
+                      Hobbies
+                    </h4>
+                  </div>
+                  <div class="panel-body">I like to spend time drinking beer eith my close friends on the weekends.</div>
+                </div>
+              </div>
+
+
+          </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>SER 518 - Group 7</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
