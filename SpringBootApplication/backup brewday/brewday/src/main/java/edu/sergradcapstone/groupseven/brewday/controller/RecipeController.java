@@ -100,5 +100,22 @@ public class RecipeController {
             return new ResponseEntity(HttpStatus.GONE);
         }
     }
+    //delete the recipe --> User can delete his recipe
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    // fetch the id of the recipe which needs to be deleted and access from backend and delete it
+    public ResponseEntity deleteRecipe(HttpSession httpSession, @PathVariable("id") Long id) {
+        Optional<Recipe> recipe = recipeRepository.findById(id);
+        String username = (String) httpSession.getAttribute("username");
+
+        if (!recipe.isPresent()) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        } else {
+            if(username == null || !username.contentEquals(recipe.get().getEmail())){
+                return ResponseEntity.status(401).body("Operation Unauthorized");
+            }
+            recipeRepository.delete(recipe.get());
+            return new ResponseEntity(HttpStatus.GONE);
+        }
+    }
 
 }
