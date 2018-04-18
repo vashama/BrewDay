@@ -44,6 +44,18 @@ public class IngredientsController {
         return ResponseEntity.ok(201);
         //return new ResponseEntity<>(insertedRecipe, HttpStatus.CREATED);
     }
+// to fetch the saved ingredients
+   @GetMapping
+    public List<Ingredient> get(HttpSession httpSession){
+        List<Ingredient> ingredient = new ArrayList<>();
 
-   
+        ingredientRepository.findByEmail("PUBLIC").iterator().forEachRemaining(x -> ingredient.add(x));
+        String username = (String) httpSession.getAttribute("username");
+
+        if(username != null){
+            ingredientRepository.findByEmail(username).iterator().forEachRemaining(x -> ingredient.add(x));
+        }
+        return ingredient;
+    }
+
 }
