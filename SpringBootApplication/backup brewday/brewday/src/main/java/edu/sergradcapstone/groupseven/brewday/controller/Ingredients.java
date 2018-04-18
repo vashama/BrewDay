@@ -57,5 +57,20 @@ public class IngredientsController {
         }
         return ingredient;
     }
+    // get the particular ingrdient based on the id
+    @GetMapping("/{IngredientId}")
+    public ResponseEntity findRecipeById(HttpSession httpSession, @PathVariable Long recipeId){
+
+        Ingredient ingredient = recipeRepository.findById(ingredientId).orElseThrow(() -> new ResourceNotFoundException("ingredient", "id", recipeId));
+        if(recipe.getEmail().equals("PUBLIC")){
+            return ResponseEntity.ok(ingredient);
+        }
+        String username = (String) httpSession.getAttribute("username");
+        if(username == null || !username.contentEquals(recipe.getEmail())){
+            return ResponseEntity.status(401).body("Operation Unauthorized");
+        }
+        return ResponseEntity.ok(ingredient);
+    }
+
 
 }
