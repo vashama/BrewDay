@@ -71,6 +71,22 @@ public class IngredientsController {
         }
         return ResponseEntity.ok(ingredient);
     }
+    
+    //to delete any ingredient
+@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity deleteRecipe(HttpSession httpSession, @PathVariable("id") Long id) {
+        Optional<Ingredient> ingredient = recipeRepository.findById(id);
+        String username = (String) httpSession.getAttribute("username");
+
+        if (!ingredient.isPresent()) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        } else {
+            if(username == null || !username.contentEquals(ingredient.get().getEmail())){
+                return ResponseEntity.status(401).body("Operation Unauthorized");
+            }
+            ingredientRepository.delete(ingredient.get());
+            return new ResponseEntity(HttpStatus.GONE);
+        }
 
 
 }
