@@ -160,10 +160,10 @@
                            <div class="col-md-4">
                                  <select id="type" name="type" class="form-control input-md">
                                     <option value="" selected="selected">Select an Ingredient type</option>
-                                    <option value="0">Grain Malts</option>
-                                    <option value="1">Hops</option>
-                                    <option value="2">Sugar</option>
-                                    <option value="3">Yeast</option>
+                                    <option value="Grain Malts">Grain Malts</option>
+                                    <option value="Hops">Hops</option>
+                                    <option value="Sugar">Sugar</option>
+                                    <option value="Yeast">Yeast</option>
                                  </select>
                                  <small id="type_error_msg" style="color:red"></small>
                            </div>
@@ -307,7 +307,7 @@
 
         });
       </script>
-      
+
       <!-- jQuery -->
   <script src="js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
@@ -324,7 +324,7 @@
             name: document.getElementsByName("name")[0].value,
                     type: document.getElementsByName("type")[0].value,
                     quantity: document.getElementsByName("quantity")[0].value,
-                    
+
         },
         success: function (response) {
             //code for setting session and sign in
@@ -334,6 +334,6 @@
         });
     }
 </script>
-      
+
    </body>
 </html>
