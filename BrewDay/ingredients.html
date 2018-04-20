@@ -203,7 +203,7 @@
                         <div class="form-group">
                            <label class="col-md-4 control-label" ></label>
                            <div class="col-md-4">
-                             <button class="btn btn-success" type="submit" value="Add"> Add </button>
+                             <button class="btn btn-success" type="submit" onClick="validateCredentials()"> Add </button>
                              <button class="btn btn-danger" type="reset" value="Reset"> Clear </button>
                            </div>
                         </div>
@@ -307,5 +307,33 @@
 
         });
       </script>
+      
+      <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+      <script>
+    function validateCredentials() {
+        //alert("Hi!! Enter your Ingredients")
+        $.ajax({
+                type: "POST",
+                crossDomain: true,
+                url: "http://localhost:8080/ingredient/newingredient",
+                data: {
+            name: document.getElementsByName("name")[0].value,
+                    type: document.getElementsByName("type")[0].value,
+                    quantity: document.getElementsByName("quantity")[0].value,
+                    
+        },
+        success: function (response) {
+            //code for setting session and sign in
+            if (response.toString() == "success")
+                alert("You have successfully added your Ingredient")
+        }
+        });
+    }
+</script>
+      
    </body>
 </html>
