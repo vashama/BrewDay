@@ -26,21 +26,21 @@ public class Ingredient {
     @Temporal(TIMESTAMP)
     @Column(name="last_modified_date", nullable = false)
     private Date lastModifiedDate;
-
-    @Column(name="name")
-    private String name;
-
-    @Column(name="type")
-    private String type;
-
-    @Column(name="name1")
-    private String type;
-
-    @Column(name="lastPurchasedDate")
+    
+      @Column(name="lastPurchasedDate")
     private Date lastPurchasedDate;
 
-    @Column(name="mount")
-    private double mount;
+   @Column(name="name")
+    private String name;
+
+    @Column(name="Ingredientstype")
+    private String type;
+
+    @Column(name="quantity")
+    private double quantity;
+    
+    @Column(name="username") 
+    private String username;
 
     @PrePersist
     protected void onCreate() {
@@ -90,5 +90,13 @@ public class Ingredient {
 
     public void setMount(double mount) {
         this.mount = mount;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
