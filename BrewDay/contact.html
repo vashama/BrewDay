@@ -151,22 +151,22 @@
 
       <script>
     function validateCredentials() {
-        //alert("Hi!! Enter your recipe")
+        //alert("Hi!! Enter your feedback")
         $.ajax({
                 type: "POST",
                 crossDomain: true,
                 url: "http://localhost:8080/feedback/newfeedback",
                 data: {
-            recipename: document.getElementsByName("name")[0].value,
-                    ibu: document.getElementsByName("phone")[0].value,
-                    abv: document.getElementsByName("email")[0].value,
-                    Description: document.getElementsByName("message")[0].value
+            name: document.getElementsByName("name")[0].value,
+                    phone: document.getElementsByName("phone")[0].value,
+                    email: document.getElementsByName("email")[0].value,
+                    message: document.getElementsByName("message")[0].value
                    
         },
         success: function (response) {
             //code for setting session and sign in
             if (response.toString() == "success")
-                alert("You have successfully added your recipe")
+                alert("You have successfully sent your Feedback");
         }
         });
     }
