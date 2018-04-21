@@ -308,21 +308,36 @@
         });
       </script>
 
-      <!-- jQuery -->
-  <script src="js/jquery.js"></script>
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
 
       <script>
     function validateCredentials() {
-        //alert("Hi!! Enter your Ingredients")
+        var typeNumber = document.getElementsByName("type")[0].value;
+
+        var typeString;
+
+        switch(typeNumber) {
+          case '0':
+            typeString = "Grain Malts";
+            break;
+          case '1':
+            typeString = "Hops";
+            break;
+          case '2':
+            typeString = "Sugar";
+            break;
+          case '3':
+            typeString = "Yeast";
+            break;
+        }
+        console.log(typeString);
+
         $.ajax({
                 type: "POST",
                 crossDomain: true,
                 url: "http://localhost:8080/ingredient/newingredient",
                 data: {
-            name: document.getElementsByName("name")[0].value,
-                    type: document.getElementsByName("type")[0].value,
+                    name: document.getElementsByName("name")[0].value,
+                    type: typeString,
                     quantity: document.getElementsByName("quantity")[0].value,
 
         },
@@ -332,8 +347,9 @@
                 alert("You have successfully added your Ingredient")
         }
         });
+
     }
-</script>
+    </script>
 
    </body>
 </html>
