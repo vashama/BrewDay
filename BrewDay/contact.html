@@ -121,7 +121,8 @@
                             </div>
                             <div class="form-group col-lg-12 text-center">
                                 <input type="hidden" name="save" value="contact">
-                                <button type="submit" class="btn btn-default">Submit</button>
+               
+                                <button type="submit" class="btn btn-default" onClick="validateCredentials()">SEND</button>
                             </div>
                         </div>
                     </form>
@@ -147,6 +148,29 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+      <script>
+    function validateCredentials() {
+        //alert("Hi!! Enter your recipe")
+        $.ajax({
+                type: "POST",
+                crossDomain: true,
+                url: "http://localhost:8080/feedback/newfeedback",
+                data: {
+            recipename: document.getElementsByName("name")[0].value,
+                    ibu: document.getElementsByName("phone")[0].value,
+                    abv: document.getElementsByName("email")[0].value,
+                    Description: document.getElementsByName("message")[0].value
+                   
+        },
+        success: function (response) {
+            //code for setting session and sign in
+            if (response.toString() == "success")
+                alert("You have successfully added your recipe")
+        }
+        });
+    }
+</script>
 
 </body>
 
