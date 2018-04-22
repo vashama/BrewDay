@@ -3,6 +3,7 @@
 
 <head>
         <script src="js/jquery.js"></script>
+
         <script>
             function logoutFunction(event) {
               event.preventDefault();
@@ -297,8 +298,6 @@
                                   </div>
                             </div>
 
-                      </div>
-
 
                         <center>
                         <ul class="pagination">
@@ -310,6 +309,8 @@
                         </ul>
                       </center>
                     -->
+
+                  </div>
 
 
                 <div class="clearfix"></div>
@@ -337,44 +338,115 @@
 
     $(document).ready(function() {
 
+          var recipeslist = "";
+
         $.getJSON("http://localhost:8080/recipe", function(result) {
+          //$.getJSON("result.json", function(result) {
 
           $.each(result, function(index, item) {
-            console.log(item.id);
+            console.log(result);
 
-            $('<div class="col-md-12 text-center item"><div class="col-md-4"><a href="#" class="btn btn-link"><h4>' + item.recipename + '</h4></a></div><div class="col-md-4 item-divider">Beer Style: <strong>' + item.brewType + '</strong><br><br>Batch Size: <strong>' + item.batchSize + ' gallons</strong></div><div class="col-md-2 item-divider">ABV<br><h4>' + item.abv + '%</h4></div><div class="col-md-2">IBU<br><h4>' + item.ibu + '</h4></div></div>').appendTo("#recipelist");
+            if(index % 2 == 1) {
+              recipeslist += `<div class="col-md-12 text-center item-alt">
+                                <div class="col-md-4">
+                                  <a href="#info` + item.id + `" class="btn btn-link" data-toggle="collapse">
+                                    <h4>`
+                                    + item.recipename +
+                                    `</h4>
+                                  </a>
+                                </div>
+                                <div class="col-md-4 item-divider">
+                                  Beer Style: <strong>` + item.brewType + `</strong>
+                                  <br>
+                                  <br>
+                                  Batch Size: <strong>` + item.batchSize + ` gallons</strong>
+                                </div>
+                                <div class="col-md-2 item-divider">
+                                  ABV
+                                  <br>
+                                  <h4>` + item.abv + `%</h4>
+                                </div>
+                                <div class="col-md-2">
+                                  IBU
+                                  <br>
+                                  <h4>` + item.ibu + `</h4>
+                                </div>
+                                <div class="collapse col-md-12 alert alert-info" id="info` + item.id + `">
+                                  <strong>Boil Time</strong> : ` + item.boilTime + `
+                                  <br>
+                                  <br>
+                                  <strong>Instructions</strong>: ` + item.instructions + `
+                                </div>
+                              </div>
+                              `;
+            }
+            else {
+              recipeslist += `<div class="col-md-12 text-center item">
+                                <div class="col-md-4">
+                                  <a href="#info` + item.id + `" class="btn btn-link" data-toggle="collapse">
+                                    <h4>`
+                                    + item.recipename +
+                                    `</h4>
+                                  </a>
+                                </div>
+                                <div class="col-md-4 item-divider">
+                                  Beer Style: <strong>` + item.brewType + `</strong>
+                                  <br>
+                                  <br>
+                                  Batch Size: <strong>` + item.batchSize + ` gallons</strong>
+                                </div>
+                                <div class="col-md-2 item-divider">
+                                  ABV
+                                  <br>
+                                  <h4>` + item.abv + `%</h4>
+                                </div>
+                                <div class="col-md-2">
+                                  IBU
+                                  <br>
+                                  <h4>` + item.ibu + `</h4>
+                                </div>
+                                <div class="collapse col-md-12 alert alert-info" id="info` + item.id + `">
+                                  <strong>Boil Time</strong> : ` + item.boilTime + `
+                                  <br>
+                                  <br>
+                                  <strong>Instructions</strong>: ` + item.instructions + `
+                                </div>
+                              </div>
+                              `;
+            }
 
           });
 
-        });
+          $(".box").append(recipeslist);
 
+          /*$(".item, .item-alt").click(function() {
 
-        $(".item, .item-alt").click(function() {
+              window.location = $(this).find("a").attr("href");
 
-            window.location=$(this).find("a").attr("href");
+              return false;
+          });*/
 
-            return false;
-        });
+          $(".item").hover(function() {
 
-        $(".item").hover(function() {
+              $(this).css("background-color", "#ccccff");
+              $(this).css("cursor", "pointer");
 
-            $(this).css("background-color", "#ccccff");
-            $(this).css("cursor", "pointer");
+              }, function(){
 
-            }, function(){
+              $(this).css("background-color", "#fcfcfc");
 
-            $(this).css("background-color", "#fcfcfc");
+          });
 
-        });
+          $(".item-alt").hover(function() {
 
-        $(".item-alt").hover(function() {
+              $(this).css("background-color", "#fcbdb6");
+              $(this).css("cursor", "pointer");
 
-            $(this).css("background-color", "#ccccff");
-            $(this).css("cursor", "pointer");
+              }, function(){
 
-            }, function(){
+              $(this).css("background-color", "#eeeeee");
 
-            $(this).css("background-color", "#eeeeee");
+          });
 
         });
 
