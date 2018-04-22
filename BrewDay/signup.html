@@ -1,453 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Brew Day</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/brewday.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <div class="brand">Brew Day!</div>
-    <div class="address-bar">Arizona State University</div>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Brew Day</title>
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom CSS -->
+      <link href="css/brewday.css" rel="stylesheet">
+   </head>
+   <body>
+      <div class="brand">Brew Day!</div>
+      <div class="address-bar">Arizona State University</div>
+      <!-- Navigation -->
+      <nav class="navbar navbar-default" role="navigation">
+         <div class="container">
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="recipes.html">Recipes</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Reach Us</a>
-                    </li>
-                </ul>
+               <ul class="nav navbar-nav">
+                  <li>
+                     <a href="index.html">Home</a>
+                  </li>
+                  <li>
+                     <a href="about.html">About</a>
+                  </li>
+                  <li>
+                     <a href="recipes.html">Recipes</a>
+                  </li>
+                  <li>
+                     <a href="contact.html">Reach Us</a>
+                  </li>
+               </ul>
             </div>
             <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <div class="container">
-        <div class="row">
+         </div>
+         <!-- /.container -->
+      </nav>
+      <div class="container">
+         <div class="row">
             <div class="box">
-
-                <div class="col-lg-12">
-                    <form class="form-horizontal" id="signup_form">
-                        <fieldset>
-                            <center>
-                                <legend class="text-center">Create your Account</legend>
-
-                                <div class="text-center">
-                                    <img class="img-circle img-responsive center-block" src="https://cdn.shopify.com/s/files/1/0980/7640/articles/shutterstock_257516356.0.0.jpg"
-                                        alt="Sign up picture" height="163" width="163">
-                                </div>
-                                <br>
-
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label">First Name</label>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="glyphicon glyphicon-user">
-                                                </i>
-                                            </div>
-                                            <input type="text" class="form-control" name="firstname" placeholder="First Name" id="firstname" autofocus />
-                                            <small id="firstname_error_msg" style="color:red"></small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label">Last Name</label>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="glyphicon glyphicon-user">
-                                                </i>
-                                            </div>
-                                            <input type="text" class="form-control" name="lastname" placeholder="Last Name" id="lastname" />
-                                            <small id="lastname_error_msg" style="color:red"></small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label">E-mail Address</label>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="glyphicon glyphicon-pencil">
-                                                </i>
-                                            </div>
-                                            <input type="text" class="form-control" name="email" placeholder="E-mail Address" id="email" />
-                                            <small id="email_error_msg" style="color:red"></small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label">Create Password</label>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="glyphicon glyphicon-ok">
-                                                </i>
-                                            </div>
-                                            <input id="password" name="password" type="password" placeholder="Enter Password" class="form-control">
-                                            <small id="password_error_msg" style="color:red"></small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label">Re-type Password</label>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="glyphicon glyphicon-ok">
-                                                </i>
-                                            </div>
-                                            <input id="password2" name="password2" type="password" placeholder="Enter Password Again" class="form-control">
-                                            <small id="password2_error_msg" style="color:red"></small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="Gender">Gender</label>
-                                    <div class="col-md-4">
-                                        <label class="radio-inline" for="Gender-0">
-                                            <input type="radio" name="Gender" id="Gender-0" value="1"> Male
-                                        </label>
-                                        <label class="radio-inline" for="Gender-1">
-                                            <input type="radio" name="Gender" id="Gender-1" value="2"> Female
-                                        </label>
-                                    </div>
-                                </div>
-    
-                                <!-- Permanent Address -->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="Permanent Address">Permanent Address</label>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="glyphicon glyphicon-home"></i>
-                                            </div>
-                                            <input id="addr" name="Permanent Address" type="text" placeholder="House number and Street name" class="form-control input-md ">
-                                            <small id="addr_error_msg" style="color:red"></small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="Permanent Address">City</label>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="glyphicon glyphicon-home"></i>
-                                            </div>
-                                            <input id="city" name="Permanent Address" type="text" placeholder="City" class="form-control input-md ">
-                                            <small id="city_error_msg" style="color:red"></small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="Permanent Address">State</label>
-                                    <div class="col-md-4">
-                                        <select id="State" name="Permanent Address" type="text" placeholder="State" class="form-control input-md ">
-                                            <option value="" selected="selected">Select a State</option>
-                                            <option value="AL">Alabama</option>
-                                            <option value="AK">Alaska</option>
-                                            <option value="AZ">Arizona</option>
-                                            <option value="AR">Arkansas</option>
-                                            <option value="CA">California</option>
-                                            <option value="CO">Colorado</option>
-                                            <option value="CT">Connecticut</option>
-                                            <option value="DE">Delaware</option>
-                                            <option value="FL">Florida</option>
-                                            <option value="GA">Georgia</option>
-                                            <option value="HI">Hawaii</option>
-                                            <option value="ID">Idaho</option>
-                                            <option value="IL">Illinois</option>
-                                            <option value="IN">Indiana</option>
-                                            <option value="IA">Iowa</option>
-                                            <option value="KS">Kansas</option>
-                                            <option value="KY">Kentucky</option>
-                                            <option value="LA">Louisiana</option>
-                                            <option value="ME">Maine</option>
-                                            <option value="MD">Maryland</option>
-                                            <option value="MA">Massachusetts</option>
-                                            <option value="MI">Michigan</option>
-                                            <option value="MN">Minnesota</option>
-                                            <option value="MS">Mississippi</option>
-                                            <option value="MO">Missouri</option>
-                                            <option value="MT">Montana</option>
-                                            <option value="NE">Nebraska</option>
-                                            <option value="NV">Nevada</option>
-                                            <option value="NH">New Hampshire</option>
-                                            <option value="NJ">New Jersey</option>
-                                            <option value="NM">New Mexico</option>
-                                            <option value="NY">New York</option>
-                                            <option value="NC">North Carolina</option>
-                                            <option value="ND">North Dakota</option>
-                                            <option value="OH">Ohio</option>
-                                            <option value="OK">Oklahoma</option>
-                                            <option value="OR">Oregon</option>
-                                            <option value="PA">Pennsylvania</option>
-                                            <option value="RI">Rhode Island</option>
-                                            <option value="SC">South Carolina</option>
-                                            <option value="SD">South Dakota</option>
-                                            <option value="TN">Tennessee</option>
-                                            <option value="TX">Texas</option>
-                                            <option value="UT">Utah</option>
-                                            <option value="VT">Vermont</option>
-                                            <option value="VA">Virginia</option>
-                                            <option value="WA">Washington</option>
-                                            <option value="WV">West Virginia</option>
-                                            <option value="WI">Wisconsin</option>
-                                            <option value="WY">Wyoming</option>
-                                        </select>
-                                        <small id="state_error_msg" style="color:red"></small>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="Permanent Address">ZIP Code</label>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="glyphicon glyphicon-map-marker"></i>
-                                            </div>
-                                            <input id="zip" type="text" placeholder="ZIP Code" class="form-control input-md ">
-                                            <small id="zip_error_msg" style="color:red"></small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label"></label>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <button class="btn btn-primary btn-block" type="submit" onClick="validateCredentials()">Sign-up</button>
-                                            <h5>Already a member?
-                                                <a href="login.html" style="color: black">Login</a>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <center/>
-                        </fieldset>
-                    </form>
-                </div>
-
+               <div class="col-lg-12">
+                  <form class="form-horizontal" id="signup_form">
+                     <fieldset>
+                        <center>
+                        <legend class="text-center">Create your Account</legend>
+                        <div class="text-center">
+                           <img class="img-circle img-responsive center-block" src="https://cdn.shopify.com/s/files/1/0980/7640/articles/shutterstock_257516356.0.0.jpg"
+                              alt="Sign up picture" height="163" width="163">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label">First Name</label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user">
+                                    </i>
+                                 </div>
+                                 <input type="text" class="form-control" name="firstname" placeholder="First Name" id="firstname" autofocus />
+                                 <small id="firstname_error_msg" style="color:red"></small>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label">Last Name</label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user">
+                                    </i>
+                                 </div>
+                                 <input type="text" class="form-control" name="lastname" placeholder="Last Name" id="lastname" />
+                                 <small id="lastname_error_msg" style="color:red"></small>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label">E-mail Address</label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-pencil">
+                                    </i>
+                                 </div>
+                                 <input type="text" class="form-control" name="email" placeholder="E-mail Address" id="email" />
+                                 <small id="email_error_msg" style="color:red"></small>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label">Create Password</label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-ok">
+                                    </i>
+                                 </div>
+                                 <input id="password" name="password" type="password" placeholder="Enter Password" class="form-control">
+                                 <small id="password_error_msg" style="color:red"></small>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label">Re-type Password</label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-ok">
+                                    </i>
+                                 </div>
+                                 <input id="password2" name="password2" type="password" placeholder="Enter Password Again" class="form-control">
+                                 <small id="password2_error_msg" style="color:red"></small>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label" for="Gender">Gender</label>
+                           <div class="col-md-4">
+                              <label class="radio-inline" for="Gender-0">
+                              <input type="radio" name="Gender" id="Gender-0" value="1"> Male
+                              </label>
+                              <label class="radio-inline" for="Gender-1">
+                              <input type="radio" name="Gender" id="Gender-1" value="2"> Female
+                              </label>
+                           </div>
+                        </div>
+                        <!-- Permanent Address -->
+                        <div class="form-group">
+                           <label class="col-md-4 control-label" for="Permanent Address">Permanent Address</label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-home"></i>
+                                 </div>
+                                 <input id="addr" name="Permanent Address" type="text" placeholder="House number and Street name" class="form-control input-md ">
+                                 <small id="addr_error_msg" style="color:red"></small>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label" for="Permanent Address">City</label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-home"></i>
+                                 </div>
+                                 <input id="city" name="Permanent Address" type="text" placeholder="City" class="form-control input-md ">
+                                 <small id="city_error_msg" style="color:red"></small>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label" for="Permanent Address">State</label>
+                           <div class="col-md-4">
+                              <select id="State" name="Permanent Address" type="text" placeholder="State" class="form-control input-md ">
+                                 <option value="" selected="selected">Select a State</option>
+                                 <option value="AL">Alabama</option>
+                                 <option value="AK">Alaska</option>
+                                 <option value="AZ">Arizona</option>
+                                 <option value="AR">Arkansas</option>
+                                 <option value="CA">California</option>
+                                 <option value="CO">Colorado</option>
+                                 <option value="CT">Connecticut</option>
+                                 <option value="DE">Delaware</option>
+                                 <option value="FL">Florida</option>
+                                 <option value="GA">Georgia</option>
+                                 <option value="HI">Hawaii</option>
+                                 <option value="ID">Idaho</option>
+                                 <option value="IL">Illinois</option>
+                                 <option value="IN">Indiana</option>
+                                 <option value="IA">Iowa</option>
+                                 <option value="KS">Kansas</option>
+                                 <option value="KY">Kentucky</option>
+                                 <option value="LA">Louisiana</option>
+                                 <option value="ME">Maine</option>
+                                 <option value="MD">Maryland</option>
+                                 <option value="MA">Massachusetts</option>
+                                 <option value="MI">Michigan</option>
+                                 <option value="MN">Minnesota</option>
+                                 <option value="MS">Mississippi</option>
+                                 <option value="MO">Missouri</option>
+                                 <option value="MT">Montana</option>
+                                 <option value="NE">Nebraska</option>
+                                 <option value="NV">Nevada</option>
+                                 <option value="NH">New Hampshire</option>
+                                 <option value="NJ">New Jersey</option>
+                                 <option value="NM">New Mexico</option>
+                                 <option value="NY">New York</option>
+                                 <option value="NC">North Carolina</option>
+                                 <option value="ND">North Dakota</option>
+                                 <option value="OH">Ohio</option>
+                                 <option value="OK">Oklahoma</option>
+                                 <option value="OR">Oregon</option>
+                                 <option value="PA">Pennsylvania</option>
+                                 <option value="RI">Rhode Island</option>
+                                 <option value="SC">South Carolina</option>
+                                 <option value="SD">South Dakota</option>
+                                 <option value="TN">Tennessee</option>
+                                 <option value="TX">Texas</option>
+                                 <option value="UT">Utah</option>
+                                 <option value="VT">Vermont</option>
+                                 <option value="VA">Virginia</option>
+                                 <option value="WA">Washington</option>
+                                 <option value="WV">West Virginia</option>
+                                 <option value="WI">Wisconsin</option>
+                                 <option value="WY">Wyoming</option>
+                              </select>
+                              <small id="state_error_msg" style="color:red"></small>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label" for="Permanent Address">ZIP Code</label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-map-marker"></i>
+                                 </div>
+                                 <input id="zip" type="text" placeholder="ZIP Code" class="form-control input-md ">
+                                 <small id="zip_error_msg" style="color:red"></small>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- Phone Number -->
+                        <div class="form-group">
+                           <label class="col-md-4 control-label" for="Phone number">Phone number</label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-phone"></i>
+                                 </div>
+                                 <input id="phone" name="Phone number" type="text" placeholder="Phone number" class="form-control input-md" maxlength="12">
+                                 <small id="phone_error_msg" style="color:red"></small>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label class="col-md-4 control-label"></label>
+                           <div class="col-md-4">
+                              <div class="input-group">
+                                 <button class="btn btn-primary btn-block" type="submit" onClick="validateCredentials()">Sign-up</button>
+                                 <h5>Already a member?
+                                    <a href="login.html" style="color: black">Login</a>
+                                 </h5>
+                              </div>
+                           </div>
+                        </div>
+                        <center/>
+                     </fieldset>
+                  </form>
+               </div>
             </div>
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-    <footer>
-        <div class="container">
+         </div>
+      </div>
+      <!-- /.container -->
+      <footer>
+         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>SER 518 - Group 7</p>
-                </div>
+               <div class="col-lg-12 text-center">
+                  <p>SER 518 - Group 7</p>
+               </div>
             </div>
-        </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-
-            $("#firstname_error_msg").hide();
-            $("#lastname_error_msg").hide();
-            $("#email_error_msg").hide();
-            $("#password_error_msg").hide();
-            $("#password2_error_msg").hide();
-
-            var error_firstname = false;
-            var error_lastname = false;
-            var error_email = false;
-            var error_password = false;
-            var error_password2 = false;
-
-            $('#firstname').focusout(function () {
-                check_firstname();
-            });
-
-            $('#lastname').focusout(function () {
-                check_lastname();
-            });
-
-            $('#email').focusout(function () {
-                check_email();
-            });
-
-            $('#password').focusout(function () {
-                check_password();
-            });
-
-             $('#password2').focusout(function () {
-                check_password2();
-            });
-
-            function check_firstname() {
-
-                var fname = $("#firstname").val();
-
-                var pat = new RegExp(/^[a-z]{2,14}$/i);
-
-                if(fname == null || fname == "") {
-                    $("#firstname_error_msg").html(" * Enter your First Name");
-                    $("#firstname_error_msg").show();
-                    error_firstname = true;
-                }
-                else if(!pat.test(fname)) {
-                    $("#firstname_error_msg").html(" * Enter a Valid name having 2-14 characters (alphabets only)");
-                    $("#firstname_error_msg").show();
-                    error_firstname = true;
-                }
-                else {
-                    $("#firstname_error_msg").hide();
-                }
-            }
-
-            function check_lastname() {
-
-                var lname = $("#lastname").val();
-
-                var patt = new RegExp(/^[a-z ,.'-]+$/i);
-
-                if(lname.trim() == "") {
-                  $("#lastname_error_msg").html(" * Enter your Last Name");
-                  $("#lastname_error_msg").show();
-                  error_lastname = true;
-                }
-                else if(!patt.test(lname)) {
-                  $("#lastname_error_msg").html(" * Enter a Valid name having alphabets and .,'- symbols only");
-                  $("#lastname_error_msg").show();
-                  error_lastname = true;
-                }
-                else {
-                  $("#lastname_error_msg").hide();
-                }
-            }
-
-            function check_email() {
-
-                var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
-
-                if (pattern.test($("#email").val())) {
-                    $("#email_error_msg").hide();
-                }
-                else {
-                    $("#email_error_msg").html(" * Incorrect email address");
-                    $("#email_error_msg").show();
-                    error_email = true;
-                }
-            }
-
-            function check_password() {
-
-                if ($("#password").val().length < 8) {
-                    $("#password_error_msg").html(" * Password must have 8 or more characters");
-                    $("#password_error_msg").show();
-                    error_password = true;
-                }
-                else {
-                    $("#password_error_msg").hide();
-                }
-            }
-
-            function check_password2() {
-
-                var pass1 = $("#password").val();
-
-                var pass2 = $("#password2").val();
-
-                if(pass1 != pass2) {
-                    $("#password2_error_msg").html(" * Password doesn't match");
-                    $("#password2_error_msg").show();
-                    error_password2 = true;
-                }
-                else {
-                    $("#password2_error_msg").hide();
-                }
-            }
-
-            $("#signup_form").submit(function () {
-
-                error_firstname = false;
-                error_lastname = false;
-                error_email = false;
-                error_password = false;
-                error_password2 = false;
-
-                check_firstname();
-                check_lastname();
-                check_email();
-                check_password();
-                check_password2();
-
-                if (error_firstname == false && error_lastname == false && error_email == false && error_password == false && error_password2 == false) {
-                    return true;
-                }
-                else
-                    return false;
-
-            });
-        });
-    </script>
-
-        <script>
-    function validateCredentials() {
-        alert("Hi Please sign Up")
-        $.ajax({
-            type: "POST",
-            crossDomain: true,
-            url: "http://localhost:8080/user/signup",
-            data: {
-                firstname: document.getElementsByName("firstname")[0].value,
-                lastname: document.getElementsByName("lastname")[0].value,
-                email: document.getElementsByName("email")[0].value,
-                password: document.getElementsByName("password")[0].value
-
-            },
-            success: function (response) {
-                //code for setting session and sign in
-                if (response.toString() == "success")
-                    alert("You have SignedUp! Please Login")
-            }
-        });
-    }
-</script>
-
-</body>
-
+         </div>
+      </footer>
+      <!-- jQuery -->
+      <script src="js/jquery.js"></script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+      <script>
+         $(document).ready(function () {
+         
+             $("#firstname_error_msg").hide();
+             $("#lastname_error_msg").hide();
+             $("#email_error_msg").hide();
+             $("#password_error_msg").hide();
+             $("#password2_error_msg").hide();
+             $("#addr_error_msg").hide();
+             $("#city_error_msg").hide();
+             $("#state_error_msg").hide();
+             $("#zip_error_msg").hide();
+             $("#phone_error_msg").hide();
+         
+         
+             var error_firstname = false;
+             var error_lastname = false;
+             var error_email = false;
+             var error_password = false;
+             var error_password2 = false;
+             var error_addr = false;
+             var error_city = false;
+             var error_state = false;
+             var error_zip = false;
+             var error_phone = false;
+         
+         
+             $('#firstname').focusout(function () {
+                 check_firstname();
+             });
+         
+             $('#lastname').focusout(function () {
+                 check_lastname();
+             });
+         
+             $('#email').focusout(function () {
+                 check_email();
+             });
+         
+             $('#password').focusout(function () {
+                 check_password();
+             });
+         
+              $('#password2').focusout(function () {
+                 check_password2();
+             });
+             $('#addr').focusout(function () {
+                 check_addr();
+             });
+         
+             $('#city').focusout(function () {
+                 check_city();
+             });
+         
+             $('#State').focusout(function () {
+                 check_state();
+             });
+         
+             $('#zip').focusout(function () {
+                 check_zip();
+             });
+         
+             $('#phone').keyup(function () {
+                 this.value = this.value.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+             });
+         
+             $('#phone').focusout(function () {
+                 check_phone();
+             });
+         
+             function check_firstname() {
+         
+                 var fname = $("#firstname").val();
+         
+                 var pat = new RegExp(/^[a-z]{2,14}$/i);
+         
+                 if(fname == null || fname == "") {
+                     $("#firstname_error_msg").html(" * Enter your First Name");
+                     $("#firstname_error_msg").show();
+                     error_firstname = true;
+                 }
+                 else if(!pat.test(fname)) {
+                     $("#firstname_error_msg").html(" * Enter a Valid name having 2-14 characters (alphabets only)");
+                     $("#firstname_error_msg").show();
+                     error_firstname = true;
+                 }
+                 else {
+                     $("#firstname_error_msg").hide();
+                 }
+             }
+         
+             function check_lastname() {
+         
+                 var lname = $("#lastname").val();
+         
+                 var patt = new RegExp(/^[a-z ,.'-]+$/i);
+         
+                 if(lname.trim() == "") {
+                   $("#lastname_error_msg").html(" * Enter your Last Name");
+                   $("#lastname_error_msg").show();
+                   error_lastname = true;
+                 }
+                 else if(!patt.test(lname)) {
+                   $("#lastname_error_msg").html(" * Enter a Valid name having alphabets and .,'- symbols only");
+                   $("#lastname_error_msg").show();
+                   error_lastname = true;
+                 }
+                 else {
+                   $("#lastname_error_msg").hide();
+                 }
+             }
+         
+             function check_email() {
+         
+                 var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+         
+                 if (pattern.test($("#email").val())) {
+                     $("#email_error_msg").hide();
+                 }
+                 else {
+                     $("#email_error_msg").html(" * Incorrect email address");
+                     $("#email_error_msg").show();
+                     error_email = true;
+                 }
+             }
+         
+             function check_password() {
+         
+                 if ($("#password").val().length < 8) {
+                     $("#password_error_msg").html(" * Password must have 8 or more characters");
+                     $("#password_error_msg").show();
+                     error_password = true;
+                 }
+                 else {
+                     $("#password_error_msg").hide();
+                 }
+             }
+         
+             function check_password2() {
+         
+                 var pass1 = $("#password").val();
+         
+                 var pass2 = $("#password2").val();
+         
+                 if(pass1 != pass2) {
+                     $("#password2_error_msg").html(" * Password doesn't match");
+                     $("#password2_error_msg").show();
+                     error_password2 = true;
+                 }
+                 else {
+                     $("#password2_error_msg").hide();
+                 }
+             }
+         
+             function check_addr() {
+         
+         if($("#addr").val().trim() == "") {
+         $("#addr_error_msg").html(" * Enter your address");
+         $("#addr_error_msg").show();
+         error_addr = true;
+         }
+         else {
+         $("#addr_error_msg").hide();
+         }
+         }
+         
+         function check_city() {
+         
+         var city_pattern = new RegExp(/^[a-zA-Z\- ]+$/i);
+         
+         var city = $("#city").val();
+         
+         if(!city_pattern.test(city)) {
+         $("#city_error_msg").html(" * Enter a valid City name");
+         $("#city_error_msg").show();
+         error_city = true;
+         }
+         else {
+         $("#city_error_msg").hide();
+         }
+         }
+         
+         function check_state() {
+         
+         if($("#State").val() == "") {
+         $("#state_error_msg").html(" * Select the State you reside in");
+         $("#state_error_msg").show();
+         error_state = true;
+         }
+         else {
+         $("#state_error_msg").hide();
+         }
+         }
+         
+         function check_zip() {
+         
+         var zip_pattern = new RegExp(/^[0-9]{5}$/);
+         
+         var zip = $("#zip").val();
+         
+         if(!zip_pattern.test(zip)) {
+         $("#zip_error_msg").html(" * Enter a valid ZIP code");
+         $("#zip_error_msg").show();
+         error_zip = true;
+         }
+         else {
+         $("#zip_error_msg").hide();
+         }
+         }
+         
+         function check_phone() {
+         
+         var phoneReg = new RegExp(/^\d{3}\-\d{3}\-\d{4}$/);
+         
+         var phone = $("#phone").val();
+         
+         if(!phoneReg.test(phone)) {
+         $("#phone_error_msg").html(" * Enter a valid Phone number in XXX-XXX-XXXX format");
+         $("#phone_error_msg").show();
+         error_phone = true;
+         }
+         else {
+         $("#phone_error_msg").hide();
+                 }
+             }
+         
+             $("#signup_form").submit(function () {
+         
+                 error_firstname = false;
+                 error_lastname = false;
+                 error_email = false;
+                 error_password = false;
+                 error_password2 = false;
+                 error_addr = false;
+                 error_city = false;
+                 error_state = false;
+                 error_zip = false;
+                 error_phone = false;
+         
+         
+                 check_firstname();
+                 check_lastname();
+                 check_email();
+                 check_password();
+                 check_password2();
+                 check_addr();
+                 check_city();
+                 check_state();
+                 check_zip();
+                 check_phone();
+         
+                 if (error_firstname == false && error_lastname == false && error_email == false && error_password == false && error_password2 == false && error_addr == false && error_city == false && error_state == false && error_zip == false && error_phone == false) {
+                     return true;
+                 }
+                 else
+                     return false;
+         
+             });
+         });
+      </script>
+      <script>
+         function validateCredentials() {
+             alert("Hi Please sign Up")
+             $.ajax({
+                 type: "POST",
+                 crossDomain: true,
+                 url: "http://localhost:8080/user/signup",
+                 data: {
+                     firstname: document.getElementsByName("firstname")[0].value,
+                     lastname: document.getElementsByName("lastname")[0].value,
+                     email: document.getElementsByName("email")[0].value,
+                     password: document.getElementsByName("password")[0].value,
+                     address: document.getElementsByName("addr")[0].value,
+                     city: document.getElementsByName("city")[0].value,
+                     state: document.getElementsByName("State")[0].value,
+                     zip: document.getElementsByName("zip")[0].value,
+                     phone: document.getElementsByName("phone")[0].value
+         
+                 },
+                 success: function (response) {
+                     //code for setting session and sign in
+                     if (response.toString() == "success")
+                         alert("You have SignedUp! Please Login")
+                 }
+             });
+         }
+      </script>
+   </body>
 </html>
