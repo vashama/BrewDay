@@ -189,6 +189,10 @@
               <hr>
               <h2 class="intro-text text-center">Your Recipes</h2>
               <hr>
+
+              <div id="recipelist">
+
+                <!--
                 <div class="col-md-12 text-center item">
                       <div class="col-md-4">
                         <a href="#" class="btn btn-link">
@@ -293,6 +297,9 @@
                                   </div>
                             </div>
 
+                      </div>
+
+
                         <center>
                         <ul class="pagination">
                           <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
@@ -302,7 +309,7 @@
                           <li class="page-item"><a class="page-link" href="#">Next</a></li>
                         </ul>
                       </center>
-
+                    -->
 
 
                 <div class="clearfix"></div>
@@ -329,6 +336,19 @@
     <script type="text/javascript">
 
     $(document).ready(function() {
+
+        $.getJSON("http://localhost:8080/recipe", function(result) {
+
+          $.each(result, function(i, item) {
+
+            $("#recipelist").html('<div class="col-md-12 text-center item"><div class="col-md-4"><a href="#" class="btn btn-link"><h4>' + item.recipename + '</h4></a></div>');
+            $("#recipelist").append('<div class="col-md-4 item-divider">Beer Style:<strong>' + item.brewType + '</strong><br><br>Batch Size:<strong>' + item.batchSize + 'gallons</strong></div>');
+            $("#recipelist").append('<div class="col-md-2 item-divider">ABV<br><h4>' + item.abv + '%</h4></div><div class="col-md-2">IBU<br><h4>' + item.ibu + '</h4></div></div>');
+
+          });
+          
+        });
+
 
         $(".item, .item-alt").click(function() {
 
