@@ -339,14 +339,13 @@
 
         $.getJSON("http://localhost:8080/recipe", function(result) {
 
-          $.each(result, function(i, item) {
+          $.each(result, function(index, item) {
+            console.log(item.id);
 
-            $("#recipelist").html('<div class="col-md-12 text-center item"><div class="col-md-4"><a href="#" class="btn btn-link"><h4>' + item.recipename + '</h4></a></div>');
-            $("#recipelist").append('<div class="col-md-4 item-divider">Beer Style:<strong>' + item.brewType + '</strong><br><br>Batch Size:<strong>' + item.batchSize + 'gallons</strong></div>');
-            $("#recipelist").append('<div class="col-md-2 item-divider">ABV<br><h4>' + item.abv + '%</h4></div><div class="col-md-2">IBU<br><h4>' + item.ibu + '</h4></div></div>');
+            $('<div class="col-md-12 text-center item"><div class="col-md-4"><a href="#" class="btn btn-link"><h4>' + item.recipename + '</h4></a></div><div class="col-md-4 item-divider">Beer Style: <strong>' + item.brewType + '</strong><br><br>Batch Size: <strong>' + item.batchSize + ' gallons</strong></div><div class="col-md-2 item-divider">ABV<br><h4>' + item.abv + '%</h4></div><div class="col-md-2">IBU<br><h4>' + item.ibu + '</h4></div></div>').appendTo("#recipelist");
 
           });
-          
+
         });
 
 
