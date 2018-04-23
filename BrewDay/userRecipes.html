@@ -344,7 +344,8 @@
           //$.getJSON("result.json", function(result) {
 
           $.each(result, function(index, item) {
-            console.log(result);
+            //console.log(result);
+            var boiltime = item.boilTime.split(":")[0];
 
             if(index % 2 == 1) {
               recipeslist += `<div class="col-md-12 text-center item-alt">
@@ -371,11 +372,13 @@
                                   <br>
                                   <h4>` + item.ibu + `</h4>
                                 </div>
-                                <div class="collapse col-md-12 alert alert-info" id="info` + item.id + `">
-                                  <strong>Boil Time</strong> : ` + item.boilTime + `
-                                  <br>
-                                  <br>
-                                  <strong>Instructions</strong>: ` + item.instructions + `
+                                <div class="collapse col-md-12 well" id="info` + item.id + `">
+                                  <div class="col-md-4">
+                                    <strong>Boil Time</strong> : ` + boiltime + ` minutes
+                                  </div>
+                                  <div class="col-md-8">
+                                    <strong>Instructions</strong>: ` + item.instructions + `
+                                  </div>
                                 </div>
                               </div>
                               `;
@@ -405,11 +408,13 @@
                                   <br>
                                   <h4>` + item.ibu + `</h4>
                                 </div>
-                                <div class="collapse col-md-12 alert alert-info" id="info` + item.id + `">
-                                  <strong>Boil Time</strong> : ` + item.boilTime + `
-                                  <br>
-                                  <br>
-                                  <strong>Instructions</strong>: ` + item.instructions + `
+                                <div class="collapse col-md-12 well" id="info` + item.id + `">
+                                  <div class="col-md-4">
+                                    <strong>Boil Time</strong> : ` + boiltime + ` minutes
+                                  </div>
+                                  <div class="col-md-8">
+                                    <strong>Instructions</strong>: ` + item.instructions + `
+                                  </div>
                                 </div>
                               </div>
                               `;
@@ -428,8 +433,8 @@
 
           $(".item").hover(function() {
 
-              $(this).css("background-color", "#ccccff");
-              $(this).css("cursor", "pointer");
+              $(this).css("background-color", "#ff9980");
+              //$(this).css("cursor", "pointer");
 
               }, function(){
 
@@ -439,8 +444,8 @@
 
           $(".item-alt").hover(function() {
 
-              $(this).css("background-color", "#fcbdb6");
-              $(this).css("cursor", "pointer");
+              $(this).css("background-color", "#ff9980");
+              //$(this).css("cursor", "pointer");
 
               }, function(){
 
