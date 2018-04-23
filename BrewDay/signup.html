@@ -121,10 +121,10 @@
                            <label class="col-md-4 control-label" for="Gender">Gender</label>
                            <div class="col-md-4">
                               <label class="radio-inline" for="Gender-0">
-                              <input type="radio" name="Gender" id="Gender-0" value="Male" checked> Male
+                              <input type="radio" name="gender" id="Gender-0" value="Male" checked> Male
                               </label>
                               <label class="radio-inline" for="Gender-1">
-                              <input type="radio" name="Gender" id="Gender-1" value="Female"> Female
+                              <input type="radio" name="gender" id="Gender-1" value="Female"> Female
                               </label>
                            </div>
                         </div>
@@ -136,7 +136,7 @@
                                  <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-home"></i>
                                  </div>
-                                 <input id="addr" name="Permanent Address" type="text" placeholder="House number and Street name" class="form-control input-md ">
+                                 <input id="addr" name="addr" type="text" placeholder="House number and Street name" class="form-control input-md ">
                                  <small id="addr_error_msg" style="color:red"></small>
                               </div>
                            </div>
@@ -148,7 +148,7 @@
                                  <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-home"></i>
                                  </div>
-                                 <input id="city" name="Permanent Address" type="text" placeholder="City" class="form-control input-md ">
+                                 <input id="city" name="city" type="text" placeholder="City" class="form-control input-md ">
                                  <small id="city_error_msg" style="color:red"></small>
                               </div>
                            </div>
@@ -156,7 +156,7 @@
                         <div class="form-group">
                            <label class="col-md-4 control-label" for="Permanent Address">State</label>
                            <div class="col-md-4">
-                              <select id="State" name="Permanent Address" type="text" placeholder="State" class="form-control input-md ">
+                              <select id="state" name="state" type="text" placeholder="State" class="form-control input-md ">
                                  <option value="" selected="selected">Select a State</option>
                                  <option value="AL">Alabama</option>
                                  <option value="AK">Alaska</option>
@@ -219,7 +219,7 @@
                                  <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-map-marker"></i>
                                  </div>
-                                 <input id="zip" type="text" placeholder="ZIP Code" class="form-control input-md ">
+                                 <input id="zip" name="zip" type="text" placeholder="ZIP Code" class="form-control input-md ">
                                  <small id="zip_error_msg" style="color:red"></small>
                               </div>
                            </div>
@@ -232,7 +232,7 @@
                                  <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-phone"></i>
                                  </div>
-                                 <input id="phone" name="Phone number" type="text" placeholder="Phone number" class="form-control input-md" maxlength="12">
+                                 <input id="phone" name="phone" type="text" placeholder="Phone number" class="form-control input-md" maxlength="12">
                                  <small id="phone_error_msg" style="color:red"></small>
                               </div>
                            </div>
@@ -541,12 +541,12 @@
                      lastname: document.getElementsByName("lastname")[0].value,
                      email: document.getElementsByName("email")[0].value,
                      password: document.getElementsByName("password")[0].value,
-                    Gender: document.getElementsByName("Gender")[0].value,
-                     addr: document.getElementsById("addr")[0].value,
-                     city: document.getElementsById("city")[0].value,
-                     state: document.getElementsById("State")[0].value,
-                     zip: document.getElementsById("zip")[0].value,
-                     phone: document.getElementsById("phone")[0].value
+                     address: document.getElementsByName("addr")[0].value,
+                     city: document.getElementsByName("city")[0].value,
+                     state: document.getElementsByName("state")[0].value,
+                     zip: document.getElementsByName("zip")[0].value,
+                     phone: document.getElementsByName("phone")[0].value
+
                  },
                  success: function (response) {
                      //code for setting session and sign in
