@@ -323,7 +323,7 @@
                  check_city();
              });
 
-             $('#State').focusout(function () {
+             $('#state').focusout(function () {
                  check_state();
              });
 
@@ -453,7 +453,7 @@
 
          function check_state() {
 
-         if($("#State").val() == "") {
+         if($("#state").val() == "") {
          $("#state_error_msg").html(" * Select the State you reside in");
          $("#state_error_msg").show();
          error_state = true;
