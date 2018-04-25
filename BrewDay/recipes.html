@@ -20,7 +20,7 @@
     <link href="css/brewday.css" rel="stylesheet">
 
     <style>
-            div.absolute 
+            div.absolute
             {
                     position: absolute;
                     right: -10px;
@@ -73,27 +73,32 @@
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Brewing Potions</h2>
+                    <h2 class="intro-text text-center">Brewing <strong>Recipes</strong></h2>
                     <hr>
                 </div>
+
+              <!--
                 <div class="col-md-4">
                     <img class="img-responsive img-border-left" src="http://www.visitflorida.com/content/visitflorida/en-us/eat-drink/florida-craft-beer-breweries/_jcr_content/editorial_parsys/vf_col_ctrl_1751276127/column_parsys0/vf_image.img.400.400.jpg" alt="">
                 </div>
                 <div class="col-md-8">
                     <p>By placing one or more bottles in the lower three slots of the brewing interface, an ingredient in the upper slot, and blaze powder in the fuel slot, you can distill the ingredient into each bottle and brew potions which may be consumed to grant an effect to the player.</p>
-                    <p>The potion starts with a water bottle, made by filling a glass bottle at a water source or filled cauldron. 
-                    Using blaze powder, the next step is to add a primary ingredient to create a base potion, 
-                    which is usually nether wart, which creates an awkward potion and has no effects. 
-                    By brewing a second ingredient into a base potion in the same manner, you can create a potion with a working effect. 
-                    A third ingredient may be added to make the effect more intense or last longer, or turn the effect harmful. 
-                    Gunpowder can be added to a potion at any stage to convert it to a splash potion, which can be thrown (or fired using a dispenser) to disperse its effect in a radius. 
-                    Finally, dragon's breath can be added to a splash potion to convert it to a lingering potion, which can be used to disperse its effect in a bubble. 
+                    <p>The potion starts with a water bottle, made by filling a glass bottle at a water source or filled cauldron.
+                    Using blaze powder, the next step is to add a primary ingredient to create a base potion,
+                    which is usually nether wart, which creates an awkward potion and has no effects.
+                    By brewing a second ingredient into a base potion in the same manner, you can create a potion with a working effect.
+                    A third ingredient may be added to make the effect more intense or last longer, or turn the effect harmful.
+                    Gunpowder can be added to a potion at any stage to convert it to a splash potion, which can be thrown (or fired using a dispenser) to disperse its effect in a radius.
+                    Finally, dragon's breath can be added to a splash potion to convert it to a lingering potion, which can be used to disperse its effect in a bubble.
                     Each brewing step takes 20 seconds.</p>
-                  <p>Each blaze powder used as fuel provides 20 fuel points. It costs 1 fuel point to start brewing one ingredient; 
+                  <p>Each blaze powder used as fuel provides 20 fuel points. It costs 1 fuel point to start brewing one ingredient;
                     this fuel point is not recovered if the brewing is halted due to removing the ingredient or the potions being brewed into.</p>
                 </div>
-                <div class="clearfix"></div>
+              -->
+
             </div>
+
+            <div class="clearfix"></div>
         </div>
 
     </div>
@@ -103,7 +108,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>SER 518 - Group 7</p>  
+                    <p>SER 518 - Group 7</p>
                 </div>
             </div>
         </div>
@@ -114,6 +119,126 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+        var recipeslist = "";
+
+        $.getJSON("http://localhost:8080/recipe/public", function(publicRecipes) {
+          //$.getJSON("public.json", function(publicRecipes) {
+
+          $.each(publicRecipes.reverse(), function(index, item) {
+
+            var boiltime = item.boilTime.split(":")[0];
+
+            if(index % 2 == 1) {
+              recipeslist += `<div class="col-md-10 col-md-offset-1 text-center item-alt">
+                                <div class="col-md-4">
+                                  <a href="#info` + index + `" class="btn btn-link" data-toggle="collapse">
+                                    <h4>`
+                                    + item.recipename +
+                                    `</h4>
+                                  </a>
+                                </div>
+                                <div class="col-md-4 item-divider">
+                                  Beer Style: <strong>` + item.brewType + `</strong>
+                                  <br>
+                                  <br>
+                                  Batch Size: <strong>` + item.batchSize + ` gallons</strong>
+                                </div>
+                                <div class="col-md-2 item-divider">
+                                  ABV
+                                  <br>
+                                  <h4>` + item.abv + `%</h4>
+                                </div>
+                                <div class="col-md-2">
+                                  IBU
+                                  <br>
+                                  <h4>` + item.ibu + `</h4>
+                                </div>
+                                <div class="collapse col-md-12 well" id="info` + index + `">
+                                  <div class="col-md-4">
+                                    <strong>Boil Time</strong> : ` + boiltime + ` minutes
+                                  </div>
+                                  <div class="col-md-8 text-left">
+                                    <strong>Instructions</strong>: ` + item.instructions + `
+                                    <br>
+                                    <small class="pull-right">- by <em>` + item.email.split("@")[0] + `</em></small>
+                                  </div>
+                                </div>
+                              </div>
+                              `;
+            }
+            else {
+              recipeslist += `<div class="col-md-10 col-md-offset-1 text-center item">
+                                <div class="col-md-4">
+                                  <a href="#info` + index + `" class="btn btn-link" data-toggle="collapse">
+                                    <h4>`
+                                    + item.recipename +
+                                    `</h4>
+                                  </a>
+                                </div>
+                                <div class="col-md-4 item-divider">
+                                  Beer Style: <strong>` + item.brewType + `</strong>
+                                  <br>
+                                  <br>
+                                  Batch Size: <strong>` + item.batchSize + ` gallons</strong>
+                                </div>
+                                <div class="col-md-2 item-divider">
+                                  ABV
+                                  <br>
+                                  <h4>` + item.abv + `%</h4>
+                                </div>
+                                <div class="col-md-2">
+                                  IBU
+                                  <br>
+                                  <h4>` + item.ibu + `</h4>
+                                </div>
+                                <div class="collapse col-md-12 well" id="info` + index + `">
+                                  <div class="col-md-4">
+                                    <strong>Boil Time</strong> : ` + boiltime + ` minutes
+                                  </div>
+                                  <div class="col-md-8 text-left">
+                                    <strong>Instructions</strong>: ` + item.instructions + `
+                                    <br>
+                                    <small class="pull-right">- by <em>` + item.email.split("@")[0] + `</em></small>
+                                  </div>
+                                </div>
+                              </div>
+                              `;
+            }
+
+          });
+
+          $(".box").append(recipeslist);
+
+          $(".item").hover(function() {
+
+              $(this).css("background-color", "#d1e0e0");
+
+              }, function(){
+
+              $(this).css("background-color", "#fcfcfc");
+
+          });
+
+          $(".item-alt").hover(function() {
+
+              $(this).css("background-color", "#d1e0e0");
+
+              }, function(){
+
+              $(this).css("background-color", "#eeeeee");
+
+          });
+
+        });
+
+    });
+
+    </script>
 
 </body>
 
