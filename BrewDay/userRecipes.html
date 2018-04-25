@@ -5,6 +5,7 @@
         <script src="js/jquery.js"></script>
 
         <script>
+        	var globalId = ""
             function logoutFunction(event) {
               event.preventDefault();
               window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
@@ -25,6 +26,31 @@
             });
               alert("output: " + output);
               window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/brewToday.html';
+            }
+            function validateCredentials() {
+                //alert("Hi!! Enter your recipe")
+                $.ajax({
+                        type: "POST",
+                        crossDomain: true,
+                        url: "http://localhost:8080/recipe/editrecipe",
+                        data: {
+                    recipename: document.getElementsByName("recipename")[0].value,
+                            ibu: document.getElementsByName("ibu")[0].value,
+                            abv: document.getElementsByName("abv")[0].value,
+                            batchSize: document.getElementsByName("batchSize")[0].value,
+                            Description: document.getElementsByName("instructions")[0].value,
+                            boilTime : document.getElementsByName("boilTime")[0].value,
+                            brewType: document.getElementsByName("brewType")[0].value,
+                            optradio: $('input[name=optradio]:checked').val(),
+							id: globalId
+
+                },
+                success: function (response) {
+                    //code for setting session and sign in
+                    if (response.toString() == "success")
+                        alert("You have successfully added your recipe")
+                }
+                });
             }
         </script>
     <meta charset="utf-8">
@@ -344,7 +370,7 @@
           //$.getJSON("result.json", function(result) {
 
           $.each(result.reverse(), function(index, item) {
-            
+            globalId = item.id
             var boiltime = item.boilTime.split(":")[0];
 
             if(index % 2 == 1) {
@@ -546,7 +572,8 @@
             else {
               recipeslist += `<div class="col-md-12 text-center item">
                                 <div class="col-md-4">
-                                  <a href="#info` + item.id + `" class="btn btn-link" data-toggle="collapse">
+                                  <a href="#info` + 
+2 + `" class="btn btn-link" data-toggle="collapse">
                                     <h4>`
                                     + item.recipename +
                                     `</h4>
