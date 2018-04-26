@@ -152,11 +152,6 @@
                                         <li class="divider">
                                         </li>
                                         <li>
-                                            <a href="profile.html">Update Profile</a>
-                                        </li>
-                                        <li class="divider">
-                                        </li>
-                                        <li>
                                             <a href="http://localhost:8080/user/logout" onclick='logoutFunction(event);'> Log Out</a>
                                         </li>
                                     </ul>
@@ -181,11 +176,6 @@
                     <img class="img-rounded panel-profile-img" src="img/user.png" alt="Profile picture">
 
                         <h2 id="fullname"></h2>
-
-                        <i class="glyphicon glyphicon-phone"> </i>
-                        <span id="phonenumber"></span>
-                        <br>
-                        <br>
                         <a href="#editmodal" data-toggle="modal" class="btn btn-default">
 
                           <i class="glyphicon glyphicon-pencil"> </i> Edit Profile
@@ -355,7 +345,7 @@
                                             </div>
                                          </div>
                                       </div>
-                                      <!-- Phone Number -->
+                                      <!-- Phone Number
                                       <div class="form-group">
                                          <label class="col-md-4 control-label" for="Phone number">Phone number</label>
                                          <div class="col-md-4">
@@ -377,7 +367,7 @@
                                          </div>
                                       </div>
 
-
+                                      -->
 
 
                               </div>
@@ -497,9 +487,12 @@
         $.getJSON("http://localhost:8080/user/12", function(result) {
           //$.get("profile.json", function(result) {
           //console.log(result);
+          /*var addr = result.address.split(",")[0];
+          var city = result.address.split(",")[1];
+          var city = result.address.split(",")[2];
+          var city = result.address.split(",")[3];*/
 
           $("#fullname").html(result.firstname + " " + result.lastname);
-          $("#phonenumber").html(result.phone);
           $("#gender").html(result.gender);
           $("#address").html(result.addr + ", " + result.city + ", " + result.state + " " + result.zip);
 
@@ -510,7 +503,6 @@
           //$("#addr").attr("value", result.addr);
           //$("#city").attr("value", result.city);
           //$("#zip").attr("value", result.zip);
-          //$("#phone").attr("value", result.phone);
 
         }, "json");
 
@@ -524,7 +516,6 @@
         $("#city_error_msg").hide();
         $("#state_error_msg").hide();
         $("#zip_error_msg").hide();
-        $("#phone_error_msg").hide();
 
 
         var error_firstname = false;
@@ -536,7 +527,6 @@
         var error_city = false;
         var error_state = false;
         var error_zip = false;
-        var error_phone = false;
 
 
         $('#firstname').focusout(function () {
@@ -571,13 +561,6 @@
             check_zip();
         });
 
-        $('#phone').keyup(function () {
-            this.value = this.value.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
-        });
-
-        $('#phone').focusout(function () {
-            check_phone();
-        });
 
         function check_firstname() {
 
@@ -705,22 +688,6 @@
       }
     }
 
-    function check_phone() {
-
-        var phoneReg = new RegExp(/^\d{3}\-\d{3}\-\d{4}$/);
-
-        var phone = $("#phone").val();
-
-        if(!phoneReg.test(phone)) {
-          $("#phone_error_msg").html(" * Enter a valid Phone number in XXX-XXX-XXXX format");
-          $("#phone_error_msg").show();
-          error_phone = true;
-        }
-        else {
-          $("#phone_error_msg").hide();
-        }
-      }
-
         $("#editprofile").submit(function () {
 
             error_firstname = false;
@@ -731,7 +698,6 @@
             error_city = false;
             error_state = false;
             error_zip = false;
-            error_phone = false;
 
 
             check_firstname();
@@ -742,9 +708,8 @@
             check_city();
             check_state();
             check_zip();
-            check_phone();
 
-            if (error_firstname == false && error_lastname == false && error_password == false && error_password2 == false && error_addr == false && error_city == false && error_state == false && error_zip == false && error_phone == false) {
+            if (error_firstname == false && error_lastname == false && error_password == false && error_password2 == false && error_addr == false && error_city == false && error_state == false && error_zip == false) {
                 return true;
             }
             else
@@ -768,7 +733,6 @@
                 city: document.getElementsByName("city")[0].value,
                 state: document.getElementsByName("state")[0].value,
                 zip: document.getElementsByName("zip")[0].value,
-                phone: document.getElementById("phone").value,
                 //gender: $('input[name=gender]:checked').val()
             },
             success: function (response) {
