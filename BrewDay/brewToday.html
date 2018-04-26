@@ -3,6 +3,14 @@
    <head>
         <script src="js/jquery.js"></script>
         <script>
+           try {
+             var url = new URL(url_string);
+             var brewTodayValue = url.searchParams.get("brewtoday");
+             document.getElementById("brewTodayText").innerHTML = "" + brewTodayValue;
+           }
+           catch(err) {
+             console.log(err);
+           }
             function logoutFunction(event) {
               event.preventDefault();
               window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
@@ -18,11 +26,10 @@
                 //code for setting session and sign in
                 output = response.toString();
                 //$("$brewingName").html(output);
-                alert(output);
-               $('#brewTodayText').text(output.toString());
+                //alert(output);
             }
             });
-              alert("output: " + output);
+              //alert("output: " + output);
               window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/brewToday.html';
             }
         </script>
