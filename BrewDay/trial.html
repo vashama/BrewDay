@@ -3,44 +3,11 @@
 
 <head>
         <script src="js/jquery.js"></script>
-        <script>
-            function logoutFunction(event) {
-              event.preventDefault();
-              window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
-            }
-            function brewTodayFunction(event) {
-              var output = "";
-          //    alert("In function");
-              $.ajax({
-                    type: "POST",
-                    crossDomain: true,
-                    url: "http://localhost:8080/pareto/main",
-            success: function (response) {
-                //code for setting session and sign in
-                output = response.toString();
-               // $("$brewingName").html(output);
-                alert(output);
-            }
-            });
-              alert("output: " + output);
-              window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/brewToday.html';
-            }
-        </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Brew Day</title>
-
-    <link rel="icon" type="logo.jpg" href="img/logo.png">
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/brewday.css" rel="stylesheet">
 
 </head>
 
@@ -49,9 +16,13 @@
     <div class="brand">DASHBOARD</div>
 
     <!-- Navigation -->
+    <div class="navbar">
+
+    </div>
+
+    <!-- 
     <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="container">            
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
@@ -88,9 +59,9 @@
                         <li>
                             <a href="forum.html">Forum</a>
                         </li>
-                        <li class="topbar">
+                        <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" class="droptown-toggle">Help <b class="caret"></b></a>
-                                <ul class="dropdown">
+                                <ul class="dropdown-menu">
                                     <li>
                                         <a href="contactSupport.html">Contact Support</a>
                                     </li>
@@ -99,31 +70,6 @@
                                     <li class ="dropdown">
                                         <a href="#" data-toggle="dropdown" class="droptown-toggle">Documentation<span class="caret"></span>
                                         </a>
-                                        <ul class="flyout">
-                                            <li>
-                                                <a href="grains.html">Grain Malts</a>
-                                            </li>
-                                            <li class="divider">
-                                            </li>
-                                            <li>
-                                                <a href="hops.html">Hops</a>
-                                            </li>
-                                            <li class="divider">
-                                            </li>
-                                            <li>
-                                                <a href="sugars.html">Sugars</a>
-                                            </li>
-                                            <li class="divider">
-                                            </li>
-                                            <li>
-                                                <a href="yeast.html">Yeast</a>
-                                            </li>
-                                            <li class="divider">
-                                            </li>
-                                            <li>
-                                                <a href="equipment.html">Equipment</a>
-                                            </li>
-                                        </ul>
                                     </li>
                                 </ul>
                         </li>
@@ -152,10 +98,10 @@
                         </li>
                     </ul>
             </div>
-            <!-- /.navbar-collapse -->
+            
         </div>
-        <!-- /.container -->
-</nav>
+        </nav> 
+    -->
 
     <div class="container">
 

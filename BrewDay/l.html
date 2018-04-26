@@ -1,0 +1,19 @@
+<html>
+<head>
+    <script>
+        var obj = {
+    _name: 'John Doe',
+    getName: function () { this._name; }
+};
+
+//var f=function(){obj.getName();}
+var f=function(){return obj.getName();}
+//var f=obj.getName.bind(obj);
+
+console.log(f());
+    </script>
+</head>
+	<body>
+	
+	</body>
+</html>
