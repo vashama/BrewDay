@@ -288,8 +288,8 @@
                     <div class="form-group">
                       <label class="col-md-4 control-label" ></label>
                         <div class="col-md-4">
-                          <label><input type="radio" name="optradio">Public</label>
-                          <label><input type="radio" name="optradio" checked>Private</label>
+                          <label><input type="radio" name="optradio" value="PUBLIC">Public</label>
+                          <label><input type="radio" name="optradio" value="PRIVATE" checked>Private</label>
                           <button class="btn btn-primary btn-block" type="submit" onClick="validateCredentials()">Add this recipe</button>
                           <!--<a href="#" class="btn btn-success"> Add this recipe </a>-->
                         </div>
@@ -333,7 +333,7 @@
                     Description: document.getElementsByName("instructions")[0].value,
                     boilTime : document.getElementsByName("boilTime")[0].value,
                     brewType: document.getElementsByName("brewType")[0].value,
-                    optradio: document.getElementsByName("optradio")[0].value
+                    optradio: $('input[name=optradio]:checked').val()
 
 
         },

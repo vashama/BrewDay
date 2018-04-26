@@ -166,6 +166,8 @@
                     <h2 class="intro-text text-center">Your Recipes</h2>
                     <hr>
                     <center>
+                      <div id="yourRecipes">
+                        <!--
                         <a href="#" class="btn btn-link">
                             <strong>Double Chocolate Oatmeal Stout</strong>
                         </a>
@@ -190,7 +192,9 @@
                         <br> Batch Size:
                         <em>5.5 gallons</em>
                         <hr />
-                        <a href="userRecipes.html" type="button" class="btn btn-primary">All Recipes</a>
+                        -->
+                      </div>
+                      <a href="userRecipes.html" type="button" class="btn btn-primary">All Recipes</a>
                     </center>
                 </div>
                 <div class="col-md-6">
@@ -208,19 +212,19 @@
                             <tbody>
                                 <tr>
                                     <td>Grain Malts</td>
-                                    <td>65 lb</td>
+                                    <td id="total_grainmalts"></td>
                                 </tr>
                                 <tr>
                                     <td>Hops</td>
-                                    <td>37 lb</td>
+                                    <td id="total_hops"></td>
+                                </tr>
+                                <tr>
+                                  <td>Sugar</td>
+                                  <td id="total_sugar"></td>
                                 </tr>
                                 <tr>
                                     <td>Yeast</td>
-                                    <td>19 pkgs</td>
-                                </tr>
-                                <tr>
-                                    <td>Sugar</td>
-                                    <td>41 lb</td>
+                                    <td id="total_yeast"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -235,11 +239,13 @@
 
         <div class="row">
             <div class="box">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <hr>
-                    <h2 class="intro-text text-center">Popular Recipes</h2>
+                    <h2 class="intro-text text-center">New Recipes</h2>
                     <hr>
-                    <center>
+                    <div class="col-md-5 col-md-offset-1" id="left3recipes">
+                      <!--
+                      <div class="text-center well">
                         <a href="#" class="btn btn-link">
                             <strong>Raspberry Wheat AG</strong>
                         </a>
@@ -247,7 +253,8 @@
                         <em>Fruit Beer</em>
                         <br> Batch Size:
                         <em>5 gallons</em>
-                        <hr />
+                      </div>
+                      <div class="text-center well">
                         <a href="#" class="btn btn-link">
                             <strong>Hustler Honey Ale</strong>
                         </a>
@@ -255,7 +262,8 @@
                         <em>American Ale</em>
                         <br> Batch Size:
                         <em>5 gallons</em>
-                        <hr />
+                      </div>
+                      <div class="text-center well">
                         <a href="#" class="btn btn-link">
                             <strong>Bavarian Weizen</strong>
                         </a>
@@ -263,30 +271,12 @@
                         <em>German Wheat and Rye Beer</em>
                         <br> Batch Size:
                         <em>5 gallons</em>
-                        <hr />
-                        <a href="#" class="btn btn-link">
-                            <strong>Iceberg On The Horizon Pale Ale</strong>
-                        </a>
-                        <br> Beer Style:
-                        <em>American Ale</em>
-                        <br> Batch Size:
-                        <em>5 gallons</em>
-                        <hr />
-                        <a href="#" class="btn btn-link">
-                            <strong>Psychobier</strong>
-                        </a>
-                        <br> Beer Style:
-                        <em>Scottish and Irish Ale</em>
-                        <br> Batch Size:
-                        <em>14.27 gallons</em>
-                        <hr />
-                    </center>
-                </div>
-                <div class="col-md-6">
-                    <hr>
-                    <h2 class="intro-text text-center">New Recipes</h2>
-                    <hr>
-                    <center>
+                      </div>
+                    -->
+                    </div>
+                    <div class="col-md-5" id="right3recipes">
+                      <!--
+                    <div class="text-center well">
                         <a href="#" class="btn btn-link">
                             <strong>Double Chocolate Oatmeal Stout</strong>
                         </a>
@@ -294,7 +284,8 @@
                         <em>Stout</em>
                         <br> Batch Size:
                         <em>5 gallons</em>
-                        <hr />
+                      </div>
+                      <div class="text-center well">
                         <a href="#" class="btn btn-link">
                             <strong>Gruit Ale Recipe</strong>
                         </a>
@@ -302,7 +293,8 @@
                         <em>Spice/Herb/Vegetable Beer</em>
                         <br> Batch Size:
                         <em>5.5 gallons</em>
-                        <hr />
+                      </div>
+                      <div class="text-center well">
                         <a href="#" class="btn btn-link">
                             <strong>Bohemian Millet Pilsner</strong>
                         </a>
@@ -310,26 +302,11 @@
                         <em>Pilsner</em>
                         <br> Batch Size:
                         <em>5 gallons</em>
-                        <hr />
-                        <a href="#" class="btn btn-link">
-                            <strong>Pumpkin Spice Beer</strong>
-                        </a>
-                        <br> Beer Style:
-                        <em>Spice/Herb/Vegetable Beer</em>
-                        <br> Batch Size:
-                        <em>5 gallons</em>
-                        <hr />
-                        <a href="#" class="btn btn-link">
-                            <strong>Munich Madness All Grain</strong>
-                        </a>
-                        <br> Beer Style:
-                        <em>European Amber Lager</em>
-                        <br> Batch Size:
-                        <em>5 gallons</em>
-                        <hr />
-                    </center>
+                    </div>
+                  -->
                 </div>
 
+              </div>
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -349,6 +326,205 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+        var totalGrainmalts = 0;
+        var totalHops = 0;
+        var totalSugar = 0;
+        var totalYeast = 0;
+
+        $.getJSON("http://localhost:8080/ingredient", function(result) {
+          //$.getJSON("ing.json", function(result) {
+          //console.log(result);
+
+          $.each(result, function(index, item) {
+
+            if(item.type == "Sugar") {
+              totalSugar += item.quantity;
+            }
+            else if(item.type == "Grain Malts"){
+              totalGrainmalts += item.quantity;
+            }
+            else if(item.type == "Hops"){
+              totalHops += item.quantity;
+            }
+            else if(item.type == "Yeast"){
+              totalYeast += item.quantity;
+            }
+
+          });
+
+          $("#total_grainmalts").html(totalGrainmalts + " lb");
+          $("#total_hops").html(totalHops + " lb");
+          $("#total_sugar").html(totalSugar + " lb");
+          $("#total_yeast").html(totalYeast + " pkgs");
+
+        });
+
+        var recent3recipeslist = "";
+
+      $.getJSON("http://localhost:8080/recipe", function(recipeData) {
+        //$.getJSON("result.json", function(recipeData) {
+        //console.log(recipeData.length);
+
+        var threeRecipes = "";
+
+        if(recipeData.length > 3) {
+            threeRecipes = recipeData.reverse().slice(0, 3);
+        }
+        else {
+            threeRecipes = recipeData.reverse();
+        }
+
+        $.each(threeRecipes, function(index, item) {
+
+          var boiltime = item.boilTime.split(":")[0];
+
+          recent3recipeslist += `<a href="#modal` + item.id + `" class="btn btn-link" data-toggle="modal">
+                                    <strong>` + item.recipename + `</strong>
+                                  </a>
+                                  <br> Beer Style:
+                                  <strong>` + item.brewType + `</strong>
+                                  <br> Batch Size:
+                                  <strong>` + item.batchSize + ` gallons</strong>
+                                  <hr />
+
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="modal` + item.id + `" role="dialog">
+                                    <div class="modal-dialog">
+
+                                      <!-- Modal content-->
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          <h4 class="modal-title">` + item.recipename + `</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>` + item.instructions + `</p>
+                                          <h5 class="text-center"> Boil time: ` + boiltime + ` minutes</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                  `;
+        });
+
+        $("#yourRecipes").append(recent3recipeslist);
+
+      });
+
+
+      $.getJSON("http://localhost:8080/recipe/public", function(publicRecipes) {
+        //$.getJSON("public.json", function(publicRecipes) {
+        //console.log(publicRecipes.length);
+
+        var threeLeftRecipes = "";
+        var threeRightRecipes = "";
+
+        if(publicRecipes.length > 6) {
+            publicRecipes = publicRecipes.reverse().slice(0, 6);
+        }
+        else {
+            publicRecipes = publicRecipes.reverse();
+        }
+
+        $.each(publicRecipes, function(index, item) {
+
+          var boiltime = item.boilTime.split(":")[0];
+
+          if(index % 2 == 0) {
+              threeLeftRecipes += `<div class="text-center well">
+                                    <a href="#modal` + index + `" class="btn btn-link" data-toggle="modal">
+                                      <strong>` + item.recipename + `</strong>
+                                    </a>
+                                    <br> Beer Style:
+                                    <strong>` + item.brewType + `</strong>
+                                    <br> Batch Size:
+                                    <strong>` + item.batchSize + ` gallons</strong>
+                                    <br>
+                                    <small class="pull-right">- by <em>` + item.email.split("@")[0] + `</em></small>
+                                  </div>
+                                      <!-- Modal -->
+                                      <div class="modal fade" id="modal` + index + `" role="dialog">
+                                        <div class="modal-dialog">
+
+                                          <!-- Modal content-->
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              <h4 class="modal-title">` + item.recipename + `</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>` + item.instructions + `</p>
+                                              <h5 class="text-center"> Boil time: ` + boiltime + ` minutes</h5>
+                                              <small class="pull-right">- by <em>` + item.email.split("@")[0] + `</em></small>
+                                              <br>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+
+                                        </div>
+                                      </div>
+                                      `;
+          }
+          else {
+            threeRightRecipes += `<div class="text-center well">
+                                    <a href="#modal` + index + `" class="btn btn-link" data-toggle="modal">
+                                      <strong>` + item.recipename + `</strong>
+                                    </a>
+                                    <br> Beer Style:
+                                    <strong>` + item.brewType + `</strong>
+                                    <br> Batch Size:
+                                    <strong>` + item.batchSize + ` gallons</strong>
+                                    <br>
+                                    <small class="pull-right">- by <em>` + item.email.split("@")[0] + `</em></small>
+                                  </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="modal` + index + `" role="dialog">
+                                      <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">` + item.recipename + `</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                            <p>` + item.instructions + `</p>
+                                            <h5 class="text-center"> Boil time: ` + boiltime + ` minutes</h5>
+                                            <small class="pull-right">- by <em>` + item.email.split("@")[0] + `</em></small>
+                                            <br>
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    </div>
+                                    `;
+          }
+
+        });
+
+        $("#left3recipes").append(threeLeftRecipes);
+        $("#right3recipes").append(threeRightRecipes);
+
+      });
+
+    });
+
+    </script>
+
 </body>
 
 </html>

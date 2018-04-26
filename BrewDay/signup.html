@@ -121,10 +121,10 @@
                            <label class="col-md-4 control-label" for="Gender">Gender</label>
                            <div class="col-md-4">
                               <label class="radio-inline" for="Gender-0">
-                              <input type="radio" name="Gender" id="Gender-0" value="1"> Male
+                              <input type="radio" name="gender" id="Gender-0" value="Male" checked> Male
                               </label>
                               <label class="radio-inline" for="Gender-1">
-                              <input type="radio" name="Gender" id="Gender-1" value="2"> Female
+                              <input type="radio" name="gender" id="Gender-1" value="Female"> Female
                               </label>
                            </div>
                         </div>
@@ -136,7 +136,7 @@
                                  <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-home"></i>
                                  </div>
-                                 <input id="addr" name="Permanent Address" type="text" placeholder="House number and Street name" class="form-control input-md ">
+                                 <input id="addr" name="addr" type="text" placeholder="House number and Street name" class="form-control input-md ">
                                  <small id="addr_error_msg" style="color:red"></small>
                               </div>
                            </div>
@@ -148,7 +148,7 @@
                                  <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-home"></i>
                                  </div>
-                                 <input id="city" name="Permanent Address" type="text" placeholder="City" class="form-control input-md ">
+                                 <input id="city" name="city" type="text" placeholder="City" class="form-control input-md ">
                                  <small id="city_error_msg" style="color:red"></small>
                               </div>
                            </div>
@@ -156,7 +156,7 @@
                         <div class="form-group">
                            <label class="col-md-4 control-label" for="Permanent Address">State</label>
                            <div class="col-md-4">
-                              <select id="State" name="Permanent Address" type="text" placeholder="State" class="form-control input-md ">
+                              <select id="state" name="state" type="text" placeholder="State" class="form-control input-md ">
                                  <option value="" selected="selected">Select a State</option>
                                  <option value="AL">Alabama</option>
                                  <option value="AK">Alaska</option>
@@ -219,7 +219,7 @@
                                  <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-map-marker"></i>
                                  </div>
-                                 <input id="zip" type="text" placeholder="ZIP Code" class="form-control input-md ">
+                                 <input id="zip" name="zip" type="text" placeholder="ZIP Code" class="form-control input-md ">
                                  <small id="zip_error_msg" style="color:red"></small>
                               </div>
                            </div>
@@ -258,7 +258,7 @@
       <script src="js/bootstrap.min.js"></script>
       <script>
          $(document).ready(function () {
-         
+
              $("#firstname_error_msg").hide();
              $("#lastname_error_msg").hide();
              $("#email_error_msg").hide();
@@ -284,44 +284,44 @@
              $('#firstname').focusout(function () {
                  check_firstname();
              });
-         
+
              $('#lastname').focusout(function () {
                  check_lastname();
              });
-         
+
              $('#email').focusout(function () {
                  check_email();
              });
-         
+
              $('#password').focusout(function () {
                  check_password();
              });
-         
+
               $('#password2').focusout(function () {
                  check_password2();
              });
              $('#addr').focusout(function () {
                  check_addr();
              });
-         
+
              $('#city').focusout(function () {
                  check_city();
              });
-         
-             $('#State').focusout(function () {
+
+             $('#state').focusout(function () {
                  check_state();
              });
-         
+
              $('#zip').focusout(function () {
                  check_zip();
              });
          
              function check_firstname() {
-         
+
                  var fname = $("#firstname").val();
-         
+
                  var pat = new RegExp(/^[a-z]{2,14}$/i);
-         
+
                  if(fname == null || fname == "") {
                      $("#firstname_error_msg").html(" * Enter your First Name");
                      $("#firstname_error_msg").show();
@@ -336,13 +336,13 @@
                      $("#firstname_error_msg").hide();
                  }
              }
-         
+
              function check_lastname() {
-         
+
                  var lname = $("#lastname").val();
-         
+
                  var patt = new RegExp(/^[a-z ,.'-]+$/i);
-         
+
                  if(lname.trim() == "") {
                    $("#lastname_error_msg").html(" * Enter your Last Name");
                    $("#lastname_error_msg").show();
@@ -357,11 +357,11 @@
                    $("#lastname_error_msg").hide();
                  }
              }
-         
+
              function check_email() {
-         
+
                  var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
-         
+
                  if (pattern.test($("#email").val())) {
                      $("#email_error_msg").hide();
                  }
@@ -371,9 +371,9 @@
                      error_email = true;
                  }
              }
-         
+
              function check_password() {
-         
+
                  if ($("#password").val().length < 8) {
                      $("#password_error_msg").html(" * Password must have 8 or more characters");
                      $("#password_error_msg").show();
@@ -383,13 +383,13 @@
                      $("#password_error_msg").hide();
                  }
              }
-         
+
              function check_password2() {
-         
+
                  var pass1 = $("#password").val();
-         
+
                  var pass2 = $("#password2").val();
-         
+
                  if(pass1 != pass2) {
                      $("#password2_error_msg").html(" * Password doesn't match");
                      $("#password2_error_msg").show();
@@ -399,9 +399,9 @@
                      $("#password2_error_msg").hide();
                  }
              }
-         
+
              function check_addr() {
-         
+
          if($("#addr").val().trim() == "") {
          $("#addr_error_msg").html(" * Enter your address");
          $("#addr_error_msg").show();
@@ -411,13 +411,13 @@
          $("#addr_error_msg").hide();
          }
          }
-         
+
          function check_city() {
-         
+
          var city_pattern = new RegExp(/^[a-zA-Z\- ]+$/i);
-         
+
          var city = $("#city").val();
-         
+
          if(!city_pattern.test(city)) {
          $("#city_error_msg").html(" * Enter a valid City name");
          $("#city_error_msg").show();
@@ -427,10 +427,10 @@
          $("#city_error_msg").hide();
          }
          }
-         
+
          function check_state() {
-         
-         if($("#State").val() == "") {
+
+         if($("#state").val() == "") {
          $("#state_error_msg").html(" * Select the State you reside in");
          $("#state_error_msg").show();
          error_state = true;
@@ -439,13 +439,13 @@
          $("#state_error_msg").hide();
          }
          }
-         
+
          function check_zip() {
-         
+
          var zip_pattern = new RegExp(/^[0-9]{5}$/);
-         
+
          var zip = $("#zip").val();
-         
+
          if(!zip_pattern.test(zip)) {
          $("#zip_error_msg").html(" * Enter a valid ZIP code");
          $("#zip_error_msg").show();
@@ -458,7 +458,7 @@
          
          
              $("#signup_form").submit(function () {
-         
+
                  error_firstname = false;
                  error_lastname = false;
                  error_email = false;
@@ -485,13 +485,13 @@
                  }
                  else
                      return false;
-         
+
              });
          });
       </script>
       <script>
          function validateCredentials() {
-             alert("Hi Please sign Up")
+             //alert("Hi Please sign Up")
              $.ajax({
                  type: "POST",
                  crossDomain: true,

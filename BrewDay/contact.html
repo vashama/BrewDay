@@ -72,7 +72,8 @@
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Contact Brew Day
+                    <h2 class="intro-text text-center">Contact
+                    <strong>Brew Day!</strong>
                     </h2>
                     <hr>
                 </div>
@@ -81,7 +82,7 @@
                 </div>
                 <div class="col-md-4">
                     <p>Email:
-                        <strong><a href="mailto:brewday7@gmail.com">brewday7@gmail.com</a></strong>
+                        <strong><a href="mailto:brewday7@gmail.com" class="btn btn-link btn-lg">brewday7@gmail.com</a></strong>
                     </p>
                     <p>Address:
                         <strong>6075 S. Innovation Way West
@@ -121,7 +122,7 @@
                             </div>
                             <div class="form-group col-lg-12 text-center">
                                 <input type="hidden" name="save" value="contact">
-               
+
                                 <button type="submit" class="btn btn-default" onClick="validateCredentials()">SEND</button>
                             </div>
                         </div>
@@ -161,7 +162,7 @@
                     phone: document.getElementsByName("phone")[0].value,
                     email: document.getElementsByName("email")[0].value,
                     message: document.getElementsByName("message")[0].value
-                   
+
         },
         success: function (response) {
             //code for setting session and sign in
