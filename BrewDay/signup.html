@@ -224,22 +224,6 @@
                               </div>
                            </div>
                         </div>
-<<<<<<< HEAD
-=======
-                        <!-- Phone Number -->
-                        <div class="form-group">
-                           <label class="col-md-4 control-label" for="Phone number">Phone number</label>
-                           <div class="col-md-4">
-                              <div class="input-group">
-                                 <div class="input-group-addon">
-                                    <i class="glyphicon glyphicon-phone"></i>
-                                 </div>
-                                 <input id="phone" name="phone" type="text" placeholder="Phone number" class="form-control input-md" maxlength="12">
-                                 <small id="phone_error_msg" style="color:red"></small>
-                              </div>
-                           </div>
-                        </div>
->>>>>>> origin/master
                         <div class="form-group">
                            <label class="col-md-4 control-label"></label>
                            <div class="col-md-4">
@@ -284,14 +268,8 @@
              $("#city_error_msg").hide();
              $("#state_error_msg").hide();
              $("#zip_error_msg").hide();
-<<<<<<< HEAD
          
          
-=======
-             $("#phone_error_msg").hide();
-
-
->>>>>>> origin/master
              var error_firstname = false;
              var error_lastname = false;
              var error_email = false;
@@ -301,14 +279,8 @@
              var error_city = false;
              var error_state = false;
              var error_zip = false;
-<<<<<<< HEAD
          
          
-=======
-             var error_phone = false;
-
-
->>>>>>> origin/master
              $('#firstname').focusout(function () {
                  check_firstname();
              });
@@ -343,19 +315,7 @@
              $('#zip').focusout(function () {
                  check_zip();
              });
-<<<<<<< HEAD
          
-=======
-
-             $('#phone').keyup(function () {
-                 this.value = this.value.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
-             });
-
-             $('#phone').focusout(function () {
-                 check_phone();
-             });
-
->>>>>>> origin/master
              function check_firstname() {
 
                  var fname = $("#firstname").val();
@@ -495,28 +455,8 @@
          $("#zip_error_msg").hide();
          }
          }
-<<<<<<< HEAD
          
          
-=======
-
-         function check_phone() {
-
-         var phoneReg = new RegExp(/^\d{3}\-\d{3}\-\d{4}$/);
-
-         var phone = $("#phone").val();
-
-         if(!phoneReg.test(phone)) {
-         $("#phone_error_msg").html(" * Enter a valid Phone number in XXX-XXX-XXXX format");
-         $("#phone_error_msg").show();
-         error_phone = true;
-         }
-         else {
-         $("#phone_error_msg").hide();
-                 }
-             }
-
->>>>>>> origin/master
              $("#signup_form").submit(function () {
 
                  error_firstname = false;
@@ -528,14 +468,8 @@
                  error_city = false;
                  error_state = false;
                  error_zip = false;
-<<<<<<< HEAD
          
          
-=======
-                 error_phone = false;
-
-
->>>>>>> origin/master
                  check_firstname();
                  check_lastname();
                  check_email();
@@ -545,14 +479,8 @@
                  check_city();
                  check_state();
                  check_zip();
-<<<<<<< HEAD
          
                  if (error_firstname == false && error_lastname == false && error_email == false && error_password == false && error_password2 == false && error_addr == false && error_city == false && error_state == false && error_zip == false) {
-=======
-                 check_phone();
-
-                 if (error_firstname == false && error_lastname == false && error_email == false && error_password == false && error_password2 == false && error_addr == false && error_city == false && error_state == false && error_zip == false && error_phone == false) {
->>>>>>> origin/master
                      return true;
                  }
                  else
@@ -575,15 +503,8 @@
                      password: document.getElementsByName("password")[0].value,
                      address: document.getElementsByName("addr")[0].value,
                      city: document.getElementsByName("city")[0].value,
-<<<<<<< HEAD
                      state: document.getElementsByName("State")[0].value,
                      zip: document.getElementsByName("zip")[0].value    
-=======
-                     state: document.getElementsByName("state")[0].value,
-                     zip: document.getElementsByName("zip")[0].value,
-                     phone: document.getElementById("phone").value,
-                     gender: $('input[name=gender]:checked').val()
->>>>>>> origin/master
                  },
                  success: function (response) {
                      //code for setting session and sign in
