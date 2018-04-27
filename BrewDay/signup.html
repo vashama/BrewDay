@@ -514,12 +514,12 @@
                  success: function (response) {
                      //code for setting session and sign in
                         
-                     if (response == 201)
+                     if (response)
                          {alert("You have SignedUp! Please Login");
                          window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/login.html';
                          }
 
-                        else if(response == 400)
+                        else if(!response)
                             alert("User Already Exists!");
                  }
              });
