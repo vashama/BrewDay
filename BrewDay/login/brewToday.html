@@ -26,7 +26,7 @@
             success: function (response) {
                 //code for setting session and sign in
                 output = response.toString();
-                document.getElementById("brewday").innerHTML = output;
+                document.getElementById("brewday").innerHTML = "Try Brewing this: " + output;
                 //$("$p").html(output);
                 alert(output);
             }
