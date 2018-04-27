@@ -8,21 +8,9 @@
               window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
             }
             function brewTodayFunction(event) {
-              var output = "";
-              alert("In function");
-              $.ajax({
-                    type: "POST",
-                    crossDomain: true,
-                    url: "http://localhost:8080/pareto/main",
-            success: function (response) {
-                //code for setting session and sign in
-                output = response.toString();
-                alert(output);
+              window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/login/brewToday.html?optimal=true';
             }
-            });
-              alert("output: " + output);
-              window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/login/brewToday.html';
-            }
+            
         </script>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
