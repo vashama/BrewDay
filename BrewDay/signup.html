@@ -513,12 +513,16 @@
                  },
                  success: function (response) {
                      //code for setting session and sign in
+                     //var done = 2;
                      if (response === "success")
                          {
+                            // done = 0;
                         alert("You have SignedUp! Please Login");
                          window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/login.html';
                          }
-                            alert("User Already Exists!");
+                            
+                        //    else
+                        //     alert("User Already Exists!");
                  }
              });
          }
