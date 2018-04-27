@@ -7,6 +7,9 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <title>Brew Day</title>
+
+      <link rel="icon" type="logo.jpg" href="img/logo.png">
+      
       <!-- Bootstrap Core CSS -->
       <link href="css/bootstrap.min.css" rel="stylesheet">
       <!-- Custom CSS -->
@@ -268,8 +271,8 @@
              $("#city_error_msg").hide();
              $("#state_error_msg").hide();
              $("#zip_error_msg").hide();
-         
-         
+
+
              var error_firstname = false;
              var error_lastname = false;
              var error_email = false;
@@ -279,8 +282,8 @@
              var error_city = false;
              var error_state = false;
              var error_zip = false;
-         
-         
+
+
              $('#firstname').focusout(function () {
                  check_firstname();
              });
@@ -315,7 +318,7 @@
              $('#zip').focusout(function () {
                  check_zip();
              });
-         
+
              function check_firstname() {
 
                  var fname = $("#firstname").val();
@@ -455,8 +458,8 @@
          $("#zip_error_msg").hide();
          }
          }
-         
-         
+
+
              $("#signup_form").submit(function () {
 
                  error_firstname = false;
@@ -468,8 +471,8 @@
                  error_city = false;
                  error_state = false;
                  error_zip = false;
-         
-         
+
+
                  check_firstname();
                  check_lastname();
                  check_email();
@@ -479,7 +482,7 @@
                  check_city();
                  check_state();
                  check_zip();
-         
+
                  if (error_firstname == false && error_lastname == false && error_email == false && error_password == false && error_password2 == false && error_addr == false && error_city == false && error_state == false && error_zip == false) {
                      return true;
                  }
@@ -504,7 +507,7 @@
                      address: document.getElementsByName("addr")[0].value,
                      city: document.getElementsByName("city")[0].value,
                      state: document.getElementsByName("State")[0].value,
-                     zip: document.getElementsByName("zip")[0].value    
+                     zip: document.getElementsByName("zip")[0].value
                  },
                  success: function (response) {
                      //code for setting session and sign in
