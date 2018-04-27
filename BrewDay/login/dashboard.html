@@ -4,26 +4,39 @@
 <head>
         <script src="../js/jquery.js"></script>
         <script>
-            function logoutFunction(event) {
-              event.preventDefault();
-              window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
+            /*try {
+              var url_string = window.location.href;
+              var url = new URL(url_string);
+              var brewTodayValue = url.searchParams.get("brewToday");
+              alert("" + brewTodayValue);
+              document.getElementById("brewday").innerHTML = "" + brewTodayValue;
             }
-            function brewTodayFunction(event) {
-              var output = "";
-          //    alert("In function");
-              $.ajax({
-                    type: "POST",
-                    crossDomain: true,
-                    url: "http://localhost:8080/pareto/main",
-            success: function (response) {
-                //code for setting session and sign in
-                window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/login/brewToday.html?brewToday=' + response;
-            }
-            });
-              //alert("output: " + output);
-              
-            }
-        </script>
+            catch(err) {
+              console.log(err);
+            }*/
+             function logoutFunction(event) {
+               event.preventDefault();
+               window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/index.html';
+             }
+             function brewTodayFunction(event) {
+               var output = "";
+           //    alert("In function");
+               $.ajax({
+                     type: "POST",
+                     crossDomain: true,
+                     url: "http://localhost:8080/pareto/main",
+             success: function (response) {
+                 //code for setting session and sign in
+                 output = response.toString();
+                 document.getElementById("brewday").innerHTML = "Try Brewing this: " + output;
+                 //$("$p").html(output);
+                 alert(output);
+             }
+             });
+               //alert("output: " + output);
+               window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/login/brewToday.html';
+             }
+         </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
