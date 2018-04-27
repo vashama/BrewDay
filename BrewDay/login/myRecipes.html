@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <script src="js/jquery.js"></script>
+        <script src="../js/jquery.js"></script>
         <script>
             function logoutFunction(event) {
               event.preventDefault();
@@ -32,12 +32,12 @@
       <meta name="author" content="">
       <title>Recipe Form</title>
 
-      <link rel="icon" type="logo.jpg" href="img/logo.png">
+      <link rel="icon" type="logo.jpg" href="../img/logo.png">
 
       <!-- Bootstrap Core CSS -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="../css/bootstrap.min.css" rel="stylesheet">
       <!-- Custom CSS -->
-      <link href="css/brewday.css" rel="stylesheet">
+      <link href="../css/brewday.css" rel="stylesheet">
 
 </head>
 
@@ -46,8 +46,8 @@
   <div class="brand">RECIPES
   </div>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-default" role="navigation">
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -81,50 +81,41 @@
                                 <li>
                                     <a href="ingredients.html">Add Ingredients</a>
                                 </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="grains.html">Grain Malts</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="hops.html">Hops</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="sugars.html">Sugars</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="yeast.html">Yeast</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="equipment.html">Equipment</a>
-                                </li>
                         </ul>
                     </li>
                         <li>
                             <a href="forum.html">Forum</a>
                         </li>
                         <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Help <b class="caret"></b></a>
+                                <a href="#" data-toggle="dropdown" class="droptown-toggle">Documentation <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="documentation.html">Documentation</a>
-                                    </li>
-                                    <li class="divider">
-                                    </li>
-                                    <li>
-                                        <a href="contactSupport.html">Contact Support</a>
-                                    </li>
+                                            <li>
+                                                <a href="grains.html">Grain Malts</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="hops.html">Hops</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="sugars.html">Sugars</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="yeast.html">Yeast</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="equipment.html">Equipment</a>
+                                            </li>
                                 </ul>
                         </li>
                         <li class="dropdown">
+<<<<<<< Updated upstream:BrewDay/myRecipes.html
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>USER<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                               <li>
@@ -141,13 +132,31 @@
                                     <a href="http://localhost:8080/user/logout" onclick='logoutFunction(event);'> Log Out</a>
                                 </li>
                             </ul>
+=======
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>USER<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                  <li>
+                                      <a href="dashboard.html"> Dashboard</a>
+                                  </li>
+                                  <li class="divider">
+                                  </li>
+                                  <li>
+                                      <a href="viewProfile.html">My Profile</a>
+                                  </li>
+                                  <li class="divider">
+                                  </li>
+                                    <li>
+                                        <a href="http://localhost:8080/user/logout" onclick='logoutFunction(event);'> Log Out</a>
+                                    </li>
+                                </ul>
+>>>>>>> Stashed changes:BrewDay/login/myRecipes.html
                         </li>
                     </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-  </nav>
+</nav>
 
 
   <!-- Form container -->
@@ -309,9 +318,9 @@
   </footer>
 
   <!-- jQuery -->
-  <script src="js/jquery.js"></script>
+  <script src="../js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
       <script>
     function validateCredentials() {
