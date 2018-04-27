@@ -169,7 +169,18 @@
                               <div class="modal-body" style="width: 100%">
 
 
-
+                                <div class="form-group">
+                                   <label class="col-md-4 control-label">User ID</label>
+                                   <div class="col-md-4">
+                                      <div class="input-group">
+                                         <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user">
+                                            </i>
+                                         </div>
+                                         <input type="text" class="form-control" name="userid" id="userid" readonly/>
+                                      </div>
+                                   </div>
+                                </div>
                                       <div class="form-group">
                                          <label class="col-md-4 control-label">First Name</label>
                                          <div class="col-md-4">
@@ -197,6 +208,19 @@
                                          </div>
                                       </div>
                                       <div class="form-group">
+                                         <label class="col-md-4 control-label">E-mail Address</label>
+                                         <div class="col-md-4">
+                                            <div class="input-group">
+                                               <div class="input-group-addon">
+                                                  <i class="glyphicon glyphicon-pencil">
+                                                  </i>
+                                               </div>
+                                               <input type="text" class="form-control" name="email" id="email" readonly/>
+                                               <small id="email_error_msg" style="color:red"></small>
+                                            </div>
+                                         </div>
+                                      </div>
+                                      <div class="form-group">
                                          <label class="col-md-4 control-label">New Password</label>
                                          <div class="col-md-4">
                                             <div class="input-group">
@@ -219,6 +243,18 @@
                                                </div>
                                                <input id="password2" name="password2" type="password" placeholder="Enter Password Again" class="form-control">
                                                <small id="password2_error_msg" style="color:red"></small>
+                                            </div>
+                                         </div>
+                                      </div>
+                                      <div class="form-group">
+                                         <label class="col-md-4 control-label">Gender</label>
+                                         <div class="col-md-4">
+                                            <div class="input-group">
+                                               <div class="input-group-addon">
+                                                  <i class="glyphicon glyphicon-user">
+                                                  </i>
+                                               </div>
+                                               <input type="text" class="form-control" name="gender" id="genderInForm" readonly/>
                                             </div>
                                          </div>
                                       </div>
@@ -458,26 +494,29 @@
       $(document).ready(function () {
 
         $.getJSON("http://localhost:8080/user/12", function(result) {
-          //$.get("profile.json", function(result) {
+          //$.getJSON("profile.json", function(result) {
           //console.log(result);
-          /*var addr = result.address.split(",")[0];
+          var addr = result.address.split(",")[0];
           var city = result.address.split(",")[1];
-          var city = result.address.split(",")[2];
-          var city = result.address.split(",")[3];*/
+          var state = result.address.split(",")[2];
+          var zip = result.address.split(",")[3];
 
           $("#fullname").html(result.firstname + " " + result.lastname);
           $("#gender").html(result.gender);
-          $("#address").html(result.addr + ", " + result.city + ", " + result.state + " " + result.zip);
+          $("#address").html(result.address);
 
+          $("#userid").attr("value", result.id);
           $("#firstname").attr("value", result.firstname);
           $("#lastname").attr("value", result.lastname);
+          $("#email").attr("value", result.email);
           $("#password").attr("value", result.password);
           $("#password2").attr("value", result.password);
-          //$("#addr").attr("value", result.addr);
-          //$("#city").attr("value", result.city);
-          //$("#zip").attr("value", result.zip);
+          $("#genderInForm").attr("value", result.gender);
+          $("#addr").attr("value", addr);
+          $("#city").attr("value", city);
+          $("#zip").attr("value", zip);
 
-        }, "json");
+        });
 
 
         $("#firstname_error_msg").hide();
@@ -694,24 +733,25 @@
     function validateCredentials() {
         //alert("Hi Please sign Up")
         $.ajax({
-            type: "POST",
+            type: "PUT",
             crossDomain: true,
-            url: "http://localhost:8080/user/1",
+            url: "http://localhost:8080/user/update",
             data: {
+                id: document.getElementsByName('userid')[0].value,
                 firstname: document.getElementsByName("firstname")[0].value,
                 lastname: document.getElementsByName("lastname")[0].value,
-                //email: document.getElementsByName("email")[0].value,
+                email: document.getElementsByName("email")[0].value,
                 password: document.getElementsByName("password")[0].value,
                 address: document.getElementsByName("addr")[0].value,
                 city: document.getElementsByName("city")[0].value,
                 state: document.getElementsByName("state")[0].value,
                 zip: document.getElementsByName("zip")[0].value,
-                //gender: $('input[name=gender]:checked').val()
+                gender: document.getElementById("genderInForm").value,
             },
             success: function (response) {
                 //code for setting session and sign in
                 if (response.toString() == "success")
-                    alert("You have SignedUp! Please Login")
+                    alert("You have successfully edited your personal details");
             }
         });
     }
