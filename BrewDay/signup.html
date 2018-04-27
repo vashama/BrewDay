@@ -513,9 +513,10 @@
                  },
                  success: function (response) {
                      //code for setting session and sign in
-                        
+                        alert(typeof response);
                      if (response)
-                         {alert("You have SignedUp! Please Login");
+                         {
+                        alert("You have SignedUp! Please Login");
                          window.location.href= 'https://vashama.github.io/BrewDay/BrewDay/login.html';
                          }
 
