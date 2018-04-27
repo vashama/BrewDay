@@ -6,7 +6,7 @@
            try {
              var url_string = window.location.href;
              var url = new URL(url_string);
-             var brewTodayValue = url.searchParams.get("brewtoday");
+             var brewTodayValue = url.searchParams.get("brewToday");
              alert("" + brewTodayValue);
              document.getElementById("brewday").innerHTML = "" + brewTodayValue;
            }
