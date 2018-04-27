@@ -507,7 +507,8 @@
                      address: document.getElementsByName("addr")[0].value,
                      city: document.getElementsByName("city")[0].value,
                      state: document.getElementsByName("state")[0].value,
-                     zip: document.getElementsByName("zip")[0].value
+                     zip: document.getElementsByName("zip")[0].value,
+                     gender: $('input[name=gender]:checked').val()
                  },
                  success: function (response) {
                      //code for setting session and sign in
