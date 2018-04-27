@@ -33,22 +33,35 @@
                         crossDomain: true,
                         url: "http://localhost:8080/recipe/editrecipe",
                         data: {
-			    id: document.getElementsByName("id")[0].value,
-			    recipename: document.getElementsByName("recipename")[0].value,
+			                      id: document.getElementsByName("id")[0].value,
+			                      recipename: document.getElementsByName("recipename")[0].value,
                             ibu: document.getElementsByName("ibu")[0].value,
                             abv: document.getElementsByName("abv")[0].value,
                             batchSize: document.getElementsByName("batchSize")[0].value,
                             Description: document.getElementsByName("instructions")[0].value,
                             boilTime : document.getElementsByName("boilTime")[0].value,
                             brewType: document.getElementsByName("brewType")[0].value,
-                            optradio: $('input[name=optradio]:checked').val()
+                            optradio: $('input[name=optradio]:checked').val(),
 
                 },
                 success: function (response) {
                     //code for setting session and sign in
-                    if (response.toString() == "success")
-                        alert("You have successfully added your recipe")
+                    if (response == "success")
+                        alert("You have successfully edited your recipe.");
                 }
+                });
+            }
+            function deleteRecipe() {
+                //alert("Hi!! Enter your recipe")
+                $.ajax({
+                        type: "DELETE",
+                        crossDomain: true,
+                        url: "http://localhost:8080/recipe/" + document.getElementsByName("id")[0].value,
+                        success: function (response) {
+                            //code for setting session and sign in
+                            if (response == "success")
+                                alert("You have successfully deleted the recipe.");
+                        }
                 });
             }
         </script>
@@ -365,7 +378,7 @@
                                   <div class="col-md-12">
                                     <button id="editButton" type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#editRecipe` + item.id + `">
                                         <i class="glyphicon glyphicon-edit"> </i> Edit Recipe</button>
-                                    <button id="deleteButton" type="button" class="btn btn-danger btn-sm pull-right">
+                                    <button id="deleteButton" type="button" class="btn btn-danger btn-sm pull-right" onClick="deleteRecipe()">
                                         <i class="glyphicon glyphicon-trash"> </i> Delete Recipe</button>
                                   </div>
                                 </div>
@@ -572,7 +585,7 @@
                                   <div class="col-md-12">
                                     <button id="editButton" type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#editRecipe` + item.id + `">
                                         <i class="glyphicon glyphicon-edit"> </i> Edit Recipe</button>
-                                    <button id="deleteButton" type="button" class="btn btn-danger btn-sm pull-right">
+                                    <button id="deleteButton" type="button" class="btn btn-danger btn-sm pull-right" onClick="deleteRecipe()">
                                         <i class="glyphicon glyphicon-trash"> </i> Delete Recipe</button>
                                   </div>
                                 </div>
