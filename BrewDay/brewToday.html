@@ -26,8 +26,9 @@
             success: function (response) {
                 //code for setting session and sign in
                 output = response.toString();
-                //$("$brewingName").html(output);
-                alert(output);
+                document.getElementById("$p").innerHTML = output;
+                //$("$p").html(output);
+                //alert(output);
             }
             });
               //alert("output: " + output);
@@ -174,7 +175,8 @@
                     </hr>
                 </div>
                 <div class="col-md-12">
-                    <p id="brewTodayText">
+                    <p>
+                        Body
                     </p>
                 </div>
             </div>
