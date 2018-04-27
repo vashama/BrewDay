@@ -75,158 +75,98 @@
 
     <div class="brand">RECIPES</div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
-            <div class="container">
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Recipes <b class="caret"></b></a>
+        <!-- Navigation -->
+        <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Recipes <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="userRecipes.html">My Recipes</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="myRecipes.html">Add Recipes</a>
+                                            </li>
+                                            <li class="divider">
+                                            </li>
+                                            <li>
+                                                <a href="javascript:brewTodayFunction(event);">What should I brew today?</a>
+                                            </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Ingredients <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                         <li>
-                                            <a href="userRecipes.html">My Recipes</a>
+                                           <a href="myIngredients.html">My Ingredients</a>
                                         </li>
                                         <li class="divider">
                                         </li>
                                         <li>
-                                            <a href="myRecipes.html">Add Recipes</a>
-                                        </li>
-                                        <li class="divider">
-                                        </li>
-                                        <li>
-                                            <a href="javascript:brewTodayFunction(event);">What should I brew today?</a>
+                                            <a href="ingredients.html">Add Ingredients</a>
                                         </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Ingredients <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                    <li>
-                                       <a href="myIngredients.html">My Ingredients</a>
-                                    </li>
-                                    <li class="divider">
-                                    </li>
-                                    <li>
-                                        <a href="ingredients.html">Add Ingredients</a>
-                                    </li>
-                            </ul>
-                        </li>
-                            <li>
-                                <a href="forum.html">Forum</a>
-                            </li>
-                            <li class="dropdown">
-                                    <a href="#" data-toggle="dropdown" class="droptown-toggle">Documentation <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="grains.html">Grain Malts</a>
-                                                </li>
-                                                <li class="divider">
-                                                </li>
-                                                <li>
-                                                    <a href="hops.html">Hops</a>
-                                                </li>
-                                                <li class="divider">
-                                                </li>
-                                                <li>
-                                                    <a href="sugars.html">Sugars</a>
-                                                </li>
-                                                <li class="divider">
-                                                </li>
-                                                <li>
-                                                    <a href="yeast.html">Yeast</a>
-                                                </li>
-                                                <li class="divider">
-                                                </li>
-                                                <li>
-                                                    <a href="equipment.html">Equipment</a>
-                                                </li>
-                                    </ul>
-                            </li>
-                            <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>USER<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                      <li>
-                                          <a href="dashboard.html"> Dashboard</a>
-                                      </li>
-                                      <li class="divider">
-                                      </li>
-                                      <li>
-                                          <a href="viewProfile.html">My Profile</a>
-                                      </li>
-                                      <li class="divider">
-                                      </li>
-                                        <li>
-                                            <a href="http://localhost:8080/user/logout" onclick='logoutFunction(event);'> Log Out</a>
-                                        </li>
-                                    </ul>
-                            </li>
-                        </ul>
-                    </li>
-                        <li>
-                            <a href="forum.html">Forum</a>
-                        </li>
-                        <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="droptown-toggle">Help <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="contactSupport.html">Contact Support</a>
-                                    </li>
-                                    <li class="divider">
-                                    </li>
-                                    <li class ="dropdown-submenu">
-                                        <a href="#" class="test" data-toggle="dropdown" class="droptown-toggle">Documentation<span class="caret"></span>
-                                        </a>
+                                <li>
+                                    <a href="forum.html">Forum</a>
+                                </li>
+                                <li class="dropdown">
+                                        <a href="#" data-toggle="dropdown" class="droptown-toggle">Documentation <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="grains.html">Grain Malts</a>
+                                                    </li>
+                                                    <li class="divider">
+                                                    </li>
+                                                    <li>
+                                                        <a href="hops.html">Hops</a>
+                                                    </li>
+                                                    <li class="divider">
+                                                    </li>
+                                                    <li>
+                                                        <a href="sugars.html">Sugars</a>
+                                                    </li>
+                                                    <li class="divider">
+                                                    </li>
+                                                    <li>
+                                                        <a href="yeast.html">Yeast</a>
+                                                    </li>
+                                                    <li class="divider">
+                                                    </li>
+                                                    <li>
+                                                        <a href="equipment.html">Equipment</a>
+                                                    </li>
+                                        </ul>
+                                </li>
+                                <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>USER<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                          <li>
+                                              <a href="dashboard.html"> Dashboard</a>
+                                          </li>
+                                          <li class="divider">
+                                          </li>
+                                          <li>
+                                              <a href="viewProfile.html">My Profile</a>
+                                          </li>
+                                          <li class="divider">
+                                          </li>
                                             <li>
-                                                <a href="grains.html">Grain Malts</a>
-                                            </li>
-                                            <li class="divider">
-                                            </li>
-                                            <li>
-                                                <a href="hops.html">Hops</a>
-                                            </li>
-                                            <li class="divider">
-                                            </li>
-                                            <li>
-                                                <a href="sugars.html">Sugars</a>
-                                            </li>
-                                            <li class="divider">
-                                            </li>
-                                            <li>
-                                                <a href="yeast.html">Yeast</a>
-                                            </li>
-                                            <li class="divider">
-                                            </li>
-                                            <li>
-                                                <a href="equipment.html">Equipment</a>
+                                                <a href="http://localhost:8080/user/logout" onclick='logoutFunction(event);'> Log Out</a>
                                             </li>
                                         </ul>
-                                    </li>
-                                </ul>
-                        </li>
-                        <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>USER<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                  <li>
-                                      <a href="dashboard.html"> Dashboard</a>
-                                  </li>
-                                  <li class="divider">
-                                  </li>
-                                  <li>
-                                      <a href="viewProfile.html">My Profile</a>
-                                  </li>
-                                  <li class="divider">
-                                  </li>
-                                    <li>
-                                        <a href="http://localhost:8080/user/logout" onclick='logoutFunction(event);'> Log Out</a>
-                                    </li>
-                                </ul>
-                        </li>
-                    </ul>
-            </div>
-            <!-- /.container -->
-    </nav>
+                                </li>
+                            </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+        </nav>
 
     <div class="container">
 
