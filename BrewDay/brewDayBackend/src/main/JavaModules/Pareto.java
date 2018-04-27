@@ -111,7 +111,10 @@ public class Pareto {
 			
 		}
 		
-		int bestRecipeIndex = Arrays.asList(sufficientIngredients).lastIndexOf(0);
+		ArrayList<Element> arrayList = new ArrayList<Element>(Arrays.asList(sufficientIngredients));
+		while(arrayList.remove(1)) { }
+		Random r = new Random();
+		int bestRecipeIndex = r.nextInt(arrayList.size())
 		
 		for( int i = 0; i < nestedIngredientsArrayList.get(bestRecipeIndex).size(); i++)
 			ingredientBatchSum = (nestedIngredientsArrayList.get(bestRecipeIndex).get(i));
