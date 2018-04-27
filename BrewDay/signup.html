@@ -513,9 +513,9 @@
                  },
                  success: function (response) {
                      //code for setting session and sign in
-
-                     //if (response.toString() == "success")
-                         alert("You have SignedUp! Please Login");
+                        
+                     if (response.toString() == "success")
+                         alert(response);
                  }
              });
          }
