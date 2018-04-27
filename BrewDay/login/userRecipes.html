@@ -56,7 +56,7 @@
                 $.ajax({
                         type: "DELETE",
                         crossDomain: true,
-                        url: "http://localhost:8080/recipe/" + document.getElementsByName("id")[0].value,
+                        url: "http://localhost:8080/recipe/id=" + document.getElementsByName("id")[0].value,
                         success: function (response) {
                             //code for setting session and sign in
                             if (response == "success")
