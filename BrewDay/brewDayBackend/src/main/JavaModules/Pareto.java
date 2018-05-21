@@ -37,7 +37,7 @@ public class Pareto {
 	      
 	      while(rs1.next())
 	      {
-	          ingredientsArrayList.add(rs1.getDouble("hops"));
+	          ingredientsArrayList.add(rs1.getDouble("extrahops"));
 	          ingredientsArrayList.add(rs1.getDouble("yeast"));
 	          ingredientsArrayList.add(rs1.getDouble("sugar"));
 	          ingredientsArrayList.add(rs1.getDouble("water"));
